@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <title>KREAM | 한정판 거래의 FLEX</title>
+    <style>
+        body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: #222;
+            font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+            font-feature-settings: "frac" 0, "numr" 0;
+            /** 이 요소에서는 분수/분자 관련 특수 폰트 기능을 사용하지 마라” 라는 의미 */
+        }
+
+        main{
+            display: block;
+             /* 한글 ,영어, 아랍어 등 섞일떄 배치가 주변에 영향을 안주도록 고립시키는 css 속성 */            
+            unicode-bidi: isolate;
+        }
+
+        div{
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        nav{
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        li, ol, ul{
+            list-style: none;
+        } 
+
+        ul{
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-inline-start: 400px;
+            unicode-bidi: isolate;
+        }
+
+        li{
+            display: inline-block;
+            unicode-bidi: isolate;
+        }
+
+        a, a:active, a:focus, a:hover{
+            text-decoration: none;
+            color: #222;
+        }
+
+
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: initial;
+            outline: none;
+            padding: 0;
+            border : 0;
+        }
+        
+        /* 모바일 에서 손가락 터치하였을경우 하이라이트 색 제거 */
+        /* a{
+            -webkit-tap-highlight-color: transparent;
+        } */
+
+
+        .header-top{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .top-inner{
+            display: flex;
+            height: 22px;
+            padding: 8px 40px 0;
+        }
+
+        .top-list{
+            align-items: center;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .top-item{
+            margin-left: 24px;
+        }
+
+        .top-link{
+            display: flex;
+            font-size: 12px;
+            align-items: center;
+            color: #222c;
+            letter-spacing: -.06px;
+        }
+
+        .header-main{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .main-inner{
+            align-items: center;
+            display: flex;
+            height: 20px;
+            justify-content: space-between;
+            min-width: 320px;
+            padding: 20px 40px;
+        }
+      
+        .logo{
+            display: flex;
+            height: 24px;
+            width: 120px;
+        }
+
+        .main-inner .right{
+            display: flex;
+            flex-shrink: 0;
+            justify-content: flex-end;
+            min-width: 120px;
+        }
+
+        .gnb-area{
+            display: flex;
+            align-items: center;
+        }
+
+        .gnb-list{
+            align-items: center;
+            display: flex;
+        }
+
+        .gnb-item{
+            margin-right: 24px;
+        }
+
+        .gnb-link{
+            font-size: 20px;
+            letter-spacing: -.3px;
+        }
+
+        
+        .search-button-margin{
+            margin-right: 8px;
+        }
+
+        .header-cart-button{
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+        }
+
+        .btn-category{
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+        }
+
+        .header-base-tabs{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .ul-tab{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <main>
+            <div class="header-container">
+                <div class="header-top">
+                    <div class="top-inner">     
+                        <ul class="top-list">
+                            <li class="top-item">
+                                <a href="#" class="top-link">
+                                    고객센터
+                                </a>
+                            </li>
+                            <li class="top-item">
+                                <a href="#"  class="top-link">
+                                    마이페이지
+                                </a>
+                            </li>
+                            <li class="top-item">
+                                <a href="#" class="top-link">
+                                    관심
+                                </a>
+                            </li>
+                            <li class="top-item">
+                                <a href="#"  class="top-link">
+                                    알림
+                                </a>
+                            </li>
+                            <li class="top-item">
+                                <a href="#"  class="top-link">
+                                    로그인
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-main">
+                        <div class="main-inner">
+                            <h1>
+                                <a href="/" aria-label="KREAM 홈으로 이동" class="logo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 120 24" class="svg-icon icon logo-kream logo-kream" data-v-a53f03d7="" data-v-51b44e19="">
+                                        <path fill="#222" d="m26.257 5.279.822-2.879H21.7l-6.276 6.858h-3.806L13.591 2.4H7.819l-5.51 19.2h5.774l1.97-6.858h4.853L16.87 21.6h4.721l.823-2.879-2.114-7.27 5.957-6.172zM43.923 2.4H29.73l-5.51 19.2h5.774l1.95-6.858h2.887l3.821 6.858h4.855l.823-2.879-2.567-3.979c1.915-.301 3.75-1.317 4.656-4.579l.792-2.827c.111-.383.192-.74.223-1.097a3.889 3.889 0 0 0-.01-.82c-.22-1.786-1.558-3.019-3.5-3.019zm-3.275 7.682h-7.345l.708-2.47h7.348l-.71 2.47zm15.632-2.47h9.42l2.38-1.921.947-3.291H51.972l-5.51 19.2h17.055l1.49-5.209H53.76l.556-1.921h11.243l1.416-4.937H55.728l.553-1.92zM78.197 2.4l-11.38 16.321-.823 2.879h5.904l1.739-2.879h7.872l.096 2.879h5.38l.823-2.879L85.805 2.4h-7.608zM76.76 13.785l3.805-5.9h.264l.391 5.897h-4.46v.003zM111.263 2.4l-7.096 8.944h-.813L101.389 2.4h-6.43l-4.662 16.321-.844 2.879h5.817l2.999-10.499h.41l1.359 7.62h3.213l5.728-7.62h.412L106.368 21.6h5.814l.81-2.879 4.7-16.321h-6.429z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </h1>
+                            <div class="center"></div>
+                            <div class="right">
+                                <div class="gnb-area">
+                                    <nav id="pcGnbContainer" class="gnb-nav">
+                                        <ul id="pcGnbList" class="gnb-list">
+                                            <li class="gnb-item">
+                                                <a aria-current="page" href="/" class="">
+                                                    <div>
+                                                        HOME
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="gnb-item">
+                                                <a aria-current="page" href="/" class="">
+                                                    <div>
+                                                        STYLE
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li class="gnb-item">
+                                                <a aria-current="page" href="/" class="">
+                                                    <div>
+                                                        SHOP
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <button class="header-search-button search-button-margin">
+                                        <svg data-v-32ec60ef="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24" class="__web-inspector-hide-shortcut__">
+                                            <path fill="#222" fill-rule="evenodd" d="M15.973 17.032a8.275 8.275 0 1 1 1.06-1.06l4.498 4.498-1.06 1.06-4.498-4.498Zm1.477-6.357a6.775 6.775 0 1 1-13.55 0 6.775 6.775 0 0 1 13.55 0Z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+                                    <a class="header-cart-button search-button-margin" draggable="false"  >
+                                        <svg data-v-29b01e53="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24">
+                                            <path fill="#222" fill-rule="evenodd" d="M16.192 5.2h3.267a1 1 0 0 1 .998.938l.916 14.837a.4.4 0 0 1-.399.425H3.025a.4.4 0 0 1-.4-.425l.917-14.837A1 1 0 0 1 4.54 5.2h3.267a4.251 4.251 0 0 1 8.385 0ZM7.75 6.7H5.01l-.815 13.2h15.61l-.816-13.2h-2.74v2.7h-1.5V6.7h-5.5v2.7h-1.5V6.7Zm1.59-1.5h5.32a2.751 2.751 0 0 0-5.32 0Z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="btn-category" draggable="false" >
+                                        <svg data-v-51664d8c="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24">
+                                            <path fill="#222" d="M3 5.61h18v1.8H3v-1.8ZM3 11.1h18v1.8H3v-1.8ZM21 16.595H3v1.8h18v-1.8Z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-base-tabs">
+                        <ul class="ul-tab">
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false" style="border-bottom-color: rgb(63,26,218);">
+                                    <span data-v-d760c08d="" class="tab_name" style="color: rgb(63, 26, 218);">
+                                        힙플페 2026
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        추천
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        🌸봄맞이
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        신상
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        뷰티
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        럭셔리
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        랭킹
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        중고
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="li-tab">
+                                <a href="#" class="tab" draggable="false">
+                                    <span data-v-d760c08d="" class="tab_name">
+                                        이벤트
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+
+
+
+
+            <div class="main-container">
+
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+
+</script>
+</html>
