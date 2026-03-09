@@ -3,8 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <title>KREAM | 한정판 거래의 FLEX</title>
     <style>
+        body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: #222;
+            font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+            font-feature-settings: "frac" 0, "numr" 0;
+            /** 이 요소에서는 분수/분자 관련 특수 폰트 기능을 사용하지 마라” 라는 의미 */
+        }
+
+        main{
+            display: block;
+             /* 한글 ,영어, 아랍어 등 섞일떄 배치가 주변에 영향을 안주도록 고립시키는 css 속성 */            
+            unicode-bidi: isolate;
+        }
+
+        div{
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        nav{
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        li, ol, ul{
+            list-style: none;
+        } 
+
+        ul{
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-inline-start: 400px;
+            unicode-bidi: isolate;
+        }
+
+        li{
+            display: inline-block;
+            unicode-bidi: isolate;
+        }
+
+        a, a:active, a:focus, a:hover{
+            text-decoration: none;
+            color: #222;
+        }
+
+
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: initial;
+            outline: none;
+            padding: 0;
+            border : 0;
+        }
+        
+        /* 모바일 에서 손가락 터치하였을경우 하이라이트 색 제거 */
+        /* a{
+            -webkit-tap-highlight-color: transparent;
+        } */
+
+
+        .header-top{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .top-inner{
+            display: flex;
+            height: 22px;
+            padding: 8px 40px 0;
+        }
+
+        .top-list{
+            align-items: center;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .top-item{
+            margin-left: 24px;
+        }
+
+        .top-link{
+            display: flex;
+            font-size: 12px;
+            align-items: center;
+            color: #222c;
+            letter-spacing: -.06px;
+        }
+
+        .header-main{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .main-inner{
+            align-items: center;
+            display: flex;
+            height: 20px;
+            justify-content: space-between;
+            min-width: 320px;
+            padding: 20px 40px;
+        }
+      
+        .logo{
+            display: flex;
+            height: 24px;
+            width: 120px;
+        }
+
+        .main-inner .right{
+            display: flex;
+            flex-shrink: 0;
+            justify-content: flex-end;
+            min-width: 120px;
+        }
+
+        .gnb-area{
+            display: flex;
+            align-items: center;
+        }
+
+        .gnb-list{
+            align-items: center;
+            display: flex;
+        }
+
+        .gnb-item{
+            margin-right: 24px;
+        }
+
+        .gnb-link{
+            font-size: 20px;
+            letter-spacing: -.3px;
+        }
+
+        
+        .search-button-margin{
+            margin-right: 8px;
+        }
+
+        .header-cart-button{
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+        }
+
+        .btn-category{
+            align-items: center;
+            display: flex;
+            flex-shrink: 0;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+        }
+
+        .header-base-tabs{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+
+        .ul-tab{
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
 
     </style>
 </head>
@@ -15,8 +198,8 @@
                 <div class="header-top">
                     <div class="top-inner">     
                         <ul class="top-list">
-                            <li class="top-item" class="top-link">
-                                <a href="#">
+                            <li class="top-item">
+                                <a href="#" class="top-link">
                                     고객센터
                                 </a>
                             </li>
@@ -60,27 +243,27 @@
                                             <li class="gnb-item">
                                                 <a aria-current="page" href="/" class="">
                                                     <div>
-                                                        "HOME"
+                                                        HOME
                                                     </div>
                                                 </a>
                                             </li>
                                             <li class="gnb-item">
                                                 <a aria-current="page" href="/" class="">
                                                     <div>
-                                                        "STYLE"
+                                                        STYLE
                                                     </div>
                                                 </a>
                                             </li>
                                             <li class="gnb-item">
                                                 <a aria-current="page" href="/" class="">
                                                     <div>
-                                                        "SHOP"
+                                                        SHOP
                                                     </div>
                                                 </a>
                                             </li>
                                         </ul>
                                     </nav>
-                                    <button class="btn_search header-search-button search-button-margin">
+                                    <button class="header-search-button search-button-margin">
                                         <svg data-v-32ec60ef="" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="24" height="24" class="__web-inspector-hide-shortcut__">
                                             <path fill="#222" fill-rule="evenodd" d="M15.973 17.032a8.275 8.275 0 1 1 1.06-1.06l4.498 4.498-1.06 1.06-4.498-4.498Zm1.477-6.357a6.775 6.775 0 1 1-13.55 0 6.775 6.775 0 0 1 13.55 0Z" clip-rule="evenodd"></path>
                                         </svg>
@@ -111,59 +294,56 @@
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "추천"
+                                        추천
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "🌸봄맞이"
+                                        🌸봄맞이
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "신상" 
+                                        신상
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "뷰티"
-                                        ::after
+                                        뷰티
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "럭셔리"
+                                        럭셔리
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "랭킹"
-                                        ::after
+                                        랭킹
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "중고"
-                                        ::after
+                                        중고
                                     </span>
                                 </a>
                             </li>
                             <li class="li-tab">
                                 <a href="#" class="tab" draggable="false">
                                     <span data-v-d760c08d="" class="tab_name">
-                                        "이벤트"
+                                        이벤트
                                     </span>
                                 </a>
                             </li>
