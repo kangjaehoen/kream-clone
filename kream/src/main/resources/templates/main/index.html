@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
         ul{
             margin-block-start: 1em;
             margin-block-end: 1em;
-            padding-inline-start: 400px;
+            padding-inline-start: 0;
             unicode-bidi: isolate;
         }
 
@@ -186,8 +186,388 @@
         .ul-tab{
             padding-left: 40px;
             padding-right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 0;
         }
 
+        .li-tab{
+            display: inline-block;
+        }
+
+        .tab{
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding: 0 16px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .tab:hover{
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .tab_name{
+            font-size: 14px;
+            letter-spacing: -.21px;
+            color: #222;
+        }
+
+        .header-search-button{
+            cursor: pointer;
+        }
+
+        .center{
+            flex: 1;
+        }
+
+        /* Hero Banner Section */
+        .hero-banner{
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            padding: 0 40px;
+            overflow: hidden;
+        }
+
+        .hero-banner::before{
+            content: '';
+            display: block;
+            padding-top: 40%; /* aspect-ratio: 2.5 (PC/Tablet) */
+        }
+
+        .banner-slide{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container{
+            position: absolute;
+            top: 0;
+            left: 60px;
+            right: 60px;
+            width: calc(100% - 120px);
+            height: 100%;
+            z-index: 0;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container .picture{
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container .picture img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .banner-background{
+            display: none;
+        }
+
+        .banner-overlay{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 60px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .banner-title{
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .banner-subtitle{
+            font-size: 16px;
+            color: #666;
+            letter-spacing: -0.3px;
+        }
+
+        .banner-nav{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: opacity 0.2s;
+            color: #666;
+        }
+
+        .banner-nav svg{
+            width: 24px;
+            height: 24px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .banner-nav:hover{
+            opacity: 0.7;
+        }
+
+        .banner-nav.prev{
+            left: 20px;
+        }
+
+        .banner-nav.next{
+            right: 20px;
+        }
+
+        .banner-pagination{
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-size: 14px;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .banner-highlight{
+            display: none;
+        }
+
+        /* Category Grid Section */
+        .category-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+            padding: 0 40px 60px;
+        }
+
+        .category-grid{
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 24px 16px;
+        }
+
+        .category-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .category-item:hover{
+            transform: translateY(-4px);
+        }
+
+        .category-image{
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #f5f5f5;
+        }
+
+        .category-label{
+            font-size: 13px;
+            color: #222;
+            text-align: center;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+        }
+
+        .main-container{
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 959px) {
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero-banner{
+                max-width: 960px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+                padding: 0 16px;
+            }
+
+            .hero-banner::before{
+                padding-top: 40%; /* aspect-ratio: 2.5 (Tablet) */
+            }
+
+            .banner-overlay{
+                padding: 0 40px;
+            }
+
+            .image_container{
+                left: 40px;
+                right: 40px;
+                width: calc(100% - 80px);
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px 12px;
+            }
+
+            .category-section{
+                padding: 0 20px 40px;
+            }
+
+            .hero-banner{
+                margin-top: 12px;
+                margin-bottom: 12px;
+                padding: 0 20px;
+            }
+
+            .hero-banner::before{
+                padding-top: 90%; /* aspect-ratio: 1.111 (Mobile) */
+            }
+
+            .banner-overlay{
+                padding: 0 20px;
+            }
+
+            .image_container{
+                left: 20px;
+                right: 20px;
+                width: calc(100% - 40px);
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 13px;
+            }
+
+            .banner-nav{
+                width: 40px;
+                height: 40px;
+            }
+
+            .banner-nav.prev{
+                left: 20px;
+            }
+
+            .banner-nav.next{
+                right: 20px;
+            }
+
+            .banner-pagination{
+                bottom: 15px;
+                right: 20px;
+                font-size: 12px;
+            }
+
+            .banner-highlight{
+                top: 15px;
+                right: 20px;
+                font-size: 11px;
+            }
+
+            .ul-tab{
+                padding-left: 20px;
+                padding-right: 20px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab{
+                padding: 0 12px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px 8px;
+            }
+
+            .category-label{
+                font-size: 11px;
+            }
+
+            .hero-banner{
+                padding: 0 20px;
+            }
+
+            .hero-banner::before{
+                padding-top: 90%; /* aspect-ratio: 1.111 (Mobile) */
+            }
+
+            .banner-overlay{
+                padding: 0 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .image_container{
+                left: 20px;
+                right: 20px;
+                width: calc(100% - 40px);
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 13px;
+            }
+        }
 
     </style>
 </head>
@@ -356,7 +736,107 @@
 
 
             <div class="main-container">
+                <!-- Hero Banner Section -->
+                <section class="hero-banner">
+                    <div class="banner-slide">
+                        <div class="image_container">
+                            <picture class="picture image">
+                                <img class="full_width img" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80" alt="FC서울 x 언더마이카 협업 컬렉션" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="banner-overlay">
+                            <h2 class="banner-title">FC서울 x 언더마이카 협업 컬렉션</h2>
+                            <p class="banner-subtitle">단독 재오픈</p>
+                        </div>
+                        <span class="banner-highlight">Highlight +</span>
+                        <button class="banner-nav prev" aria-label="이전 배너">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <button class="banner-nav next" aria-label="다음 배너">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                        <div class="banner-pagination">
+                            <span>19/43</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="max-width: 16px; max-height: 16px;">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
 
+                <!-- Category Grid Section -->
+                <section class="category-section">
+                    <div class="category-grid">
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="지금 인기" class="category-image">
+                            <span class="category-label">지금 인기</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&q=80" alt="스니커즈" class="category-image">
+                            <span class="category-label">스니커즈</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&q=80" alt="후드" class="category-image">
+                            <span class="category-label">후드</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="간절기 아우터" class="category-image">
+                            <span class="category-label">간절기 아우터</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="가죽 시계" class="category-image">
+                            <span class="category-label">가죽 시계</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/4A90E2/FFFFFF?text=KREAM+Pay" alt="1% 구매적립" class="category-image">
+                            <span class="category-label">1% 구매적립</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&q=80" alt="정가 아래" class="category-image">
+                            <span class="category-label">정가 아래</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&q=80" alt="언마카 x FC서울" class="category-image">
+                            <span class="category-label">언마카 x FC서울</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/FFD700/FFFFFF?text=K" alt="금/은 오픈" class="category-image">
+                            <span class="category-label">금/은 오픈</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="러닝" class="category-image">
+                            <span class="category-label">러닝</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="바람막이" class="category-image">
+                            <span class="category-label">바람막이</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&q=80" alt="인기 뷰티" class="category-image">
+                            <span class="category-label">인기 뷰티</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&q=80" alt="머플러" class="category-image">
+                            <span class="category-label">머플러</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/000000/FF69B4?text=KREAM+DRAW" alt="KREAM DRAW" class="category-image">
+                            <span class="category-label">KREAM DRAW</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&q=80" alt="리퍼비시 할인" class="category-image">
+                            <span class="category-label">리퍼비시 할인</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=80" alt="질스튜어트맨 Acc" class="category-image">
+                            <span class="category-label">질스튜어트맨 Acc</span>
+                        </a>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
