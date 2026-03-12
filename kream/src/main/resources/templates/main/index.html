@@ -177,6 +177,10 @@
             width: 40px;
         }
 
+        .header-container{
+            border-bottom: 1px solid #ebebeb;
+        }
+
         .header-base-tabs{
             margin-left: auto;
             margin-right: auto;
@@ -186,6 +190,7 @@
         .ul-tab{
             padding-left: 40px;
             padding-right: 40px;
+            margin-block-end: 0;
             display: flex;
             align-items: center;
             gap: 0;
@@ -228,7 +233,7 @@
             width: 100%;
             margin-left: auto;
             margin-right: auto;
-            max-width: 1280px;
+            max-width: 1120px;
             margin-top: 24px;
             margin-bottom: 24px;
             padding: 0 40px;
@@ -258,9 +263,9 @@
         .image_container{
             position: absolute;
             top: 0;
-            left: 60px;
-            right: 60px;
-            width: calc(100% - 120px);
+            left: 0;
+            right: 0;
+            width: 100%;
             height: 100%;
             z-index: 0;
             border-radius: 16px;
@@ -296,7 +301,7 @@
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
-            padding: 0 60px;
+            padding: 0 40px;
             z-index: 1;
             overflow: hidden;
         }
@@ -320,8 +325,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
+            width: 56px;
+            height: 56px;
             background: transparent;
             border-radius: 0;
             display: flex;
@@ -330,12 +335,12 @@
             cursor: pointer;
             z-index: 2;
             transition: opacity 0.2s;
-            color: #666;
+            color: #4E4E4E;
         }
 
         .banner-nav svg{
-            width: 24px;
-            height: 24px;
+            width: 56px;
+            height: 56px;
             max-width: 100%;
             max-height: 100%;
         }
@@ -358,11 +363,12 @@
             right: 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: #fff;
-            font-size: 14px;
+            font-size: 13px;
+            letter-spacing: -0.2px;
             z-index: 2;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.5);
             padding: 6px 12px;
             border-radius: 20px;
         }
@@ -375,7 +381,7 @@
         .category-section{
             margin-left: auto;
             margin-right: auto;
-            max-width: 1280px;
+            max-width: 1120px;
             padding: 0 40px 60px;
         }
 
@@ -425,10 +431,10 @@
             }
 
             .hero-banner{
-                max-width: 960px;
+                max-width: 1120px;
                 margin-top: 12px;
                 margin-bottom: 12px;
-                padding: 0 16px;
+                padding: 0 40px;
             }
 
             .hero-banner::before{
@@ -439,10 +445,14 @@
                 padding: 0 40px;
             }
 
+            .category-section{
+                padding: 0 40px 60px;
+            }
+
             .image_container{
-                left: 40px;
-                right: 40px;
-                width: calc(100% - 80px);
+                left: 0;
+                right: 0;
+                width: 100%;
             }
 
             .banner-title{
@@ -479,9 +489,9 @@
             }
 
             .image_container{
-                left: 20px;
-                right: 20px;
-                width: calc(100% - 40px);
+                left: 0;
+                right: 0;
+                width: 100%;
             }
 
             .banner-title{
@@ -493,8 +503,8 @@
             }
 
             .banner-nav{
-                width: 40px;
-                height: 40px;
+                width: 48px;
+                height: 48px;
             }
 
             .banner-nav.prev{
@@ -555,9 +565,9 @@
             }
 
             .image_container{
-                left: 20px;
-                right: 20px;
-                width: calc(100% - 40px);
+                left: 0;
+                right: 0;
+                width: 100%;
             }
 
             .banner-title{
