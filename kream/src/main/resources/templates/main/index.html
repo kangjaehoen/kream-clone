@@ -569,6 +569,270 @@
             display: block;
         }
 
+        /* 지금 인기 브랜드 Section */
+        .popular-brand-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 80px;
+        }
+
+        .popular-brand-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .popular-brand-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+        }
+
+        .popular-brand-more{
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+        }
+
+        .popular-brand-more::after{
+            content: '>';
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 11px;
+        }
+
+        .popular-brand-tabs{
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .popular-brand-tab{
+            width: auto;
+            height: auto;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #666;
+            background: #f4f4f4;
+            border: 1px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .popular-brand-tab.is-active{
+            background: #222;
+            color: #fff;
+        }
+
+        .popular-brand-grid{
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .popular-brand-item{
+            text-decoration: none;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .popular-brand-thumb{
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            background: #f5f5f5;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .popular-brand-name{
+            font-size: 13px;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .popular-brand-price-row{
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 3px;
+        }
+
+        .popular-brand-discount{
+            color: #f15746;
+            font-weight: 700;
+        }
+
+        .popular-brand-price{
+            font-weight: 600;
+        }
+
+        .popular-brand-meta{
+            font-size: 11px;
+            color: #999;
+        }
+
+        .popular-brand-banner{
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: #f5f5f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popular-brand-banner-text{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .popular-brand-banner-title{
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .popular-brand-banner-sub{
+            font-size: 12px;
+            color: #888;
+        }
+
+        .popular-brand-banner-thumbs{
+            display: flex;
+            gap: 8px;
+        }
+
+        .popular-brand-banner-thumb{
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* 추천 브랜드 + 알파 인더스트리 영역 */
+        .popular-brand-recommend{
+            margin-top: 40px;
+        }
+
+        .popular-brand-recommend-title{
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 14px;
+        }
+
+        .popular-brand-recommend-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            overflow-x: visible;
+        }
+
+        .popular-brand-recommend-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            min-width: 70px;
+            text-decoration: none;
+            color: #222;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .popular-brand-recommend-logo{
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #eee;
+            object-fit: cover;
+        }
+
+        .popular-brand-recommend-name{
+            font-size: 12px;
+            color: #555;
+        }
+
+        .popular-brand-subtitle{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .popular-brand-alpha{
+            margin-top: 32px;
+        }
+
+        .popular-brand-alpha .popular-brand-grid{
+            margin-top: 12px;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+
+        /* 3월 달릴 준비 됐어? 러닝화 추천 카드 */
+        .running-ready-card{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding: 24px 32px;
+            background: #f5f5f5;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #222;
+            transition: opacity 0.2s;
+        }
+        .running-ready-card:hover{
+            opacity: 0.9;
+        }
+        .running-ready-card-text{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .running-ready-card-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.3px;
+        }
+        .running-ready-card-sub{
+            font-size: 13px;
+            color: #666;
+            letter-spacing: -0.2px;
+        }
+        .running-ready-card-thumbs{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .running-ready-card-thumb{
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #ebebeb;
+        }
+        
         .daily-spring-info{
             position: absolute;
             left: 0;
@@ -615,6 +879,10 @@
             font-size: 11px;
             font-weight: 500;
             color: #fff;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .daily-spring-meta-price{
@@ -835,6 +1103,10 @@
             letter-spacing: -0.2px;
             line-height: 1.4;
             margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .wish-spring-price-row{
@@ -2114,6 +2386,295 @@
                         </a>
                     </div>
                 </section>
+
+                <!-- 지금 인기 브랜드 Section -->
+                <section class="popular-brand-section">
+                    <div class="popular-brand-header">
+                        <h2 class="popular-brand-title">지금 인기 브랜드</h2>
+                        <a href="#" class="popular-brand-more">더보기</a>
+                    </div>
+                    <div class="popular-brand-tabs">
+                        <button type="button" class="popular-brand-tab is-active">아우모</button>
+                        <button type="button" class="popular-brand-tab">포켓몬 TCG</button>
+                        <button type="button" class="popular-brand-tab">애플 리퍼비시</button>
+                        <button type="button" class="popular-brand-tab">더로우가</button>
+                        <button type="button" class="popular-brand-tab">얼로우 요가</button>
+                        <button type="button" class="popular-brand-tab">공백</button>
+                        <button type="button" class="popular-brand-tab">세이코</button>
+                    </div>
+                    <div class="popular-brand-grid">
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=400&q=80" alt="아우모 후드 집업 그레이" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 퍼 후드 집업 그레이</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">65,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 1만 · 리뷰 320</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 밴딩 팬츠 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">35,100원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 2,136 · 리뷰 105</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 집업 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 퍼 후드 집업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">65,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 2,422 · 리뷰 120</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 빈티지 후드 레드" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 빈티지 붐스 후드 크림 레드</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">44,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 864 · 리뷰 45</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1534215754734-18e56abcf1e2?w=400&q=80" alt="아우모 볼캡 브라운" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 에이엠 5패널 캡 브라운</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">47%</span>
+                                <span class="popular-brand-price">27,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 535 · 리뷰 5</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80" alt="아우모 트레이닝 팬츠 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 디스트 트레이닝 팬츠 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">50%</span>
+                                <span class="popular-brand-price">39,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 288 · 리뷰 17</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="아우모 스웻 팬츠 그레이" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 그레이</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">35,100원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 4,737 · 리뷰 187</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&q=80" alt="아우모 후드티 네이비" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 후드 집업 네이비</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">50%</span>
+                                <span class="popular-brand-price">48,900원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 1,413 · 리뷰 4</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 크롭 후드 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 디스트 후드집업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">44%</span>
+                                <span class="popular-brand-price">61,200원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 405 · 리뷰 28</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 화이트" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 화이트</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">47,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 602 · 리뷰 12</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 네이비" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 네이비</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">52%</span>
+                                <span class="popular-brand-price">47,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 545 · 리뷰 13</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 스웻 셋업 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 R.A.F 엔턴스 스웻 셋업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">52%</span>
+                                <span class="popular-brand-price">37,900원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 369 · 리뷰 19</div>
+                        </a>
+                    </div>
+                    <div class="popular-brand-banner">
+                        <div class="popular-brand-banner-text">
+                            <div class="popular-brand-banner-title">언더마이카×FC 서울 협업</div>
+                            <div class="popular-brand-banner-sub">단독 발매</div>
+                        </div>
+                        <div class="popular-brand-banner-thumbs">
+                            <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=300&q=80" alt="협업 제품 1" class="popular-brand-banner-thumb">
+                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&q=80" alt="협업 제품 2" class="popular-brand-banner-thumb">
+                        </div>
+                    </div>
+
+                    <!-- 추천 브랜드 & 알파인더스트리 영역 -->
+                    <div class="popular-brand-recommend">
+                        <div class="popular-brand-recommend-title">추천 브랜드</div>
+                        <div class="popular-brand-recommend-list">
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="Nike" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Nike</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=200&q=80" alt="Adidas" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Adidas</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="New Balance" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">New Balance</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?w=200&q=80" alt="Asics" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Asics</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=200&q=80" alt="Supreme" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Supreme</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=200&q=80" alt="Arc'teryx" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Arc'teryx</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542293787938-4d352b042b24?w=200&q=80" alt="Jordan" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Jordan</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1589187151053-5ec8818e661b?w=200&q=80" alt="Stussy" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Stussy</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1581693325309-9b9b4c0f1cfc?w=200&q=80" alt="Salomon" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Salomon</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="On Running" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">On Running</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="popular-brand-alpha">
+                        <div class="popular-brand-header">
+                            <h3 class="popular-brand-subtitle">알파인더스트리</h3>
+                            <a href="#" class="popular-brand-more">더보기</a>
+                        </div>
+                        <div class="popular-brand-grid">
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 네이비" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 네이비</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 필드 자켓 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 필드 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">209,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 MA-1 그린" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 그린</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">200,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 L-2B 블루" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 블루</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 후디드 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 후디드 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 로고 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 로고 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">239,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 패치 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 패치 플라이트 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">259,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 그레이" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 그레이</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 올리브" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 올리브</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="running-ready-card">
+                        <div class="running-ready-card-text">
+                            <span class="running-ready-card-title">3월, 달릴 준비 됐어?</span>
+                            <span class="running-ready-card-sub">브랜드별 러닝화 추천</span>
+                        </div>
+                        <div class="running-ready-card-thumbs">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
+                        </div>
+                    </a>
+                </section>
+
             </div>
         </main>
     </div>
