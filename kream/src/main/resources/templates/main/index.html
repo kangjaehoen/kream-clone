@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
         ul{
             margin-block-start: 1em;
             margin-block-end: 1em;
-            padding-inline-start: 400px;
+            padding-inline-start: 0;
             unicode-bidi: isolate;
         }
 
@@ -177,6 +177,10 @@
             width: 40px;
         }
 
+        .header-container{
+            border-bottom: 1px solid #ebebeb;
+        }
+
         .header-base-tabs{
             margin-left: auto;
             margin-right: auto;
@@ -186,8 +190,1361 @@
         .ul-tab{
             padding-left: 40px;
             padding-right: 40px;
+            margin-block-end: 0;
+            display: flex;
+            align-items: center;
+            gap: 0;
         }
 
+        .li-tab{
+            display: inline-block;
+        }
+
+        .tab{
+            display: flex;
+            align-items: center;
+            height: 48px;
+            padding: 0 16px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .tab:hover{
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .tab_name{
+            font-size: 14px;
+            letter-spacing: -.21px;
+            color: #222;
+        }
+
+        .header-search-button{
+            cursor: pointer;
+        }
+
+        .center{
+            flex: 1;
+        }
+
+        /* Hero Banner Section */
+        .hero-banner{
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            padding: 0 40px;
+            overflow: hidden;
+        }
+
+        .hero-banner::before{
+            content: '';
+            display: block;
+            padding-top: 40%; /* aspect-ratio: 2.5 (PC/Tablet) */
+        }
+
+        .banner-slide{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container .picture{
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .image_container .picture img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .banner-background{
+            display: none;
+        }
+
+        .banner-overlay{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .banner-title{
+            font-size: 28px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .banner-subtitle{
+            font-size: 16px;
+            color: #666;
+            letter-spacing: -0.3px;
+        }
+
+        .banner-nav{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 56px;
+            height: 56px;
+            background: transparent;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+            transition: opacity 0.2s;
+            color: #4E4E4E;
+        }
+
+        .banner-nav svg{
+            width: 56px;
+            height: 56px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .banner-nav:hover{
+            opacity: 0.7;
+        }
+
+        .banner-nav.prev{
+            left: 20px;
+        }
+
+        .banner-nav.next{
+            right: 20px;
+        }
+
+        .banner-pagination{
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            font-size: 13px;
+            letter-spacing: -0.2px;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .banner-highlight{
+            display: none;
+        }
+
+        /* Category Grid Section */
+        .category-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 60px;
+        }
+
+        .category-grid{
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 24px 16px;
+        }
+
+        .category-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .category-item:hover{
+            transform: translateY(-4px);
+        }
+
+        .category-image{
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #f5f5f5;
+        }
+
+        .category-label{
+            font-size: 13px;
+            color: #222;
+            text-align: center;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+        }
+
+        /* 가장 주목받는 신상 Section */
+        .new-arrivals-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 60px;
+        }
+
+        .new-arrivals-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .new-arrivals-grid{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px 16px;
+        }
+
+        .new-arrivals-item{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #222;
+            transition: transform 0.2s;
+        }
+
+        .new-arrivals-item:hover{
+            transform: translateY(-4px);
+        }
+
+        .new-arrivals-image{
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #f5f5f5;
+        }
+
+        .new-arrivals-brand{
+            font-size: 13px;
+            color: #222;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+        }
+
+        /* 내 위시에 봄 담아봄 Section */
+        .wish-spring-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 60px;
+        }
+
+        /* 봄 코디 추천 Section */
+        .spring-coordinate-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 56px;
+        }
+
+        .spring-coordinate-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 22px;
+        }
+
+        .spring-coordinate-group{
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+        }
+        
+        .spring-coordinate-row{
+            display: grid;
+            grid-template-columns: repeat(10, minmax(72px, 1fr));
+            column-gap: 12px;
+            row-gap: 0;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .spring-coordinate-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .spring-coordinate-item:hover{
+            transform: translateY(-4px);
+        }
+
+        .spring-coordinate-image{
+            width: 84px;
+            height: 84px;
+            border-radius: 14px;
+            background: #f5f5f5;
+            object-fit: cover;
+        }
+
+        /* 실패 없는 데일리 봄 스타일 Section */
+        .daily-spring-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 80px;
+        }
+
+        .daily-spring-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+        }
+
+        .daily-spring-list{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .daily-spring-item{
+            position: relative;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            text-decoration: none;
+            color: #222;
+        }
+
+        .daily-spring-thumb{
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* 지금 인기 브랜드 Section */
+        .popular-brand-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 80px;
+        }
+
+        .popular-brand-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .popular-brand-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+        }
+
+        .popular-brand-more{
+            font-size: 13px;
+            color: #888;
+            text-decoration: none;
+        }
+
+        .popular-brand-more::after{
+            content: '>';
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 11px;
+        }
+
+        .popular-brand-tabs{
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .popular-brand-tab{
+            width: auto;
+            height: auto;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #666;
+            background: #f4f4f4;
+            border: 1px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .popular-brand-tab.is-active{
+            background: #222;
+            color: #fff;
+        }
+
+        .popular-brand-grid{
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .popular-brand-item{
+            text-decoration: none;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .popular-brand-thumb{
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            background: #f5f5f5;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .popular-brand-name{
+            font-size: 13px;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .popular-brand-price-row{
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 3px;
+        }
+
+        .popular-brand-discount{
+            color: #f15746;
+            font-weight: 700;
+        }
+
+        .popular-brand-price{
+            font-weight: 600;
+        }
+
+        .popular-brand-meta{
+            font-size: 11px;
+            color: #999;
+        }
+
+        .popular-brand-banner{
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: #f5f5f7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popular-brand-banner-text{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .popular-brand-banner-title{
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .popular-brand-banner-sub{
+            font-size: 12px;
+            color: #888;
+        }
+
+        .popular-brand-banner-thumbs{
+            display: flex;
+            gap: 8px;
+        }
+
+        .popular-brand-banner-thumb{
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        /* 추천 브랜드 + 알파 인더스트리 영역 */
+        .popular-brand-recommend{
+            margin-top: 40px;
+        }
+
+        .popular-brand-recommend-title{
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 14px;
+        }
+
+        .popular-brand-recommend-list{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            overflow-x: visible;
+        }
+
+        .popular-brand-recommend-item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            min-width: 70px;
+            text-decoration: none;
+            color: #222;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .popular-brand-recommend-logo{
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #eee;
+            object-fit: cover;
+        }
+
+        .popular-brand-recommend-name{
+            font-size: 12px;
+            color: #555;
+        }
+
+        .popular-brand-subtitle{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .popular-brand-alpha{
+            margin-top: 32px;
+        }
+
+        .popular-brand-alpha .popular-brand-grid{
+            margin-top: 12px;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+
+        /* 3월 달릴 준비 됐어? 러닝화 추천 카드 */
+        .running-ready-card{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            padding: 24px 32px;
+            background: #f5f5f5;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #222;
+            transition: opacity 0.2s;
+        }
+        .running-ready-card:hover{
+            opacity: 0.9;
+        }
+        .running-ready-card-text{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .running-ready-card-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.3px;
+        }
+        .running-ready-card-sub{
+            font-size: 13px;
+            color: #666;
+            letter-spacing: -0.2px;
+        }
+        .running-ready-card-thumbs{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .running-ready-card-thumb{
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #ebebeb;
+        }
+        
+        .daily-spring-info{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px 14px 12px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            color: #fff;
+        }
+
+        .daily-spring-meta{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: #f5f5f5;
+        }
+
+        .daily-spring-meta-thumb{
+            flex: 0 0 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .daily-spring-meta-thumb img{
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        .daily-spring-meta-text{
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .daily-spring-meta-name{
+            font-size: 11px;
+            font-weight: 500;
+            color: #fff;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .daily-spring-meta-price{
+            font-size: 11px;
+            color: #f5f5f5;
+        }
+
+        .daily-spring-desc{
+            font-size: 11px;
+            color: #fff;
+            line-height: 1.5;
+            letter-spacing: -0.2px;
+        }
+
+        /* Most Popular Section */
+        .most-popular-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 80px;
+        }
+
+        .most-popular-banner{
+            position: relative;
+            width: 100%;
+            height: 90px;
+            border-radius: 18px;
+            background: linear-gradient(90deg, #f4f4f6 0%, #f5f6fa 100%);
+            display: flex;
+            align-items: center;
+            padding: 24px 32px;
+            box-sizing: border-box;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .most-popular-banner-left{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .most-popular-banner-badge{
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: -0.3px;
+        }
+
+        .most-popular-banner-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.5px;
+        }
+
+        .most-popular-banner-desc{
+            font-size: 13px;
+            color: #777;
+            letter-spacing: -0.3px;
+        }
+
+        .most-popular-banner-right{
+            margin-left: auto;
+        }
+
+        .most-popular-banner-pill{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #ffe812;
+            font-size: 13px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .most-popular-banner-step{
+            position: absolute;
+            right: 20px;
+            bottom: 16px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.08);
+            font-size: 11px;
+            color: #555;
+        }
+
+        .most-popular-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .most-popular-grid{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 28px 18px;
+        }
+
+        .most-popular-item{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .most-popular-thumb{
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 14px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #f5f5f5;
+        }
+
+        .most-popular-name{
+            font-size: 13px;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+            margin-bottom: 6px;
+        }
+
+        .most-popular-price-row{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .most-popular-discount{
+            color: #f15746;
+            font-weight: 700;
+        }
+
+        .most-popular-price{
+            font-weight: 700;
+        }
+
+        .most-popular-info{
+            margin-top: 4px;
+            font-size: 12px;
+            color: #999;
+            letter-spacing: -0.2px;
+        }
+
+        .wish-spring-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .wish-spring-tags{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .wish-spring-tag{
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: -0.2px;
+            background: #f4f4f4;
+            color: #666;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .wish-spring-tag.active{
+            background: #222;
+            color: #fff;
+        }
+
+        .wish-spring-tag:hover:not(.active){
+            background: #ebebeb;
+        }
+
+        .wish-spring-grid{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px 16px;
+        }
+
+        .wish-spring-item{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #222;
+            transition: transform 0.2s;
+        }
+
+        .wish-spring-item:hover{
+            transform: translateY(-4px);
+        }
+
+        .wish-spring-image{
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 12px;
+            background: #f5f5f5;
+        }
+
+        .wish-spring-name{
+            font-size: 13px;
+            color: #222;
+            letter-spacing: -0.2px;
+            line-height: 1.4;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; /* 최대 1줄까지만 표시 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .wish-spring-price-row{
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .wish-spring-discount{
+            font-size: 13px;
+            font-weight: 600;
+            color: #f15746;
+            letter-spacing: -0.2px;
+        }
+
+        .wish-spring-price{
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.2px;
+        }
+
+        .main-container{
+            width: 100%;
+        }
+
+        /* 가장 핫한 트렌드 Section */
+        .hot-trend-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 40px;
+        }
+
+        .hot-trend-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .hot-trend-list{
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .hot-trend-item{
+            flex: 1 1 0;
+            max-width: 96px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #222;
+            transition: transform 0.2s;
+        }
+
+        .hot-trend-item:hover{
+            transform: translateY(-2px);
+        }
+
+        .hot-trend-image{
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            background: #f5f5f5;
+        }
+
+        .hot-trend-label{
+            font-size: 12px;
+            text-align: center;
+            letter-spacing: -0.2px;
+            line-height: 1.3;
+        }
+
+        /* 요즘 트렌드? 이걸로 끝 Section */
+        .trend-cards-section{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1120px;
+            padding: 0 40px 60px;
+        }
+
+        .trend-cards-header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .trend-cards-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.5px;
+        }
+
+        .trend-cards-more{
+            font-size: 13px;
+            color: #666;
+            letter-spacing: -0.2px;
+        }
+
+        .trend-cards-more:hover{
+            color: #222;
+        }
+
+        .trend-cards-grid{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .trend-card{
+            display: block;
+            text-decoration: none;
+            color: #222;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 3/4;
+            transition: transform 0.2s;
+        }
+
+        .trend-card:hover{
+            transform: translateY(-4px);
+        }
+
+        .trend-card-image-wrap{
+            position: absolute;
+            inset: 0;
+            background: #f5f5f5;
+        }
+
+        .trend-card-image-wrap img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trend-card-badge{
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 10px;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.5px;
+        }
+
+        .trend-card-title{
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 36px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+
+        .trend-card-brand{
+            position: absolute;
+            left: 12px;
+            bottom: 12px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: -0.2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 959px) {
+            .trend-cards-grid{
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .trend-cards-section,
+            .hot-trend-section{
+                padding: 0 40px 40px;
+            }
+
+            .wish-spring-grid{
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .wish-spring-section{
+                padding: 0 40px 40px;
+            }
+
+            .new-arrivals-grid{
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .new-arrivals-section{
+                padding: 0 40px 40px;
+            }
+
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .hero-banner{
+                max-width: 1120px;
+                margin-top: 12px;
+                margin-bottom: 12px;
+                padding: 0 40px;
+            }
+
+            .hero-banner::before{
+                padding-top: 40%; /* aspect-ratio: 2.5 (Tablet) */
+            }
+
+            .banner-overlay{
+                padding: 0 40px;
+            }
+
+            .category-section{
+                padding: 0 40px 60px;
+            }
+
+            .image_container{
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .trend-cards-grid{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .trend-cards-section,
+            .hot-trend-section{
+                padding: 0 20px 40px;
+            }
+
+            .trend-cards-title,
+            .hot-trend-title{
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            .trend-card-title{
+                font-size: 12px;
+            }
+
+            .wish-spring-grid{
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px 12px;
+            }
+
+            .wish-spring-section{
+                padding: 0 20px 40px;
+            }
+
+            .wish-spring-title{
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            .new-arrivals-grid{
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px 12px;
+            }
+
+            .new-arrivals-section{
+                padding: 0 20px 40px;
+            }
+
+            .new-arrivals-title{
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px 12px;
+            }
+
+            .category-section{
+                padding: 0 20px 40px;
+            }
+
+            .hero-banner{
+                margin-top: 12px;
+                margin-bottom: 12px;
+                padding: 0 20px;
+            }
+
+            .hero-banner::before{
+                padding-top: 90%; /* aspect-ratio: 1.111 (Mobile) */
+            }
+
+            .banner-overlay{
+                padding: 0 20px;
+            }
+
+            .image_container{
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 13px;
+            }
+
+            .banner-nav{
+                width: 48px;
+                height: 48px;
+            }
+
+            .banner-nav.prev{
+                left: 20px;
+            }
+
+            .banner-nav.next{
+                right: 20px;
+            }
+
+            .banner-pagination{
+                bottom: 15px;
+                right: 20px;
+                font-size: 12px;
+            }
+
+            .banner-highlight{
+                top: 15px;
+                right: 20px;
+                font-size: 11px;
+            }
+
+            .ul-tab{
+                padding-left: 20px;
+                padding-right: 20px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tab{
+                padding: 0 12px;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trend-cards-grid{
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .hot-trend-item{
+                width: 64px;
+            }
+
+            .hot-trend-image{
+                width: 64px;
+                height: 64px;
+            }
+
+            .hot-trend-label{
+                font-size: 11px;
+            }
+
+            .wish-spring-grid{
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px 8px;
+            }
+
+            .wish-spring-name, .wish-spring-price, .wish-spring-discount{
+                font-size: 11px;
+            }
+
+            .new-arrivals-grid{
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px 8px;
+            }
+
+            .new-arrivals-brand{
+                font-size: 11px;
+            }
+
+            .category-grid{
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px 8px;
+            }
+
+            .category-label{
+                font-size: 11px;
+            }
+
+            .hero-banner{
+                padding: 0 20px;
+            }
+
+            .hero-banner::before{
+                padding-top: 90%; /* aspect-ratio: 1.111 (Mobile) */
+            }
+
+            .banner-overlay{
+                padding: 0 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .image_container{
+                left: 0;
+                right: 0;
+                width: 100%;
+            }
+
+            .banner-title{
+                font-size: 24px;
+            }
+
+            .banner-subtitle{
+                font-size: 13px;
+            }
+        }
 
     </style>
 </head>
@@ -356,6 +1713,967 @@
 
 
             <div class="main-container">
+                <!-- Hero Banner Section -->
+                <section class="hero-banner">
+                    <div class="banner-slide">
+                        <div class="image_container">
+                            <picture class="picture image">
+                                <img class="full_width img" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80" alt="FC서울 x 언더마이카 협업 컬렉션" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="banner-overlay">
+                            <h2 class="banner-title">FC서울 x 언더마이카 협업 컬렉션</h2>
+                            <p class="banner-subtitle">단독 재오픈</p>
+                        </div>
+                        <span class="banner-highlight">Highlight +</span>
+                        <button class="banner-nav prev" aria-label="이전 배너">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6"/>
+                            </svg>
+                        </button>
+                        <button class="banner-nav next" aria-label="다음 배너">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </button>
+                        <div class="banner-pagination">
+                            <span>19/43</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="max-width: 16px; max-height: 16px;">
+                                <path d="M9 18l6-6-6-6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Category Grid Section -->
+                <section class="category-section">
+                    <div class="category-grid">
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="지금 인기" class="category-image">
+                            <span class="category-label">지금 인기</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&q=80" alt="스니커즈" class="category-image">
+                            <span class="category-label">스니커즈</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=200&q=80" alt="후드" class="category-image">
+                            <span class="category-label">후드</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="간절기 아우터" class="category-image">
+                            <span class="category-label">간절기 아우터</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="가죽 시계" class="category-image">
+                            <span class="category-label">가죽 시계</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/4A90E2/FFFFFF?text=KREAM+Pay" alt="1% 구매적립" class="category-image">
+                            <span class="category-label">1% 구매적립</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=200&q=80" alt="정가 아래" class="category-image">
+                            <span class="category-label">정가 아래</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&q=80" alt="언마카 x FC서울" class="category-image">
+                            <span class="category-label">언마카 x FC서울</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/FFD700/FFFFFF?text=K" alt="금/은 오픈" class="category-image">
+                            <span class="category-label">금/은 오픈</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="러닝" class="category-image">
+                            <span class="category-label">러닝</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=200&q=80" alt="바람막이" class="category-image">
+                            <span class="category-label">바람막이</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&q=80" alt="인기 뷰티" class="category-image">
+                            <span class="category-label">인기 뷰티</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=200&q=80" alt="머플러" class="category-image">
+                            <span class="category-label">머플러</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://via.placeholder.com/200x200/000000/FF69B4?text=KREAM+DRAW" alt="KREAM DRAW" class="category-image">
+                            <span class="category-label">KREAM DRAW</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=200&q=80" alt="리퍼비시 할인" class="category-image">
+                            <span class="category-label">리퍼비시 할인</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&q=80" alt="질스튜어트맨 Acc" class="category-image">
+                            <span class="category-label">질스튜어트맨 Acc</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 가장 주목받는 신상 Section -->
+                <section class="new-arrivals-section">
+                    <h2 class="new-arrivals-title">가장 주목받는 신상</h2>
+                    <div class="new-arrivals-grid">
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Nike 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Nike</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1600185365926-5a18ff81801b?w=300&q=80" alt="On Running 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">On Running</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=300&q=80" alt="HIPHOPPLAYA FESTIVAL" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">HIPHOPPLAYA FESTIVAL</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&q=80" alt="Nike 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Nike</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="On Running 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">On Running</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&q=80" alt="Supreme 백팩" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Supreme</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&q=80" alt="Supreme 티셔츠" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Supreme</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=300&q=80" alt="Starbucks 텀블러" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Starbucks</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Nike 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Nike</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Asics 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Asics</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1600185365926-5a18ff81801b?w=300&q=80" alt="On Running 스니커즈" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">On Running</span>
+                        </a>
+                        <a href="#" class="new-arrivals-item">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&q=80" alt="Nike 롱슬리브" class="new-arrivals-image">
+                            <span class="new-arrivals-brand">Nike</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 내 위시에 봄 담아봄 Section -->
+                <section class="wish-spring-section">
+                    <h2 class="wish-spring-title">내 위시에 봄 담아봄</h2>
+                    <div class="wish-spring-tags">
+                        <a href="#" class="wish-spring-tag active">급상승 키워드</a>
+                        <a href="#" class="wish-spring-tag">새학기 치트키</a>
+                        <a href="#" class="wish-spring-tag">스니커즈</a>
+                        <a href="#" class="wish-spring-tag">러닝</a>
+                        <a href="#" class="wish-spring-tag">캠퍼스룩</a>
+                        <a href="#" class="wish-spring-tag">화이트데이</a>
+                    </div>
+                    <div class="wish-spring-grid">
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&q=80" alt="아크테릭스 스쿼미시 후디 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">아크테릭스 스쿼미시 후디 블랙</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">315,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="나이키 드라이핏 챌린저 우븐 팬츠 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">나이키 드라이핏 챌린저 우븐 팬츠 블랙...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">42,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="살로몬 모디세이 윈드쉘 자켓 딥 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">살로몬 모디세이 윈드쉘 자켓 딥 블랙</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">302,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="노스페이스 화이트 라벨 노벨티 올" class="wish-spring-image">
+                            <span class="wish-spring-name">(W) 노스페이스 화이트 라벨 노벨티 올...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">180,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="노스페이스 쉘든 자켓 베이지 브라운" class="wish-spring-image">
+                            <span class="wish-spring-name">노스페이스 쉘든 자켓 베이지 브라운...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-discount">12%</span>
+                                <span class="wish-spring-price">155,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="아디다스 x 베이프 자카드 팬츠 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">아디다스 x 베이프 자카드 팬츠 블랙...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">300,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&q=80" alt="아이앱 스튜디오 25 후드 라이트 그레" class="wish-spring-image">
+                            <span class="wish-spring-name">아이앱 스튜디오 25 후드 라이트 그레...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">147,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="나이키 스톰 핏 스위프트 러닝 자켓" class="wish-spring-image">
+                            <span class="wish-spring-name">(W) 나이키 스톰 핏 스위프트 러닝 자...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-price">213,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="C.P. 컴퍼니 프로텍 렌즈 후드 자켓 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">C.P. 컴퍼니 프로텍 렌즈 후드 자켓 블...</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-discount">5%</span>
+                                <span class="wish-spring-price">500,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="아크테릭스 스쿼미시 후디 아트모스" class="wish-spring-image">
+                            <span class="wish-spring-name">(W) 아크테릭스 스쿼미시 후디 아트모스</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-discount">5%</span>
+                                <span class="wish-spring-price">273,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&q=80" alt="아크테릭스 베타 SL 자켓 블랙" class="wish-spring-image">
+                            <span class="wish-spring-name">아크테릭스 베타 SL 자켓 블랙</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-discount">19%</span>
+                                <span class="wish-spring-price">642,000원</span>
+                            </div>
+                        </a>
+                        <a href="#" class="wish-spring-item">
+                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="칼하트 WIP 로버트슨 데님 랜든 팬츠" class="wish-spring-image">
+                            <span class="wish-spring-name">칼하트 WIP 로버트슨 데님 랜든 팬츠....</span>
+                            <div class="wish-spring-price-row">
+                                <span class="wish-spring-discount">21%</span>
+                                <span class="wish-spring-price">144,000원</span>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 봄 코디 추천 Section -->
+                <!-- (Most Popular 섹션 아래로 이동됨) -->
+
+                <!-- 가장 핫한 트렌드 Section -->
+                <section class="hot-trend-section">
+                    <h2 class="hot-trend-title">가장 핫한 트렌드</h2>
+                    <div class="hot-trend-list">
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=144&q=80" alt="TOP 100" class="hot-trend-image">
+                            <span class="hot-trend-label">TOP 100</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=144&q=80" alt="캐릭터 도감" class="hot-trend-image">
+                            <span class="hot-trend-label">캐릭터 도감</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=144&q=80" alt="히든 브랜드" class="hot-trend-image">
+                            <span class="hot-trend-label">히든 브랜드</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=144&q=80" alt="급상승 브랜드" class="hot-trend-image">
+                            <span class="hot-trend-label">급상승 브랜드</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343a?w=144&q=80" alt="대세는 크롬하츠" class="hot-trend-image">
+                            <span class="hot-trend-label">대세는 크롬하츠</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=144&q=80" alt="지금 뜨는 신상" class="hot-trend-image">
+                            <span class="hot-trend-label">지금 뜨는 신상</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=144&q=80" alt="손목이 허전할때" class="hot-trend-image">
+                            <span class="hot-trend-label">손목이 허전할때</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=144&q=80" alt="급상승 검색어" class="hot-trend-image">
+                            <span class="hot-trend-label">급상승 검색어</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=144&q=80" alt="드롭 리스트" class="hot-trend-image">
+                            <span class="hot-trend-label">드롭 리스트</span>
+                        </a>
+                        <a href="#" class="hot-trend-item">
+                            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=144&q=80" alt="봄맞이 선물" class="hot-trend-image">
+                            <span class="hot-trend-label">봄맞이 선물</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 요즘 트렌드? 이걸로 끝 Section -->
+                <section class="trend-cards-section">
+                    <div class="trend-cards-header">
+                        <h2 class="trend-cards-title">요즘 트렌드? 이걸로 끝</h2>
+                        <a href="#" class="trend-cards-more">더보기</a>
+                    </div>
+                    <div class="trend-cards-grid">
+                        <a href="#" class="trend-card">
+                            <div class="trend-card-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&q=80" alt="스벅 텀블러 키링">
+                            </div>
+                            <span class="trend-card-badge">DROP_THE_NEWS</span>
+                            <span class="trend-card-title">스벅 텀블러 키링 돌아왔다</span>
+                            <span class="trend-card-brand">Starbucks</span>
+                        </a>
+                        <a href="#" class="trend-card">
+                            <div class="trend-card-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&q=80" alt="나이키 문 슈">
+                            </div>
+                            <span class="trend-card-badge">DROP_THE_NEWS</span>
+                            <span class="trend-card-title">나이키 문 슈 봄 컬러로 컴백</span>
+                            <span class="trend-card-brand">Nike x Jacquemus</span>
+                        </a>
+                        <a href="#" class="trend-card">
+                            <div class="trend-card-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80" alt="MLB 볼캡">
+                            </div>
+                            <span class="trend-card-badge">DROP_THE_NEWS</span>
+                            <span class="trend-card-title">화제의 볼캡 MLB 카리나 에디션</span>
+                            <span class="trend-card-brand">MLB</span>
+                        </a>
+                        <a href="#" class="trend-card">
+                            <div class="trend-card-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="아식스 운동화">
+                            </div>
+                            <span class="trend-card-title">저점매수 해야하는 아식스 운동화</span>
+                            <span class="trend-card-brand">asics</span>
+                        </a>
+                        <a href="#" class="trend-card">
+                            <div class="trend-card-image-wrap">
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="JIHOON'S Outfit">
+                            </div>
+                            <span class="trend-card-title">JIHOON'S Outfit</span>
+                            <span class="trend-card-brand">Outfit</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Most Popular Section -->
+                <section class="most-popular-section">
+                    <div class="most-popular-banner">
+                        <div class="most-popular-banner-left">
+                            <span class="most-popular-banner-badge">4% 즉시할인</span>
+                            <span class="most-popular-banner-title">카카오페이, 농협카드 결제 시</span>
+                            <span class="most-popular-banner-desc">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
+                        </div>
+                        <div class="most-popular-banner-right">
+                            <div class="most-popular-banner-pill">
+                                <span>kakaopay</span>
+                                <span>4%</span>
+                            </div>
+                            <span class="most-popular-banner-step">3 / 10</span>
+                        </div>
+                    </div>
+
+                    <h2 class="most-popular-title">Most Popular</h2>
+                    <div class="most-popular-grid">
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="뉴발란스 1906D 실버 메탈릭" class="most-popular-thumb">
+                            <span class="most-popular-name">뉴발란스 1906D 실버 메탈릭</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">19%</span>
+                                <span class="most-popular-price">192,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 1.4만 · 리뷰 1,192</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="나이키 에어포스 1 07 화이트" class="most-popular-thumb">
+                            <span class="most-popular-name">나이키 에어포스 1 '07 로우 화이트</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">29%</span>
+                                <span class="most-popular-price">105,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 8.6만 · 리뷰 4,237</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?w=400&q=80" alt="애플 에어팟 3세대" class="most-popular-thumb">
+                            <span class="most-popular-name">애플 에어팟 3세대 무선 이어폰</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">16%</span>
+                                <span class="most-popular-price">225,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 1.2만 · 리뷰 1,143</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1621609871103-6a62467b70fc?w=400&q=80" alt="노스페이스 플리스 자켓" class="most-popular-thumb">
+                            <span class="most-popular-name">노스페이스 리버서블 플리스 자켓 블랙</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">19%</span>
+                                <span class="most-popular-price">249,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 2.7만 · 리뷰 6,275</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="스투시 후드 집업" class="most-popular-thumb">
+                            <span class="most-popular-name">스투시 베이직 로고 후드 집업 블랙</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-price">186,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 1.4만 · 리뷰 89</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1542213493895-edf5b94f5a33?w=400&q=80" alt="나이키 에어맥스 95 네온" class="most-popular-thumb">
+                            <span class="most-popular-name">나이키 에어맥스 95 OG 네온</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-price">245,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 3.6만 · 리뷰 237</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="뉴발란스 992 그레이" class="most-popular-thumb">
+                            <span class="most-popular-name">뉴발란스 992 USA 코어 그레이</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">19%</span>
+                                <span class="most-popular-price">249,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 2.7만 · 리뷰 6,275</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="나이키 ACG 고어텍스 자켓" class="most-popular-thumb">
+                            <span class="most-popular-name">나이키 ACG 고어텍스 스톰 자켓 ADV</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-discount">36%</span>
+                                <span class="most-popular-price">210,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 7,842 · 리뷰 573</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1603808033192-67c0c829c831?w=400&q=80" alt="샤몬 XT-윙 스니커즈" class="most-popular-thumb">
+                            <span class="most-popular-name">살로몬 XT-윙 4 트레일 러닝 슈즈</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-price">129,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 1.2만 · 리뷰 804</div>
+                        </a>
+                        <a href="#" class="most-popular-item">
+                            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&q=80" alt="블랙 레더 스니커즈" class="most-popular-thumb">
+                            <span class="most-popular-name">심플 블랙 레더 스니커즈</span>
+                            <div class="most-popular-price-row">
+                                <span class="most-popular-price">189,000원</span>
+                            </div>
+                            <div class="most-popular-info">관심 8,673 · 리뷰 312</div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 봄 코디 추천 Section -->
+                <section class="spring-coordinate-section">
+                    <h2 class="spring-coordinate-title">봄 코디 추천</h2>
+                    <div class="spring-coordinate-group">
+                        <!-- 상의 라인 (10개) -->
+                        <div class="spring-coordinate-row">
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=260&q=80" alt="크림 데님 자켓" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542142572-440f2a03fc09?w=260&q=80" alt="워시드 데님 자켓" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=260&q=80" alt="그레이 후디" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="크림 집업" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=260&q=80" alt="블루 셔츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="블랙 니트" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="화이트 티셔츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="블랙 티셔츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="카디건" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="맨투맨" class="spring-coordinate-image">
+                            </a>
+                        </div>
+                        <!-- 하의 라인 (10개) -->
+                        <div class="spring-coordinate-row">
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1518036881543-4c0d16090250?w=260&q=80" alt="워시드 데님" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=260&q=80" alt="베이지 팬츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=260&q=80" alt="밴딩 팬츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=260&q=80" alt="슬랙스" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=260&q=80" alt="데님 스커트" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="와이드 데님" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="코튼 팬츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="조거 팬츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="크롭 팬츠" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="플리츠 스커트" class="spring-coordinate-image">
+                            </a>
+                        </div>
+                        <!-- 스니커즈 라인 (10개) -->
+                        <div class="spring-coordinate-row">
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="러닝 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1514986888952-8cd320577b68?w=260&q=80" alt="라이프스타일 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="블랙 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="화이트 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1581698467322-84ea2f2ab2bb?w=260&q=80" alt="워커" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1586936893354-362ad6ae47e9?w=260&q=80" alt="러너" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="하이탑 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="코트 스니커즈" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="트레일 러닝화" class="spring-coordinate-image">
+                            </a>
+                            <a href="#" class="spring-coordinate-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="슬립온" class="spring-coordinate-image">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 실패 없는 데일리 봄 스타일 Section -->
+                <section class="daily-spring-section">
+                    <h2 class="daily-spring-title">실패 없는 데일리 봄 스타일</h2>
+                    <div class="daily-spring-list">
+                        <a href="#" class="daily-spring-item">
+                            <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?w=600&q=80" alt="코지한 카페룩" class="daily-spring-thumb">
+                            <div class="daily-spring-info">
+                                <div class="daily-spring-meta">
+                                    <div class="daily-spring-meta-thumb">
+                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&q=80" alt="스니커즈 아이콘">
+                                    </div>
+                                    <div class="daily-spring-meta-text">
+                                        <span class="daily-spring-meta-name">코인세이오 코인 봄봄 스니커즈 블랙</span>
+                                        <span class="daily-spring-meta-price">169,000원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="daily-spring-item">
+                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&q=80" alt="와이드 팬츠 스트릿룩" class="daily-spring-thumb">
+                            <div class="daily-spring-info">
+                                <div class="daily-spring-meta">
+                                    <div class="daily-spring-meta-thumb">
+                                        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=80&q=80" alt="비니 아이콘">
+                                    </div>
+                                    <div class="daily-spring-meta-text">
+                                        <span class="daily-spring-meta-name">더블랙티 에스와이즈 예스 넵 셋업</span>
+                                        <span class="daily-spring-meta-price">10% 188,100원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="daily-spring-item">
+                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&q=80" alt="레이어드 후디 룩" class="daily-spring-thumb">
+                            <div class="daily-spring-info">
+                                <div class="daily-spring-meta">
+                                    <div class="daily-spring-meta-thumb">
+                                        <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=80&q=80" alt="후디 아이콘">
+                                    </div>
+                                    <div class="daily-spring-meta-text">
+                                        <span class="daily-spring-meta-name">더메이플로버 투어 레이어드 후디</span>
+                                        <span class="daily-spring-meta-price">52,000원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="daily-spring-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" alt="남친룩 봄 아우터" class="daily-spring-thumb">
+                            <div class="daily-spring-info">
+                                <div class="daily-spring-meta">
+                                    <div class="daily-spring-meta-thumb">
+                                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=80&q=80" alt="점퍼 아이콘">
+                                    </div>
+                                    <div class="daily-spring-meta-text">
+                                        <span class="daily-spring-meta-name">C.P. 컴퍼니 나일론 B 렌디드 블루종</span>
+                                        <span class="daily-spring-meta-price">370,000원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="daily-spring-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="화이트 셔츠 데이트룩" class="daily-spring-thumb">
+                            <div class="daily-spring-info">
+                                <div class="daily-spring-meta">
+                                    <div class="daily-spring-meta-thumb">
+                                        <img src="https://images.unsplash.com/photo-1542213493895-edf5b94f5a33?w=80&q=80" alt="가방 아이콘">
+                                    </div>
+                                    <div class="daily-spring-meta-text">
+                                        <span class="daily-spring-meta-name">지콤퍼스 로지 커프스 모먼 셔츠 세트</span>
+                                        <span class="daily-spring-meta-price">가격 문의</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- 지금 인기 브랜드 Section -->
+                <section class="popular-brand-section">
+                    <div class="popular-brand-header">
+                        <h2 class="popular-brand-title">지금 인기 브랜드</h2>
+                        <a href="#" class="popular-brand-more">더보기</a>
+                    </div>
+                    <div class="popular-brand-tabs">
+                        <button type="button" class="popular-brand-tab is-active">아우모</button>
+                        <button type="button" class="popular-brand-tab">포켓몬 TCG</button>
+                        <button type="button" class="popular-brand-tab">애플 리퍼비시</button>
+                        <button type="button" class="popular-brand-tab">더로우가</button>
+                        <button type="button" class="popular-brand-tab">얼로우 요가</button>
+                        <button type="button" class="popular-brand-tab">공백</button>
+                        <button type="button" class="popular-brand-tab">세이코</button>
+                    </div>
+                    <div class="popular-brand-grid">
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=400&q=80" alt="아우모 후드 집업 그레이" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 퍼 후드 집업 그레이</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">65,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 1만 · 리뷰 320</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 밴딩 팬츠 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">35,100원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 2,136 · 리뷰 105</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 집업 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 퍼 후드 집업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">65,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 2,422 · 리뷰 120</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 빈티지 후드 레드" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 빈티지 붐스 후드 크림 레드</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">44,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 864 · 리뷰 45</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1534215754734-18e56abcf1e2?w=400&q=80" alt="아우모 볼캡 브라운" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 에이엠 5패널 캡 브라운</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">47%</span>
+                                <span class="popular-brand-price">27,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 535 · 리뷰 5</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80" alt="아우모 트레이닝 팬츠 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 디스트 트레이닝 팬츠 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">50%</span>
+                                <span class="popular-brand-price">39,500원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 288 · 리뷰 17</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="아우모 스웻 팬츠 그레이" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 그레이</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">55%</span>
+                                <span class="popular-brand-price">35,100원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 4,737 · 리뷰 187</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&q=80" alt="아우모 후드티 네이비" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 후드 집업 네이비</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">50%</span>
+                                <span class="popular-brand-price">48,900원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 1,413 · 리뷰 4</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 크롭 후드 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 디스트 후드집업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">44%</span>
+                                <span class="popular-brand-price">61,200원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 405 · 리뷰 28</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 화이트" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 화이트</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">56%</span>
+                                <span class="popular-brand-price">47,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 602 · 리뷰 12</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 네이비" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 네이비</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">52%</span>
+                                <span class="popular-brand-price">47,000원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 545 · 리뷰 13</div>
+                        </a>
+                        <a href="#" class="popular-brand-item">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 스웻 셋업 블랙" class="popular-brand-thumb">
+                            <div class="popular-brand-name">아우모 R.A.F 엔턴스 스웻 셋업 블랙</div>
+                            <div class="popular-brand-price-row">
+                                <span class="popular-brand-discount">52%</span>
+                                <span class="popular-brand-price">37,900원</span>
+                            </div>
+                            <div class="popular-brand-meta">관심 369 · 리뷰 19</div>
+                        </a>
+                    </div>
+                    <div class="popular-brand-banner">
+                        <div class="popular-brand-banner-text">
+                            <div class="popular-brand-banner-title">언더마이카×FC 서울 협업</div>
+                            <div class="popular-brand-banner-sub">단독 발매</div>
+                        </div>
+                        <div class="popular-brand-banner-thumbs">
+                            <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=300&q=80" alt="협업 제품 1" class="popular-brand-banner-thumb">
+                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&q=80" alt="협업 제품 2" class="popular-brand-banner-thumb">
+                        </div>
+                    </div>
+
+                    <!-- 추천 브랜드 & 알파인더스트리 영역 -->
+                    <div class="popular-brand-recommend">
+                        <div class="popular-brand-recommend-title">추천 브랜드</div>
+                        <div class="popular-brand-recommend-list">
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="Nike" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Nike</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=200&q=80" alt="Adidas" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Adidas</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="New Balance" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">New Balance</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?w=200&q=80" alt="Asics" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Asics</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=200&q=80" alt="Supreme" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Supreme</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=200&q=80" alt="Arc'teryx" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Arc'teryx</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1542293787938-4d352b042b24?w=200&q=80" alt="Jordan" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Jordan</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1589187151053-5ec8818e661b?w=200&q=80" alt="Stussy" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Stussy</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1581693325309-9b9b4c0f1cfc?w=200&q=80" alt="Salomon" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">Salomon</span>
+                            </a>
+                            <a href="#" class="popular-brand-recommend-item">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="On Running" class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name">On Running</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="popular-brand-alpha">
+                        <div class="popular-brand-header">
+                            <h3 class="popular-brand-subtitle">알파인더스트리</h3>
+                            <a href="#" class="popular-brand-more">더보기</a>
+                        </div>
+                        <div class="popular-brand-grid">
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 네이비" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 네이비</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 필드 자켓 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 필드 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">209,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 MA-1 그린" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 그린</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">200,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 L-2B 블루" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 블루</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 후디드 카키" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 후디드 재킷 카키</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 로고 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 로고 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">239,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 패치 블랙" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 패치 플라이트 재킷 블랙</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">259,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 그레이" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 그레이</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">149,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-brand-item">
+                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 올리브" class="popular-brand-thumb">
+                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 올리브</div>
+                                <div class="popular-brand-price-row">
+                                    <span class="popular-brand-price">159,000원</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="running-ready-card">
+                        <div class="running-ready-card-text">
+                            <span class="running-ready-card-title">3월, 달릴 준비 됐어?</span>
+                            <span class="running-ready-card-sub">브랜드별 러닝화 추천</span>
+                        </div>
+                        <div class="running-ready-card-thumbs">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
+                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
+                        </div>
+                    </a>
+                </section>
 
             </div>
         </main>
