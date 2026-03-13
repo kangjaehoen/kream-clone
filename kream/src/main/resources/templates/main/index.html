@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <!-- 정적 파일로 열 때용 -->
+    <link rel="stylesheet" href="/css/common.css">
+    <!-- 서버(Thymeleaf) 동작 시용 -->
+    <link rel="stylesheet" th:href="@{/css/common.css}">
     <title>KREAM | 한정판 거래의 FLEX</title>
     <style>
         body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
@@ -16,12 +20,10 @@
             color: #222;
             font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
             font-feature-settings: "frac" 0, "numr" 0;
-            /** 이 요소에서는 분수/분자 관련 특수 폰트 기능을 사용하지 마라” 라는 의미 */
         }
 
         main{
             display: block;
-             /* 한글 ,영어, 아랍어 등 섞일떄 배치가 주변에 영향을 안주도록 고립시키는 css 속성 */            
             unicode-bidi: isolate;
         }
 
@@ -56,7 +58,6 @@
             color: #222;
         }
 
-
         button{
             display: flex;
             align-items: center;
@@ -69,11 +70,6 @@
             border : 0;
         }
         
-        /* 모바일 에서 손가락 터치하였을경우 하이라이트 색 제거 */
-        /* a{
-            -webkit-tap-highlight-color: transparent;
-        } */
-
 
         .header-top{
             margin-left: auto;
@@ -211,6 +207,149 @@
 
         .tab:hover{
             border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer (서버 없이 index.html 단독 실행용, common.css 와 동일) */
+        .footer{
+            margin-top: 60px;
+        }
+
+        .footer-inner{
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-sizing: border-box;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .footer-top{
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 24px;
+        }
+
+        .footer-menu{
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-menu-group{
+            min-width: 160px;
+        }
+
+        .footer-menu-title{
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .footer-menu-list li{
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .footer-menu-list a{
+            font-size: 12px;
+            color: rgba(34,34,34,.8);
+        }
+
+        .footer-center-group .footer-menu-title{
+            font-size: 14px;
+        }
+
+        .footer-center-group{
+            margin-left: auto;
+        }
+
+        .footer-center-time,
+        .footer-center-desc{
+            font-size: 12px;
+            color: rgba(34,34,34,.8);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-center-btn{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #d3d3d3;
+            font-size: 12px;
+            background-color: #fff;
+        }
+
+        .footer-bottom{
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .footer-info-menu{
+            margin-block-start: 0;
+            margin-block-end: 8px;
+        }
+
+        .footer-info-menu li{
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        .footer-info-menu a{
+            font-size: 12px;
+            color: rgba(34,34,34,.8);
+            font-weight: 600;
+        }
+
+        .footer-info-menu a:hover{
+            text-decoration: underline;
+        }
+
+        .footer-company-row{
+            font-size: 11px;
+            color: rgba(34,34,34,.6);
+            line-height: 1.7;
+            margin-top: 4px;
+        }
+
+        .footer-company-row + .footer-company-row{
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .footer-link-underline{
+            text-decoration: underline;
+        }
+
+        .footer-sns{
+            text-align: right;
+        }
+
+        .footer-sns-list{
+            margin-block-start: 0;
+            margin-block-end: 8px;
+        }
+
+        .footer-sns-list li{
+            margin-left: 4px;
+        }
+
+        .footer-sns-icon{
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+        }
+
+        .footer-copy{
+            font-size: 11px;
+            color: rgba(34,34,34,.5);
         }
 
         .tab_name{
@@ -832,6 +971,111 @@
             object-fit: cover;
             background: #ebebeb;
         }
+
+        /* 회원님을 위한 추천 상품 */
+        .member-recommend-section{
+            margin-top: 40px;
+        }
+        .member-recommend-title{
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: -0.3px;
+            margin-bottom: 16px;
+        }
+        .member-recommend-grid{
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .member-recommend-card{
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: #222;
+        }
+        .member-recommend-thumb-wrap{
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f4f4f4;
+            margin-bottom: 8px;
+        }
+        .member-recommend-thumb{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .member-recommend-brand{
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .member-recommend-name{
+            font-size: 13px;
+            color: #333;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+        .member-recommend-price-row{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .member-recommend-price{
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .member-recommend-discount{
+            font-size: 12px;
+            color: #ff4e4e;
+        }
+        .member-recommend-meta-row{
+            margin-top: 4px;
+            font-size: 11px;
+            color: #888;
+        }
+        .member-recommend-meta-row span + span::before{
+            content: "·";
+            margin: 0 3px;
+        }
+        .member-recommend-benefit-row{
+            margin-top: 2px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .member-recommend-badge{
+            font-size: 10px;
+            padding: 1px 4px;
+            border-radius: 4px;
+            border: 1px solid currentColor;
+        }
+        .member-recommend-badge.fast{
+            color: #18a957;
+            padding: 0;
+            border: none;
+            font-weight: 600;
+        }
+        .member-recommend-badge.fast::before{
+            content: "⚡";
+            margin-right: 2px;
+            color: #18a957;
+        }
+        .member-recommend-badge.free{
+            color: inherit;
+        }
+        .member-recommend-badge.point{
+            color: inherit;
+        }
+        .member-recommend-badge.coupon{
+            color: inherit;
+        }
         
         .daily-spring-info{
             position: absolute;
@@ -1282,6 +1526,7 @@
             letter-spacing: -0.2px;
         }
 
+
         /* Responsive Design */
         @media (max-width: 959px) {
             .trend-cards-grid{
@@ -1469,6 +1714,136 @@
                 padding: 0 12px;
                 white-space: nowrap;
             }
+
+
+            .footer{
+    border-top: 1px solid #ebebeb;
+    background-color: #f9f9f9;
+    margin-top: 60px;
+}
+
+.footer-inner{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+.footer-top{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 24px;
+}
+
+.footer-menu{
+    display: flex;
+    gap: 80px;
+}
+
+.footer-menu-group{
+    min-width: 160px;
+}
+
+.footer-menu-title{
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.footer-menu-list li{
+    display: block;
+    margin-bottom: 6px;
+}
+
+.footer-menu-list a{
+    font-size: 12px;
+    color: rgba(34,34,34,.8);
+}
+
+.footer-center-group .footer-menu-title{
+    font-size: 14px;
+}
+
+.footer-center-time,
+.footer-center-desc{
+    font-size: 12px;
+    color: rgba(34,34,34,.8);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.footer-center-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+    font-size: 12px;
+    background-color: #fff;
+}
+
+.footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.footer-info-menu{
+    margin-block-start: 0;
+    margin-block-end: 8px;
+}
+
+.footer-info-menu li{
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.footer-info-menu a{
+    font-size: 12px;
+    color: rgba(34,34,34,.8);
+}
+
+.footer-company-row{
+    font-size: 11px;
+    color: rgba(34,34,34,.6);
+    line-height: 1.7;
+    margin-top: 4px;
+}
+
+.footer-link-underline{
+    text-decoration: underline;
+}
+
+.footer-sns{
+    text-align: right;
+}
+
+.footer-sns-list{
+    margin-block-start: 0;
+    margin-block-end: 8px;
+}
+
+.footer-sns-list li{
+    margin-left: 4px;
+}
+
+.footer-sns-icon{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+}
+
+.footer-copy{
+    font-size: 11px;
+    color: rgba(34,34,34,.5);
+}
+
         }
 
         @media (max-width: 480px) {
@@ -1551,6 +1926,8 @@
 <body>
     <div>
         <main>
+            
+<!-- 임시 header -->
             <div class="header-container">
                 <div class="header-top">
                     <div class="top-inner">     
@@ -2673,6 +3050,499 @@
                             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
                         </div>
                     </a>
+
+                    <section class="member-recommend-section">
+                        <h2 class="member-recommend-title">회원님을 위한 추천</h2>
+                        <div class="member-recommend-grid">
+                            <!-- 5개씩 총 8줄 = 40개 -->
+                            <!-- 1~5 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 1" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Knitted</div>
+                                <div class="member-recommend-name">니트드 카고 트레이닝 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">49,800원</span>
+                                    <span class="member-recommend-discount">30%</span>
+                                </div>
+                                <div class="member-recommend-meta-row">
+                                    <span>관심 484</span>
+                                    <span>리뷰 12</span>
+                                    <span>거래 37</span>
+                                </div>
+                                <div class="member-recommend-benefit-row">
+                                    <span class="member-recommend-badge fast">빠른배송</span>
+                                    <span>내일 도착 예정</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80" alt="추천 상품 2" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 데님 블루종 자켓</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">191,200원</span>
+                                    <span class="member-recommend-discount">20%</span>
+                                </div>
+                                <div class="member-recommend-meta-row">
+                                    <span>관심 321</span>
+                                    <span>리뷰 8</span>
+                                    <span>거래 25</span>
+                                </div>
+                                <div class="member-recommend-benefit-row">
+                                    <span class="member-recommend-badge free">무료배송</span>
+                                    <span>오늘 출고 예정</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 3" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">New Balance</div>
+                                <div class="member-recommend-name">뉴발란스 204L 스웨이드 스니커즈</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">120,000원</span>
+                                    <span class="member-recommend-discount">24%</span>
+                                </div>
+                                <div class="member-recommend-meta-row">
+                                    <span>관심 477</span>
+                                    <span>리뷰 20</span>
+                                    <span>거래 62</span>
+                                </div>
+                                <div class="member-recommend-benefit-row">
+                                    <span class="member-recommend-badge fast">빠른배송</span>
+                                    <span>내일 도착 예정</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 4" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 벤치 지퍼드 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">310,000원</span>
+                                </div>
+                                <div class="member-recommend-meta-row">
+                                    <span>관심 202</span>
+                                    <span>리뷰 5</span>
+                                    <span>거래 18</span>
+                                </div>
+                                <div class="member-recommend-benefit-row">
+                                    <span class="member-recommend-badge coupon">쿠폰</span>
+                                    <span>10% 할인 쿠폰</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 5" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 테크 후드 집업 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">134,100원</span>
+                                    <span class="member-recommend-discount">10%</span>
+                                </div>
+                                <div class="member-recommend-meta-row">
+                                    <span>관심 189</span>
+                                    <span>리뷰 11</span>
+                                    <span>거래 44</span>
+                                </div>
+                                <div class="member-recommend-benefit-row">
+                                    <span class="member-recommend-badge point">적립</span>
+                                    <span>포인트 1,300P 적립</span>
+                                </div>
+                            </a>
+
+                            <!-- 6~10 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 6" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Supreme</div>
+                                <div class="member-recommend-name">슈프림 S 로고 집업 후디 레드</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">354,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 7" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Sansan Gear</div>
+                                <div class="member-recommend-name">산산 기모 자켓 그레이</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">169,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="추천 상품 8" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 양털 트랙 자켓 베이지</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">151,000원</span>
+                                    <span class="member-recommend-discount">15%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 9" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">AMOU</div>
+                                <div class="member-recommend-name">아모우 디스트 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">39,500원</span>
+                                    <span class="member-recommend-discount">50%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 10" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Nike</div>
+                                <div class="member-recommend-name">나이키 조던 로우 스니커즈 블루</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">188,000원</span>
+                                </div>
+                            </a>
+
+                            <!-- 11~40 : 위 패턴 반복 -->
+                            <!-- 11~15 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 11" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Knitted</div>
+                                <div class="member-recommend-name">니트드 카고 트레이닝 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">49,800원</span>
+                                    <span class="member-recommend-discount">30%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80" alt="추천 상품 12" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 데님 블루종 자켓</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">191,200원</span>
+                                    <span class="member-recommend-discount">20%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 13" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">New Balance</div>
+                                <div class="member-recommend-name">뉴발란스 204L 스웨이드 스니커즈</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">120,000원</span>
+                                    <span class="member-recommend-discount">24%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 14" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 벤치 지퍼드 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">310,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 15" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 테크 후드 집업 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">134,100원</span>
+                                    <span class="member-recommend-discount">10%</span>
+                                </div>
+                            </a>
+
+                            <!-- 16~20 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 16" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Supreme</div>
+                                <div class="member-recommend-name">슈프림 S 로고 집업 후디 레드</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">354,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 17" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Sansan Gear</div>
+                                <div class="member-recommend-name">산산 기모 자켓 그레이</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">169,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="추천 상품 18" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 양털 트랙 자켓 베이지</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">151,000원</span>
+                                    <span class="member-recommend-discount">15%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 19" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">AMOU</div>
+                                <div class="member-recommend-name">아모우 디스트 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">39,500원</span>
+                                    <span class="member-recommend-discount">50%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 20" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Nike</div>
+                                <div class="member-recommend-name">나이키 조던 로우 스니커즈 블루</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">188,000원</span>
+                                </div>
+                            </a>
+
+                            <!-- 21~40 동일 패턴 반복 -->
+                            <!-- 21~25 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 21" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Knitted</div>
+                                <div class="member-recommend-name">니트드 카고 트레이닝 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">49,800원</span>
+                                    <span class="member-recommend-discount">30%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80" alt="추천 상품 22" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 데님 블루종 자켓</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">191,200원</span>
+                                    <span class="member-recommend-discount">20%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 23" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">New Balance</div>
+                                <div class="member-recommend-name">뉴발란스 204L 스웨이드 스니커즈</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">120,000원</span>
+                                    <span class="member-recommend-discount">24%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 24" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 벤치 지퍼드 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">310,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 25" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 테크 후드 집업 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">134,100원</span>
+                                    <span class="member-recommend-discount">10%</span>
+                                </div>
+                            </a>
+
+                            <!-- 26~30 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 26" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Supreme</div>
+                                <div class="member-recommend-name">슈프림 S 로고 집업 후디 레드</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">354,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 27" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Sansan Gear</div>
+                                <div class="member-recommend-name">산산 기모 자켓 그레이</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">169,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="추천 상품 28" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 양털 트랙 자켓 베이지</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">151,000원</span>
+                                    <span class="member-recommend-discount">15%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 29" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">AMOU</div>
+                                <div class="member-recommend-name">아모우 디스트 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">39,500원</span>
+                                    <span class="member-recommend-discount">50%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 30" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Nike</div>
+                                <div class="member-recommend-name">나이키 조던 로우 스니커즈 블루</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">188,000원</span>
+                                </div>
+                            </a>
+
+                            <!-- 31~35 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 31" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Knitted</div>
+                                <div class="member-recommend-name">니트드 카고 트레이닝 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">49,800원</span>
+                                    <span class="member-recommend-discount">30%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&q=80" alt="추천 상품 32" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 데님 블루종 자켓</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">191,200원</span>
+                                    <span class="member-recommend-discount">20%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 33" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">New Balance</div>
+                                <div class="member-recommend-name">뉴발란스 204L 스웨이드 스니커즈</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">120,000원</span>
+                                    <span class="member-recommend-discount">24%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 34" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 벤치 지퍼드 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">310,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 35" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">SATUR</div>
+                                <div class="member-recommend-name">세터 테크 후드 집업 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">134,100원</span>
+                                    <span class="member-recommend-discount">10%</span>
+                                </div>
+                            </a>
+
+                            <!-- 36~40 -->
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 36" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Supreme</div>
+                                <div class="member-recommend-name">슈프림 S 로고 집업 후디 레드</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">354,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="추천 상품 37" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Sansan Gear</div>
+                                <div class="member-recommend-name">산산 기모 자켓 그레이</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">169,000원</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="추천 상품 38" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Adidas</div>
+                                <div class="member-recommend-name">아디다스 양털 트랙 자켓 베이지</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">151,000원</span>
+                                    <span class="member-recommend-discount">15%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="추천 상품 39" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">AMOU</div>
+                                <div class="member-recommend-name">아모우 디스트 팬츠 블랙</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">39,500원</span>
+                                    <span class="member-recommend-discount">50%</span>
+                                </div>
+                            </a>
+                            <a href="#" class="member-recommend-card">
+                                <div class="member-recommend-thumb-wrap">
+                                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80" alt="추천 상품 40" class="member-recommend-thumb">
+                                </div>
+                                <div class="member-recommend-brand">Nike</div>
+                                <div class="member-recommend-name">나이키 조던 로우 스니커즈 블루</div>
+                                <div class="member-recommend-price-row">
+                                    <span class="member-recommend-price">188,000원</span>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
                 </section>
 
             </div>
@@ -2680,6 +3550,84 @@
     </div>
 </body>
 
+
+
+<!-- 임시 footer (서버 미동작 시용) -->
+<footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-menu">
+                    <div class="footer-menu-group">
+                        <h3 class="footer-menu-title">이용안내</h3>
+                        <ul class="footer-menu-list">
+                            <li><a href="#">검수기준</a></li>
+                            <li><a href="#">이용정책</a></li>
+                            <li><a href="#">패널티 정책</a></li>
+                            <li><a href="#">커뮤니티 가이드라인</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu-group">
+                        <h3 class="footer-menu-title">고객지원</h3>
+                        <ul class="footer-menu-list">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">스토어 안내</a></li>
+                            <li><a href="#">판매자 방문접수</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-menu-group footer-center-group">
+                        <h3 class="footer-menu-title">고객센터 1588-7813</h3>
+                        <p class="footer-center-time">
+                            운영시간 평일 10:00 - 18:00<br />
+                            (토∙일, 공휴일 휴무)<br />
+                            점심시간 평일 13:00 - 14:00
+                        </p>
+                        <p class="footer-center-desc">
+                            1:1 문의하기는 앱에서만 가능합니다.
+                        </p>
+                        <a href="#" class="footer-center-btn">자주 묻는 질문</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-info">
+                    <ul class="footer-info-menu">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">인재채용</a></li>
+                        <li><a href="#">제휴제안</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                    </ul>
+
+                    <div class="footer-company">
+                        <p class="footer-company-row">
+                            크림 주식회사 · 대표 김형준 | 사업자등록번호 : 570-88-01816 <a href="#" class="footer-link-underline">사업자정보확인</a><br />
+                            통신판매업 : 제 2021-성남분당C-0093호 | 사업장소재지 : 경기도 성남시 분당구 대왕판교로 131 8층(삼평동, NAVER 1784)<br />
+                            호스팅 서비스 : 네이버 클라우드㈜ | 대표번호 : 1588-7813 | 이메일 : help@kream.co.kr
+                        </p>
+                        <p class="footer-company-row">
+                            신한은행 채무지급보증 안내<br />
+                            당사는 고객님이 현금 결제한 금액에 대해 신한은행과 채무지급보증 계약을 체결하여 안전한 거래를 보장하고 있습니다.
+                            <a href="#" class="footer-link-underline">서비스 가입사실 확인</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-sns">
+                    <ul class="footer-sns-list">
+                        <li><a href="#" aria-label="Instagram" class="footer-sns-icon footer-sns-instagram"></a></li>
+                        <li><a href="#" aria-label="Facebook" class="footer-sns-icon footer-sns-facebook"></a></li>
+                        <li><a href="#" aria-label="YouTube" class="footer-sns-icon footer-sns-youtube"></a></li>
+                        <li><a href="#" aria-label="Kakao" class="footer-sns-icon footer-sns-kakao"></a></li>
+                    </ul>
+                    <p class="footer-copy">© KREAM Corp.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- 서버 동작 시 common/footer.html fragment 사용 -->
+<div th:replace="common/footer :: footer"></div>
 <script>
 
 </script>
