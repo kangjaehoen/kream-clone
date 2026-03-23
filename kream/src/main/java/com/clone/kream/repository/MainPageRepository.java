@@ -1,5 +1,10 @@
 package com.clone.kream.repository;
 
+import com.clone.kream.dto.CardBannerItemDto;
+import com.clone.kream.dto.HotTrendItemDto;
+import com.clone.kream.dto.MostPopularItemDto;
+import com.clone.kream.dto.WishItemDto;
+import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.MostPopularItem;
@@ -10,9 +15,7 @@ import com.clone.kream.repository.jpa.HotTrendItemJpaRepository;
 import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
 import com.clone.kream.repository.jpa.WishItemJpaRepository;
 import com.clone.kream.repository.jpa.WishKeywardJpaRepository;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 
@@ -39,83 +42,81 @@ public class MainPageRepository {
         this.mostPopularItemJpaRepository = mostPopularItemJpaRepository;
     }
 
-    public List<Map<String, Object>> findWishKeywords() {
+    public List<WishKeywordDto> findWishKeywords() {
         return wishKeywardJpaRepository.findAllByOrderByWishKeywardIdAsc()
             .stream()
-            .map(this::toWishKeywordMap)
+            .map(this::toWishKeywordDto)
             .collect(Collectors.toList());
     }
 
-    public List<Map<String, Object>> findWishItems() {
+    public List<WishItemDto> findWishItems() {
         return wishItemJpaRepository.findAllByOrderByWishItemIdAsc()
             .stream()
-            .map(this::toWishItemMap)
+            .map(this::toWishItemDto)
             .collect(Collectors.toList());
     }
 
-    public List<Map<String, Object>> findHotTrendItems() {
+    public List<HotTrendItemDto> findHotTrendItems() {
         return hotTrendItemJpaRepository.findAllByOrderByHotTrendItemIdAsc()
             .stream()
-            .map(this::toHotTrendItemMap)
+            .map(this::toHotTrendItemDto)
             .collect(Collectors.toList());
     }
 
-    public Map<String, Object> findCardBannerItem() {
+    public CardBannerItemDto findCardBannerItem() {
         return cardBannerItemJpaRepository.findTopByOrderByCardBannerItemIdDesc()
-            .map(this::toCardBannerItemMap)
-            .orElseGet(Map::of);
+            .map(this::toCardBannerItemDto)
+            .orElse(null);
     }
 
-    public List<Map<String, Object>> findMostPopularItems() {
+    public List<MostPopularItemDto> findMostPopularItems() {
         return mostPopularItemJpaRepository.findAllByOrderByMostPopularItemIdAsc()
             .stream()
-            .map(this::toMostPopularItemMap)
+            .map(this::toMostPopularItemDto)
             .collect(Collectors.toList());
     }
 
-    private Map<String, Object> toWishKeywordMap(WishKeyward wishKeyward) {
-        Map<String, Object> row = new HashMap<>();
-        row.put("wish_keyward_nm", wishKeyward.getWishKeywardName());
-        return row;
+    private WishKeywordDto toWishKeywordDto(WishKeyward wishKeyward) {
+        return new WishKeywordDto(wishKeyward.getWishKeywardName());
     }
 
-    private Map<String, Object> toWishItemMap(WishItem wishItem) {
-        Map<String, Object> row = new HashMap<>();
-        row.put("wish_item_image", wishItem.getWishItemImage());
-        row.put("wish_item_nm", wishItem.getWishItemName());
-        row.put("wish_item_url", wishItem.getWishItemUrl());
-        row.put("wish_item_price", wishItem.getWishItemPrice());
-        row.put("wish_discount_percent", wishItem.getWishDiscountPercent());
-        return row;
+    private WishItemDto toWishItemDto(WishItem wishItem) {
+        return new WishItemDto(
+            wishItem.getWishItemImage(),
+            wishItem.getWishItemName(),
+            wishItem.getWishItemUrl(),
+            wishItem.getWishItemPrice(),
+            wishItem.getWishDiscountPercent()
+        );
     }
 
-    private Map<String, Object> toHotTrendItemMap(HotTrendItem hotTrendItem) {
-        Map<String, Object> row = new HashMap<>();
-        row.put("hot_trend_item_nm", hotTrendItem.getHotTrendItemName());
-        row.put("hot_trend_item_image", hotTrendItem.getHotTrendItemImage());
-        row.put("hot_trend_item_url", hotTrendItem.getHotTrendItemUrl());
-        return row;
+    private HotTrendItemDto toHotTrendItemDto(HotTrendItem hotTrendItem) {
+        return new HotTrendItemDto(
+            hotTrendItem.getHotTrendItemName(),
+            hotTrendItem.getHotTrendItemImage(),
+            hotTrendItem.getHotTrendItemUrl()
+        );
     }
 
-    private Map<String, Object> toCardBannerItemMap(CardBannerItem cardBannerItem) {
-        Map<String, Object> row = new HashMap<>();
-        row.put("card_banner_item_nm", cardBannerItem.getCardBannerItemName());
-        row.put("card_banner_item_sub_nm", cardBannerItem.getCardBannerItemSubName());
-        row.put("card_banner_item_dec", cardBannerItem.getCardBannerItemDescription());
-        row.put("card_banner_item_image", cardBannerItem.getCardBannerItemImage());
-        row.put("card_banner_url", cardBannerItem.getCardBannerUrl());
-        return row;
+    private CardBannerItemDto toCardBannerItemDto(CardBannerItem cardBannerItem) {
+        return new CardBannerItemDto(
+            cardBannerItem.getCardBannerItemName(),
+            cardBannerItem.getCardBannerItemSubName(),
+            cardBannerItem.getCardBannerItemDescription(),
+            cardBannerItem.getCardBannerItemImage(),
+            cardBannerItem.getCardBannerUrl()
+        );
     }
 
-    private Map<String, Object> toMostPopularItemMap(MostPopularItem mostPopularItem) {
-        Map<String, Object> row = new HashMap<>();
-        row.put("most_popular_item_nm", mostPopularItem.getMostPopularItemName());
-        row.put("most_popular_item_price", mostPopularItem.getMostPopularItemPrice());
-        row.put("most_popular_item_discount_percent", mostPopularItem.getMostPopularItemDiscountPercent());
-        row.put("most_popular_item_interest", mostPopularItem.getMostPopularItemInterest());
-        row.put("most_popular_item_review", mostPopularItem.getMostPopularItemReview());
-        row.put("most_popular_item_image", mostPopularItem.getMostPopularItemImage());
-        row.put("most_popular_item_url", mostPopularItem.getMostPopularItemUrl());
-        return row;
+    private MostPopularItemDto toMostPopularItemDto(MostPopularItem mostPopularItem) {
+        return new MostPopularItemDto(
+            mostPopularItem.getMostPopularItemName(),
+            mostPopularItem.getMostPopularItemPrice(),
+            mostPopularItem.getMostPopularItemDiscountPercent(),
+            mostPopularItem.getMostPopularItemInterest(),
+            mostPopularItem.getMostPopularItemReview(),
+            mostPopularItem.getMostPopularItemImage(),
+            mostPopularItem.getMostPopularItemUrl()
+        );
     }
 }

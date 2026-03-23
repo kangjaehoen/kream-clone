@@ -1951,18 +1951,18 @@
                             th:classappend="${stat.index == 0} ? ' active' : ''"
                             href="#"
                             class="wish-spring-tag"
-                            th:text="${keyword.wish_keyward_nm}">급상승 키워드</a>
+                            th:text="${keyword.wishKeywordName}">급상승 키워드</a>
                     </div>
                     <div class="wish-spring-grid">
-                        <a th:each="item : ${wishItems}" th:href="${item.wish_item_url}" class="wish-spring-item">
-                            <img th:src="@{${item.wish_item_image}}" th:alt="${item.wish_item_nm}" class="wish-spring-image">
-                            <span class="wish-spring-name" th:text="${item.wish_item_nm}">상품명</span>
+                        <a th:each="item : ${wishItems}" th:href="${item.wishItemUrl}" class="wish-spring-item">
+                            <img th:src="@{${item.wishItemImage}}" th:alt="${item.wishItemName}" class="wish-spring-image">
+                            <span class="wish-spring-name" th:text="${item.wishItemName}">상품명</span>
                             <div class="wish-spring-price-row">
                                 <span class="wish-spring-discount"
-                                      th:if="${item.wish_discount_percent != null and item.wish_discount_percent > 0}"
-                                      th:text="|${item.wish_discount_percent}%|">0%</span>
+                                      th:if="${item.wishDiscountPercent != null and item.wishDiscountPercent > 0}"
+                                      th:text="|${item.wishDiscountPercent}%|">0%</span>
                                 <span class="wish-spring-price"
-                                      th:text="|${#numbers.formatInteger(item.wish_item_price, 3, 'COMMA')}원|">0원</span>
+                                      th:text="|${#numbers.formatInteger(item.wishItemPrice, 3, 'COMMA')}원|">0원</span>
                             </div>
                         </a>
                     </div>
@@ -1975,9 +1975,9 @@
                 <section class="hot-trend-section">
                     <h2 class="hot-trend-title">가장 핫한 트렌드</h2>
                     <div class="hot-trend-list">
-                        <a th:each="item : ${hotTrendItems}" th:href="${item.hot_trend_item_url}" class="hot-trend-item">
-                            <img th:src="@{${item.hot_trend_item_image}}" th:alt="${item.hot_trend_item_nm}" class="hot-trend-image">
-                            <span class="hot-trend-label" th:text="${item.hot_trend_item_nm}">TOP 100</span>
+                        <a th:each="item : ${hotTrendItems}" th:href="${item.hotTrendItemUrl}" class="hot-trend-item">
+                            <img th:src="@{${item.hotTrendItemImage}}" th:alt="${item.hotTrendItemName}" class="hot-trend-image">
+                            <span class="hot-trend-label" th:text="${item.hotTrendItemName}">TOP 100</span>
                         </a>
                     </div>
                 </section>
@@ -2034,9 +2034,9 @@
                 <section class="most-popular-section">
                     <div class="most-popular-banner">
                         <div class="most-popular-banner-left">
-                            <span class="most-popular-banner-badge" th:text="${cardBannerItem.card_banner_item_sub_nm}">4% 즉시할인</span>
-                            <span class="most-popular-banner-title" th:text="${cardBannerItem.card_banner_item_nm}">카카오페이, 농협카드 결제 시</span>
-                            <span class="most-popular-banner-desc" th:text="${cardBannerItem.card_banner_item_dec}">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
+                            <span class="most-popular-banner-badge" th:text="${cardBannerItem.cardBannerItemSubName}">4% 즉시할인</span>
+                            <span class="most-popular-banner-title" th:text="${cardBannerItem.cardBannerItemName}">카카오페이, 농협카드 결제 시</span>
+                            <span class="most-popular-banner-desc" th:text="${cardBannerItem.cardBannerItemDescription}">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
                         </div>
                         <div class="most-popular-banner-right">
                             <div class="most-popular-banner-pill">
@@ -2049,18 +2049,18 @@
 
                     <h2 class="most-popular-title">Most Popular</h2>
                     <div class="most-popular-grid">
-                        <a th:each="item : ${mostPopularItems}" th:href="${item.most_popular_item_url}" class="most-popular-item">
-                            <img th:src="@{${item.most_popular_item_image}}" th:alt="${item.most_popular_item_nm}" class="most-popular-thumb">
-                            <span class="most-popular-name" th:text="${item.most_popular_item_nm}">상품명</span>
+                        <a th:each="item : ${mostPopularItems}" th:href="${item.mostPopularItemUrl}" class="most-popular-item">
+                            <img th:src="@{${item.mostPopularItemImage}}" th:alt="${item.mostPopularItemName}" class="most-popular-thumb">
+                            <span class="most-popular-name" th:text="${item.mostPopularItemName}">상품명</span>
                             <div class="most-popular-price-row">
                                 <span class="most-popular-discount"
-                                      th:if="${item.most_popular_item_discount_percent != null and item.most_popular_item_discount_percent > 0}"
-                                      th:text="|${item.most_popular_item_discount_percent}%|">0%</span>
+                                      th:if="${item.mostPopularItemDiscountPercent != null and item.mostPopularItemDiscountPercent > 0}"
+                                      th:text="|${item.mostPopularItemDiscountPercent}%|">0%</span>
                                 <span class="most-popular-price"
-                                      th:text="|${#numbers.formatInteger(item.most_popular_item_price, 3, 'COMMA')}원|">0원</span>
+                                      th:text="|${#numbers.formatInteger(item.mostPopularItemPrice, 3, 'COMMA')}원|">0원</span>
                             </div>
                             <div class="most-popular-info"
-                                 th:text="|관심 ${#numbers.formatInteger(item.most_popular_item_interest, 3, 'COMMA')} · 리뷰 ${#numbers.formatInteger(item.most_popular_item_review, 3, 'COMMA')}|">
+                                 th:text="|관심 ${#numbers.formatInteger(item.mostPopularItemInterest, 3, 'COMMA')} · 리뷰 ${#numbers.formatInteger(item.mostPopularItemReview, 3, 'COMMA')}|">
                                 관심 0 · 리뷰 0
                             </div>
                         </a>

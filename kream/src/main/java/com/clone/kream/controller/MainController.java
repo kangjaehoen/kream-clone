@@ -1,5 +1,6 @@
 package com.clone.kream.controller;
 
+import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.service.MainPageService;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,12 @@ public class MainController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAllAttributes(mainPageService.getMainPageData());
+        MainPageDataDto mainPageData = mainPageService.getMainPageData();
+        model.addAttribute("wishKeywords", mainPageData.wishKeywords());
+        model.addAttribute("wishItems", mainPageData.wishItems());
+        model.addAttribute("hotTrendItems", mainPageData.hotTrendItems());
+        model.addAttribute("cardBannerItem", mainPageData.cardBannerItem());
+        model.addAttribute("mostPopularItems", mainPageData.mostPopularItems());
         return "main/index";
     }
 

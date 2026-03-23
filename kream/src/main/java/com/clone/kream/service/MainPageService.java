@@ -1,8 +1,7 @@
 package com.clone.kream.service;
 
+import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.repository.MainPageRepository;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,15 +13,13 @@ public class MainPageService {
         this.mainPageRepository = mainPageRepository;
     }
 
-    public Map<String, Object> getMainPageData() {
-        Map<String, Object> model = new HashMap<>();
-
-        model.put("wishKeywords", mainPageRepository.findWishKeywords());
-        model.put("wishItems", mainPageRepository.findWishItems());
-        model.put("hotTrendItems", mainPageRepository.findHotTrendItems());
-        model.put("cardBannerItem", mainPageRepository.findCardBannerItem());
-        model.put("mostPopularItems", mainPageRepository.findMostPopularItems());
-
-        return model;
+    public MainPageDataDto getMainPageData() {
+        return new MainPageDataDto(
+            mainPageRepository.findWishKeywords(),
+            mainPageRepository.findWishItems(),
+            mainPageRepository.findHotTrendItems(),
+            mainPageRepository.findCardBannerItem(),
+            mainPageRepository.findMostPopularItems()
+        );
     }
 }
