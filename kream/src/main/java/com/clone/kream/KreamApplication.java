@@ -2,18 +2,9 @@ package com.clone.kream;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-/**
- * 임시지거으로 datasource, jpa, redis 자동 설정 비활성화
- */
-@SpringBootApplication(exclude = {
-	DataSourceAutoConfiguration.class,
-	JpaRepositoriesAutoConfiguration.class,
-	RedisAutoConfiguration.class
-})
+
+@SpringBootApplication
 public class KreamApplication {
 
 	public static void main(String[] args) {

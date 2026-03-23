@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,65 +11,8 @@
     <link rel="stylesheet" th:href="@{/css/common.css}">
     <title>KREAM | 한정판 거래의 FLEX</title>
     <style>
-        body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
-            margin: 0;
-            padding: 0;
-        }
 
-        body{
-            color: #222;
-            font-family: Pretendard Variable,Pretendard,-apple-system,BlinkMacSystemFont,system-ui,Roboto,Helvetica Neue,Segoe UI,Apple SD Gothic Neo,Noto Sans KR,Malgun Gothic,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
-            font-feature-settings: "frac" 0, "numr" 0;
-        }
 
-        main{
-            display: block;
-            unicode-bidi: isolate;
-        }
-
-        div{
-            display: block;
-            unicode-bidi: isolate;
-        }
-
-        nav{
-            display: block;
-            unicode-bidi: isolate;
-        }
-
-        li, ol, ul{
-            list-style: none;
-        } 
-
-        ul{
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            padding-inline-start: 0;
-            unicode-bidi: isolate;
-        }
-
-        li{
-            display: inline-block;
-            unicode-bidi: isolate;
-        }
-
-        a, a:active, a:focus, a:hover{
-            text-decoration: none;
-            color: #222;
-        }
-
-        button{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: initial;
-            outline: none;
-            padding: 0;
-            border : 0;
-        }
-        
 
         .header-top{
             margin-left: auto;
@@ -207,149 +150,6 @@
 
         .tab:hover{
             border-bottom-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer (서버 없이 index.html 단독 실행용, common.css 와 동일) */
-        .footer{
-            margin-top: 60px;
-        }
-
-        .footer-inner{
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 50px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            box-sizing: border-box;
-            border-top: 1px solid #ebebeb;
-        }
-
-        .footer-top{
-            border-bottom: 1px solid #ebebeb;
-            padding-bottom: 24px;
-        }
-
-        .footer-menu{
-            display: flex;
-            gap: 80px;
-        }
-
-        .footer-menu-group{
-            min-width: 160px;
-        }
-
-        .footer-menu-title{
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .footer-menu-list li{
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .footer-menu-list a{
-            font-size: 12px;
-            color: rgba(34,34,34,.8);
-        }
-
-        .footer-center-group .footer-menu-title{
-            font-size: 14px;
-        }
-
-        .footer-center-group{
-            margin-left: auto;
-        }
-
-        .footer-center-time,
-        .footer-center-desc{
-            font-size: 12px;
-            color: rgba(34,34,34,.8);
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .footer-center-btn{
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 12px;
-            border-radius: 4px;
-            border: 1px solid #d3d3d3;
-            font-size: 12px;
-            background-color: #fff;
-        }
-
-        .footer-bottom{
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .footer-info-menu{
-            margin-block-start: 0;
-            margin-block-end: 8px;
-        }
-
-        .footer-info-menu li{
-            display: inline-block;
-            margin-right: 12px;
-        }
-
-        .footer-info-menu a{
-            font-size: 12px;
-            color: rgba(34,34,34,.8);
-            font-weight: 600;
-        }
-
-        .footer-info-menu a:hover{
-            text-decoration: underline;
-        }
-
-        .footer-company-row{
-            font-size: 11px;
-            color: rgba(34,34,34,.6);
-            line-height: 1.7;
-            margin-top: 4px;
-        }
-
-        .footer-company-row + .footer-company-row{
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #ebebeb;
-        }
-
-        .footer-link-underline{
-            text-decoration: underline;
-        }
-
-        .footer-sns{
-            text-align: right;
-        }
-
-        .footer-sns-list{
-            margin-block-start: 0;
-            margin-block-end: 8px;
-        }
-
-        .footer-sns-list li{
-            margin-left: 4px;
-        }
-
-        .footer-sns-icon{
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #e0e0e0;
-        }
-
-        .footer-copy{
-            font-size: 11px;
-            color: rgba(34,34,34,.5);
         }
 
         .tab_name{
@@ -1715,135 +1515,6 @@
                 white-space: nowrap;
             }
 
-
-            .footer{
-    border-top: 1px solid #ebebeb;
-    background-color: #f9f9f9;
-    margin-top: 60px;
-}
-
-.footer-inner{
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 32px 40px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    box-sizing: border-box;
-}
-
-.footer-top{
-    border-bottom: 1px solid #ebebeb;
-    padding-bottom: 24px;
-}
-
-.footer-menu{
-    display: flex;
-    gap: 80px;
-}
-
-.footer-menu-group{
-    min-width: 160px;
-}
-
-.footer-menu-title{
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.footer-menu-list li{
-    display: block;
-    margin-bottom: 6px;
-}
-
-.footer-menu-list a{
-    font-size: 12px;
-    color: rgba(34,34,34,.8);
-}
-
-.footer-center-group .footer-menu-title{
-    font-size: 14px;
-}
-
-.footer-center-time,
-.footer-center-desc{
-    font-size: 12px;
-    color: rgba(34,34,34,.8);
-    line-height: 1.6;
-    margin-bottom: 8px;
-}
-
-.footer-center-btn{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 12px;
-    border-radius: 4px;
-    border: 1px solid #d3d3d3;
-    font-size: 12px;
-    background-color: #fff;
-}
-
-.footer-bottom{
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    align-items: flex-start;
-}
-
-.footer-info-menu{
-    margin-block-start: 0;
-    margin-block-end: 8px;
-}
-
-.footer-info-menu li{
-    display: inline-block;
-    margin-right: 12px;
-}
-
-.footer-info-menu a{
-    font-size: 12px;
-    color: rgba(34,34,34,.8);
-}
-
-.footer-company-row{
-    font-size: 11px;
-    color: rgba(34,34,34,.6);
-    line-height: 1.7;
-    margin-top: 4px;
-}
-
-.footer-link-underline{
-    text-decoration: underline;
-}
-
-.footer-sns{
-    text-align: right;
-}
-
-.footer-sns-list{
-    margin-block-start: 0;
-    margin-block-end: 8px;
-}
-
-.footer-sns-list li{
-    margin-left: 4px;
-}
-
-.footer-sns-icon{
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #e0e0e0;
-}
-
-.footer-copy{
-    font-size: 11px;
-    color: rgba(34,34,34,.5);
-}
-
         }
 
         @media (max-width: 480px) {
@@ -2275,101 +1946,23 @@
                 <section class="wish-spring-section">
                     <h2 class="wish-spring-title">내 위시에 봄 담아봄</h2>
                     <div class="wish-spring-tags">
-                        <a href="#" class="wish-spring-tag active">급상승 키워드</a>
-                        <a href="#" class="wish-spring-tag">새학기 치트키</a>
-                        <a href="#" class="wish-spring-tag">스니커즈</a>
-                        <a href="#" class="wish-spring-tag">러닝</a>
-                        <a href="#" class="wish-spring-tag">캠퍼스룩</a>
-                        <a href="#" class="wish-spring-tag">화이트데이</a>
+                        <a
+                            th:each="keyword, stat : ${wishKeywords}"
+                            th:classappend="${stat.index == 0} ? ' active' : ''"
+                            href="#"
+                            class="wish-spring-tag"
+                            th:text="${keyword.wish_keyward_nm}">급상승 키워드</a>
                     </div>
                     <div class="wish-spring-grid">
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&q=80" alt="아크테릭스 스쿼미시 후디 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">아크테릭스 스쿼미시 후디 블랙</span>
+                        <a th:each="item : ${wishItems}" th:href="${item.wish_item_url}" class="wish-spring-item">
+                            <img th:src="@{${item.wish_item_image}}" th:alt="${item.wish_item_nm}" class="wish-spring-image">
+                            <span class="wish-spring-name" th:text="${item.wish_item_nm}">상품명</span>
                             <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">315,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="나이키 드라이핏 챌린저 우븐 팬츠 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">나이키 드라이핏 챌린저 우븐 팬츠 블랙...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">42,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="살로몬 모디세이 윈드쉘 자켓 딥 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">살로몬 모디세이 윈드쉘 자켓 딥 블랙</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">302,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="노스페이스 화이트 라벨 노벨티 올" class="wish-spring-image">
-                            <span class="wish-spring-name">(W) 노스페이스 화이트 라벨 노벨티 올...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">180,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="노스페이스 쉘든 자켓 베이지 브라운" class="wish-spring-image">
-                            <span class="wish-spring-name">노스페이스 쉘든 자켓 베이지 브라운...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-discount">12%</span>
-                                <span class="wish-spring-price">155,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="아디다스 x 베이프 자카드 팬츠 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">아디다스 x 베이프 자카드 팬츠 블랙...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">300,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&q=80" alt="아이앱 스튜디오 25 후드 라이트 그레" class="wish-spring-image">
-                            <span class="wish-spring-name">아이앱 스튜디오 25 후드 라이트 그레...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">147,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="나이키 스톰 핏 스위프트 러닝 자켓" class="wish-spring-image">
-                            <span class="wish-spring-name">(W) 나이키 스톰 핏 스위프트 러닝 자...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-price">213,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&q=80" alt="C.P. 컴퍼니 프로텍 렌즈 후드 자켓 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">C.P. 컴퍼니 프로텍 렌즈 후드 자켓 블...</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-discount">5%</span>
-                                <span class="wish-spring-price">500,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&q=80" alt="아크테릭스 스쿼미시 후디 아트모스" class="wish-spring-image">
-                            <span class="wish-spring-name">(W) 아크테릭스 스쿼미시 후디 아트모스</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-discount">5%</span>
-                                <span class="wish-spring-price">273,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=300&q=80" alt="아크테릭스 베타 SL 자켓 블랙" class="wish-spring-image">
-                            <span class="wish-spring-name">아크테릭스 베타 SL 자켓 블랙</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-discount">19%</span>
-                                <span class="wish-spring-price">642,000원</span>
-                            </div>
-                        </a>
-                        <a href="#" class="wish-spring-item">
-                            <img src="https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=300&q=80" alt="칼하트 WIP 로버트슨 데님 랜든 팬츠" class="wish-spring-image">
-                            <span class="wish-spring-name">칼하트 WIP 로버트슨 데님 랜든 팬츠....</span>
-                            <div class="wish-spring-price-row">
-                                <span class="wish-spring-discount">21%</span>
-                                <span class="wish-spring-price">144,000원</span>
+                                <span class="wish-spring-discount"
+                                      th:if="${item.wish_discount_percent != null and item.wish_discount_percent > 0}"
+                                      th:text="|${item.wish_discount_percent}%|">0%</span>
+                                <span class="wish-spring-price"
+                                      th:text="|${#numbers.formatInteger(item.wish_item_price, 3, 'COMMA')}원|">0원</span>
                             </div>
                         </a>
                     </div>
@@ -2382,45 +1975,9 @@
                 <section class="hot-trend-section">
                     <h2 class="hot-trend-title">가장 핫한 트렌드</h2>
                     <div class="hot-trend-list">
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=144&q=80" alt="TOP 100" class="hot-trend-image">
-                            <span class="hot-trend-label">TOP 100</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=144&q=80" alt="캐릭터 도감" class="hot-trend-image">
-                            <span class="hot-trend-label">캐릭터 도감</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=144&q=80" alt="히든 브랜드" class="hot-trend-image">
-                            <span class="hot-trend-label">히든 브랜드</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=144&q=80" alt="급상승 브랜드" class="hot-trend-image">
-                            <span class="hot-trend-label">급상승 브랜드</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343a?w=144&q=80" alt="대세는 크롬하츠" class="hot-trend-image">
-                            <span class="hot-trend-label">대세는 크롬하츠</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=144&q=80" alt="지금 뜨는 신상" class="hot-trend-image">
-                            <span class="hot-trend-label">지금 뜨는 신상</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=144&q=80" alt="손목이 허전할때" class="hot-trend-image">
-                            <span class="hot-trend-label">손목이 허전할때</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=144&q=80" alt="급상승 검색어" class="hot-trend-image">
-                            <span class="hot-trend-label">급상승 검색어</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=144&q=80" alt="드롭 리스트" class="hot-trend-image">
-                            <span class="hot-trend-label">드롭 리스트</span>
-                        </a>
-                        <a href="#" class="hot-trend-item">
-                            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=144&q=80" alt="봄맞이 선물" class="hot-trend-image">
-                            <span class="hot-trend-label">봄맞이 선물</span>
+                        <a th:each="item : ${hotTrendItems}" th:href="${item.hot_trend_item_url}" class="hot-trend-item">
+                            <img th:src="@{${item.hot_trend_item_image}}" th:alt="${item.hot_trend_item_nm}" class="hot-trend-image">
+                            <span class="hot-trend-label" th:text="${item.hot_trend_item_nm}">TOP 100</span>
                         </a>
                     </div>
                 </section>
@@ -2477,9 +2034,9 @@
                 <section class="most-popular-section">
                     <div class="most-popular-banner">
                         <div class="most-popular-banner-left">
-                            <span class="most-popular-banner-badge">4% 즉시할인</span>
-                            <span class="most-popular-banner-title">카카오페이, 농협카드 결제 시</span>
-                            <span class="most-popular-banner-desc">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
+                            <span class="most-popular-banner-badge" th:text="${cardBannerItem.card_banner_item_sub_nm}">4% 즉시할인</span>
+                            <span class="most-popular-banner-title" th:text="${cardBannerItem.card_banner_item_nm}">카카오페이, 농협카드 결제 시</span>
+                            <span class="most-popular-banner-desc" th:text="${cardBannerItem.card_banner_item_dec}">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
                         </div>
                         <div class="most-popular-banner-right">
                             <div class="most-popular-banner-pill">
@@ -2492,91 +2049,20 @@
 
                     <h2 class="most-popular-title">Most Popular</h2>
                     <div class="most-popular-grid">
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" alt="뉴발란스 1906D 실버 메탈릭" class="most-popular-thumb">
-                            <span class="most-popular-name">뉴발란스 1906D 실버 메탈릭</span>
+                        <a th:each="item : ${mostPopularItems}" th:href="${item.most_popular_item_url}" class="most-popular-item">
+                            <img th:src="@{${item.most_popular_item_image}}" th:alt="${item.most_popular_item_nm}" class="most-popular-thumb">
+                            <span class="most-popular-name" th:text="${item.most_popular_item_nm}">상품명</span>
                             <div class="most-popular-price-row">
-                                <span class="most-popular-discount">19%</span>
-                                <span class="most-popular-price">192,000원</span>
+                                <span class="most-popular-discount"
+                                      th:if="${item.most_popular_item_discount_percent != null and item.most_popular_item_discount_percent > 0}"
+                                      th:text="|${item.most_popular_item_discount_percent}%|">0%</span>
+                                <span class="most-popular-price"
+                                      th:text="|${#numbers.formatInteger(item.most_popular_item_price, 3, 'COMMA')}원|">0원</span>
                             </div>
-                            <div class="most-popular-info">관심 1.4만 · 리뷰 1,192</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="나이키 에어포스 1 07 화이트" class="most-popular-thumb">
-                            <span class="most-popular-name">나이키 에어포스 1 '07 로우 화이트</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-discount">29%</span>
-                                <span class="most-popular-price">105,000원</span>
+                            <div class="most-popular-info"
+                                 th:text="|관심 ${#numbers.formatInteger(item.most_popular_item_interest, 3, 'COMMA')} · 리뷰 ${#numbers.formatInteger(item.most_popular_item_review, 3, 'COMMA')}|">
+                                관심 0 · 리뷰 0
                             </div>
-                            <div class="most-popular-info">관심 8.6만 · 리뷰 4,237</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?w=400&q=80" alt="애플 에어팟 3세대" class="most-popular-thumb">
-                            <span class="most-popular-name">애플 에어팟 3세대 무선 이어폰</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-discount">16%</span>
-                                <span class="most-popular-price">225,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 1.2만 · 리뷰 1,143</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1621609871103-6a62467b70fc?w=400&q=80" alt="노스페이스 플리스 자켓" class="most-popular-thumb">
-                            <span class="most-popular-name">노스페이스 리버서블 플리스 자켓 블랙</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-discount">19%</span>
-                                <span class="most-popular-price">249,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 2.7만 · 리뷰 6,275</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="스투시 후드 집업" class="most-popular-thumb">
-                            <span class="most-popular-name">스투시 베이직 로고 후드 집업 블랙</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-price">186,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 1.4만 · 리뷰 89</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1542213493895-edf5b94f5a33?w=400&q=80" alt="나이키 에어맥스 95 네온" class="most-popular-thumb">
-                            <span class="most-popular-name">나이키 에어맥스 95 OG 네온</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-price">245,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 3.6만 · 리뷰 237</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=400&q=80" alt="뉴발란스 992 그레이" class="most-popular-thumb">
-                            <span class="most-popular-name">뉴발란스 992 USA 코어 그레이</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-discount">19%</span>
-                                <span class="most-popular-price">249,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 2.7만 · 리뷰 6,275</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="나이키 ACG 고어텍스 자켓" class="most-popular-thumb">
-                            <span class="most-popular-name">나이키 ACG 고어텍스 스톰 자켓 ADV</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-discount">36%</span>
-                                <span class="most-popular-price">210,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 7,842 · 리뷰 573</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1603808033192-67c0c829c831?w=400&q=80" alt="샤몬 XT-윙 스니커즈" class="most-popular-thumb">
-                            <span class="most-popular-name">살로몬 XT-윙 4 트레일 러닝 슈즈</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-price">129,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 1.2만 · 리뷰 804</div>
-                        </a>
-                        <a href="#" class="most-popular-item">
-                            <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=400&q=80" alt="블랙 레더 스니커즈" class="most-popular-thumb">
-                            <span class="most-popular-name">심플 블랙 레더 스니커즈</span>
-                            <div class="most-popular-price-row">
-                                <span class="most-popular-price">189,000원</span>
-                            </div>
-                            <div class="most-popular-info">관심 8,673 · 리뷰 312</div>
                         </a>
                     </div>
                 </section>
@@ -3552,81 +3038,8 @@
 
 
 
-<!-- 임시 footer (서버 미동작 시용) -->
-<footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-menu">
-                    <div class="footer-menu-group">
-                        <h3 class="footer-menu-title">이용안내</h3>
-                        <ul class="footer-menu-list">
-                            <li><a href="#">검수기준</a></li>
-                            <li><a href="#">이용정책</a></li>
-                            <li><a href="#">패널티 정책</a></li>
-                            <li><a href="#">커뮤니티 가이드라인</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu-group">
-                        <h3 class="footer-menu-title">고객지원</h3>
-                        <ul class="footer-menu-list">
-                            <li><a href="#">공지사항</a></li>
-                            <li><a href="#">스토어 안내</a></li>
-                            <li><a href="#">판매자 방문접수</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu-group footer-center-group">
-                        <h3 class="footer-menu-title">고객센터 1588-7813</h3>
-                        <p class="footer-center-time">
-                            운영시간 평일 10:00 - 18:00<br />
-                            (토∙일, 공휴일 휴무)<br />
-                            점심시간 평일 13:00 - 14:00
-                        </p>
-                        <p class="footer-center-desc">
-                            1:1 문의하기는 앱에서만 가능합니다.
-                        </p>
-                        <a href="#" class="footer-center-btn">자주 묻는 질문</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer-bottom">
-                <div class="footer-info">
-                    <ul class="footer-info-menu">
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">인재채용</a></li>
-                        <li><a href="#">제휴제안</a></li>
-                        <li><a href="#">이용약관</a></li>
-                        <li><a href="#">개인정보처리방침</a></li>
-                    </ul>
 
-                    <div class="footer-company">
-                        <p class="footer-company-row">
-                            크림 주식회사 · 대표 김형준 | 사업자등록번호 : 570-88-01816 <a href="#" class="footer-link-underline">사업자정보확인</a><br />
-                            통신판매업 : 제 2021-성남분당C-0093호 | 사업장소재지 : 경기도 성남시 분당구 대왕판교로 131 8층(삼평동, NAVER 1784)<br />
-                            호스팅 서비스 : 네이버 클라우드㈜ | 대표번호 : 1588-7813 | 이메일 : help@kream.co.kr
-                        </p>
-                        <p class="footer-company-row">
-                            신한은행 채무지급보증 안내<br />
-                            당사는 고객님이 현금 결제한 금액에 대해 신한은행과 채무지급보증 계약을 체결하여 안전한 거래를 보장하고 있습니다.
-                            <a href="#" class="footer-link-underline">서비스 가입사실 확인</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="footer-sns">
-                    <ul class="footer-sns-list">
-                        <li><a href="#" aria-label="Instagram" class="footer-sns-icon footer-sns-instagram"></a></li>
-                        <li><a href="#" aria-label="Facebook" class="footer-sns-icon footer-sns-facebook"></a></li>
-                        <li><a href="#" aria-label="YouTube" class="footer-sns-icon footer-sns-youtube"></a></li>
-                        <li><a href="#" aria-label="Kakao" class="footer-sns-icon footer-sns-kakao"></a></li>
-                    </ul>
-                    <p class="footer-copy">© KREAM Corp.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-<!-- 서버 동작 시 common/footer.html fragment 사용 -->
 <div th:replace="common/footer :: footer"></div>
 <script>
 
