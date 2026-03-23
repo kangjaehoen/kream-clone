@@ -1,79 +1,121 @@
 package com.clone.kream.repository;
 
+import com.clone.kream.entity.CardBannerItem;
+import com.clone.kream.entity.HotTrendItem;
+import com.clone.kream.entity.MostPopularItem;
+import com.clone.kream.entity.WishItem;
+import com.clone.kream.entity.WishKeyward;
+import com.clone.kream.repository.jpa.CardBannerItemJpaRepository;
+import com.clone.kream.repository.jpa.HotTrendItemJpaRepository;
+import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
+import com.clone.kream.repository.jpa.WishItemJpaRepository;
+import com.clone.kream.repository.jpa.WishKeywardJpaRepository;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.springframework.jdbc.core.JdbcTemplate;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class MainPageRepository {
 
-    private final JdbcTemplate jdbcTemplate;
+    private final WishKeywardJpaRepository wishKeywardJpaRepository;
+    private final WishItemJpaRepository wishItemJpaRepository;
+    private final HotTrendItemJpaRepository hotTrendItemJpaRepository;
+    private final CardBannerItemJpaRepository cardBannerItemJpaRepository;
+    private final MostPopularItemJpaRepository mostPopularItemJpaRepository;
 
-    public MainPageRepository(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public MainPageRepository(
+        WishKeywardJpaRepository wishKeywardJpaRepository,
+        WishItemJpaRepository wishItemJpaRepository,
+        HotTrendItemJpaRepository hotTrendItemJpaRepository,
+        CardBannerItemJpaRepository cardBannerItemJpaRepository,
+        MostPopularItemJpaRepository mostPopularItemJpaRepository
+    ) {
+        this.wishKeywardJpaRepository = wishKeywardJpaRepository;
+        this.wishItemJpaRepository = wishItemJpaRepository;
+        this.hotTrendItemJpaRepository = hotTrendItemJpaRepository;
+        this.cardBannerItemJpaRepository = cardBannerItemJpaRepository;
+        this.mostPopularItemJpaRepository = mostPopularItemJpaRepository;
     }
 
     public List<Map<String, Object>> findWishKeywords() {
-        return jdbcTemplate.queryForList("""
-            SELECT wish_keyward_nm
-            FROM wish_keyward
-            ORDER BY id ASC
-            """);
+        return wishKeywardJpaRepository.findAllByOrderByWishKeywardIdAsc()
+            .stream()
+            .map(this::toWishKeywordMap)
+            .collect(Collectors.toList());
     }
 
     public List<Map<String, Object>> findWishItems() {
-        return jdbcTemplate.queryForList("""
-            SELECT
-                wish_item_image,
-                wish_item_nm,
-                wish_item_url,
-                wish_item_price,
-                wish_discount_percent
-            FROM wish_items
-            ORDER BY id ASC
-            """);
+        return wishItemJpaRepository.findAllByOrderByWishItemIdAsc()
+            .stream()
+            .map(this::toWishItemMap)
+            .collect(Collectors.toList());
     }
 
     public List<Map<String, Object>> findHotTrendItems() {
-        return jdbcTemplate.queryForList("""
-            SELECT
-                hot_trand_item_nm AS hot_trend_item_nm,
-                hot_trand_item_image AS hot_trend_item_image,
-                hot_trand_item_url AS hot_trend_item_url
-            FROM hot_trend_item
-            ORDER BY id ASC
-            """);
+        return hotTrendItemJpaRepository.findAllByOrderByHotTrendItemIdAsc()
+            .stream()
+            .map(this::toHotTrendItemMap)
+            .collect(Collectors.toList());
     }
 
     public Map<String, Object> findCardBannerItem() {
-        List<Map<String, Object>> rows = jdbcTemplate.queryForList("""
-            SELECT
-                card_banner_item_nm,
-                card_banner_item_sub_nm,
-                card_banner_item_dec,
-                card_banner_item_image,
-                card_banner_url
-            FROM card_banner_item
-            ORDER BY id DESC
-            LIMIT 1
-            """);
-
-        return rows.isEmpty() ? Map.of() : rows.get(0);
+        return cardBannerItemJpaRepository.findTopByOrderByCardBannerItemIdDesc()
+            .map(this::toCardBannerItemMap)
+            .orElseGet(Map::of);
     }
 
     public List<Map<String, Object>> findMostPopularItems() {
-        return jdbcTemplate.queryForList("""
-            SELECT
-                most_popular_item_nm,
-                most_popular_item_price,
-                most_popular_item_discount_percent,
-                most_popular_item_interest,
-                most_popular_item_review,
-                most_popular_item_image,
-                most_popular_item_url
-            FROM most_popular_item
-            ORDER BY id ASC
-            """);
+        return mostPopularItemJpaRepository.findAllByOrderByMostPopularItemIdAsc()
+            .stream()
+            .map(this::toMostPopularItemMap)
+            .collect(Collectors.toList());
+    }
+
+    private Map<String, Object> toWishKeywordMap(WishKeyward wishKeyward) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("wish_keyward_nm", wishKeyward.getWishKeywardName());
+        return row;
+    }
+
+    private Map<String, Object> toWishItemMap(WishItem wishItem) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("wish_item_image", wishItem.getWishItemImage());
+        row.put("wish_item_nm", wishItem.getWishItemName());
+        row.put("wish_item_url", wishItem.getWishItemUrl());
+        row.put("wish_item_price", wishItem.getWishItemPrice());
+        row.put("wish_discount_percent", wishItem.getWishDiscountPercent());
+        return row;
+    }
+
+    private Map<String, Object> toHotTrendItemMap(HotTrendItem hotTrendItem) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("hot_trend_item_nm", hotTrendItem.getHotTrendItemName());
+        row.put("hot_trend_item_image", hotTrendItem.getHotTrendItemImage());
+        row.put("hot_trend_item_url", hotTrendItem.getHotTrendItemUrl());
+        return row;
+    }
+
+    private Map<String, Object> toCardBannerItemMap(CardBannerItem cardBannerItem) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("card_banner_item_nm", cardBannerItem.getCardBannerItemName());
+        row.put("card_banner_item_sub_nm", cardBannerItem.getCardBannerItemSubName());
+        row.put("card_banner_item_dec", cardBannerItem.getCardBannerItemDescription());
+        row.put("card_banner_item_image", cardBannerItem.getCardBannerItemImage());
+        row.put("card_banner_url", cardBannerItem.getCardBannerUrl());
+        return row;
+    }
+
+    private Map<String, Object> toMostPopularItemMap(MostPopularItem mostPopularItem) {
+        Map<String, Object> row = new HashMap<>();
+        row.put("most_popular_item_nm", mostPopularItem.getMostPopularItemName());
+        row.put("most_popular_item_price", mostPopularItem.getMostPopularItemPrice());
+        row.put("most_popular_item_discount_percent", mostPopularItem.getMostPopularItemDiscountPercent());
+        row.put("most_popular_item_interest", mostPopularItem.getMostPopularItemInterest());
+        row.put("most_popular_item_review", mostPopularItem.getMostPopularItemReview());
+        row.put("most_popular_item_image", mostPopularItem.getMostPopularItemImage());
+        row.put("most_popular_item_url", mostPopularItem.getMostPopularItemUrl());
+        return row;
     }
 }

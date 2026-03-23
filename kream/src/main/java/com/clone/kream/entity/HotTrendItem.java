@@ -29,4 +29,7 @@ public class HotTrendItem extends BaseTimeEntity {
 
     @Column(name = "hot_trand_item_image", nullable = false, length = 1000)
     private String hotTrendItemImage;
+
+    @Column(name = "hot_trand_item_url", length = 1000)
+    private String hotTrendItemUrl;
 }
