@@ -1,10 +1,5 @@
 package com.clone.kream.repository;
 
-import com.clone.kream.dto.CardBannerItemDto;
-import com.clone.kream.dto.HotTrendItemDto;
-import com.clone.kream.dto.MostPopularItemDto;
-import com.clone.kream.dto.WishItemDto;
-import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.MostPopularItem;
@@ -16,7 +11,6 @@ import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
 import com.clone.kream.repository.jpa.WishItemJpaRepository;
 import com.clone.kream.repository.jpa.WishKeywardJpaRepository;
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -42,81 +36,23 @@ public class MainPageRepository {
         this.mostPopularItemJpaRepository = mostPopularItemJpaRepository;
     }
 
-    public List<WishKeywordDto> findWishKeywords() {
-        return wishKeywardJpaRepository.findAllByOrderByWishKeywardIdAsc()
-            .stream()
-            .map(this::toWishKeywordDto)
-            .collect(Collectors.toList());
+    public List<WishKeyward> findWishKeywords() {
+        return wishKeywardJpaRepository.findAllByOrderByWishKeywardIdAsc();
     }
 
-    public List<WishItemDto> findWishItems() {
-        return wishItemJpaRepository.findAllByOrderByWishItemIdAsc()
-            .stream()
-            .map(this::toWishItemDto)
-            .collect(Collectors.toList());
+    public List<WishItem> findWishItems() {
+        return wishItemJpaRepository.findAllByOrderByWishItemIdAsc();
     }
 
-    public List<HotTrendItemDto> findHotTrendItems() {
-        return hotTrendItemJpaRepository.findAllByOrderByHotTrendItemIdAsc()
-            .stream()
-            .map(this::toHotTrendItemDto)
-            .collect(Collectors.toList());
+    public List<HotTrendItem> findHotTrendItems() {
+        return hotTrendItemJpaRepository.findAllByOrderByHotTrendItemIdAsc();
     }
 
-    public CardBannerItemDto findCardBannerItem() {
-        return cardBannerItemJpaRepository.findTopByOrderByCardBannerItemIdDesc()
-            .map(this::toCardBannerItemDto)
-            .orElse(null);
+    public CardBannerItem findCardBannerItem() {
+        return cardBannerItemJpaRepository.findTopByOrderByCardBannerItemIdDesc().orElse(null);
     }
 
-    public List<MostPopularItemDto> findMostPopularItems() {
-        return mostPopularItemJpaRepository.findAllByOrderByMostPopularItemIdAsc()
-            .stream()
-            .map(this::toMostPopularItemDto)
-            .collect(Collectors.toList());
-    }
-
-    private WishKeywordDto toWishKeywordDto(WishKeyward wishKeyward) {
-        return new WishKeywordDto(wishKeyward.getWishKeywardName());
-    }
-
-    private WishItemDto toWishItemDto(WishItem wishItem) {
-        return new WishItemDto(
-            wishItem.getWishItemImage(),
-            wishItem.getWishItemName(),
-            wishItem.getWishItemUrl(),
-            wishItem.getWishItemPrice(),
-            wishItem.getWishDiscountPercent()
-        );
-    }
-
-    private HotTrendItemDto toHotTrendItemDto(HotTrendItem hotTrendItem) {
-        return new HotTrendItemDto(
-            hotTrendItem.getHotTrendItemName(),
-            hotTrendItem.getHotTrendItemImage(),
-            hotTrendItem.getHotTrendItemUrl()
-        );
-    }
-
-    private CardBannerItemDto toCardBannerItemDto(CardBannerItem cardBannerItem) {
-        return new CardBannerItemDto(
-            cardBannerItem.getCardBannerItemName(),
-            cardBannerItem.getCardBannerItemSubName(),
-            cardBannerItem.getCardBannerItemDescription(),
-            cardBannerItem.getCardBannerItemImage(),
-            cardBannerItem.getCardBannerUrl()
-        );
-    }
-
-    private MostPopularItemDto toMostPopularItemDto(MostPopularItem mostPopularItem) {
-        return new MostPopularItemDto(
-            mostPopularItem.getMostPopularItemName(),
-            mostPopularItem.getMostPopularItemPrice(),
-            mostPopularItem.getMostPopularItemDiscountPercent(),
-            mostPopularItem.getMostPopularItemInterest(),
-            mostPopularItem.getMostPopularItemReview(),
-            mostPopularItem.getMostPopularItemImage(),
-            mostPopularItem.getMostPopularItemUrl()
-        );
+    public List<MostPopularItem> findMostPopularItems() {
+        return mostPopularItemJpaRepository.findAllByOrderByMostPopularItemIdAsc();
     }
 }
