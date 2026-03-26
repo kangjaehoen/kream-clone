@@ -991,6 +991,17 @@
 
         .most-popular-banner-right{
             margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .most-popular-banner-image{
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            object-fit: cover;
+            background: rgba(0, 0, 0, 0.04);
         }
 
         .most-popular-banner-pill{
@@ -1744,20 +1755,28 @@
 
                 <!-- Most Popular Section -->
                 <section class="most-popular-section">
-                    <div class="most-popular-banner">
+                    <a class="most-popular-banner"
+                       th:href="${cardBannerItem != null ? cardBannerItem.cardBannerUrl : '#'}">
                         <div class="most-popular-banner-left">
-                            <span class="most-popular-banner-badge" th:text="${cardBannerItem.cardBannerItemSubName}">4% 즉시할인</span>
-                            <span class="most-popular-banner-title" th:text="${cardBannerItem.cardBannerItemName}">카카오페이, 농협카드 결제 시</span>
-                            <span class="most-popular-banner-desc" th:text="${cardBannerItem.cardBannerItemDescription}">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
+                            <span class="most-popular-banner-badge"
+                                  th:text="${cardBannerItem != null ? cardBannerItem.cardBannerItemSubName : ''}">4% 즉시할인</span>
+                            <span class="most-popular-banner-title"
+                                  th:text="${cardBannerItem != null ? cardBannerItem.cardBannerItemName : ''}">카카오페이, 농협카드 결제 시</span>
+                            <span class="most-popular-banner-desc"
+                                  th:text="${cardBannerItem != null ? cardBannerItem.cardBannerItemDescription : ''}">이벤트 기간 내 지정 카드로 결제하면 추가 혜택을 드려요.</span>
                         </div>
                         <div class="most-popular-banner-right">
+                            <img class="most-popular-banner-image"
+                                 th:if="${cardBannerItem != null and cardBannerItem.cardBannerItemImage != null and !#strings.isEmpty(cardBannerItem.cardBannerItemImage)}"
+                                 th:src="@{${cardBannerItem.cardBannerItemImage}}"
+                                 th:alt="${cardBannerItem.cardBannerItemName}">
                             <div class="most-popular-banner-pill">
                                 <span>kakaopay</span>
                                 <span>4%</span>
                             </div>
                             <span class="most-popular-banner-step">3 / 10</span>
                         </div>
-                    </div>
+                    </a>
 
                     <h2 class="most-popular-title">Most Popular</h2>
                     <div class="most-popular-grid">
@@ -1782,104 +1801,43 @@
                 <!-- 봄 코디 추천 Section -->
                 <section class="spring-coordinate-section">
                     <h2 class="spring-coordinate-title">봄 코디 추천</h2>
-                    <div class="spring-coordinate-group">
+                    <div class="spring-coordinate-group"
+                         th:with="items=${seasonCodiItems != null ? seasonCodiItems : T(java.util.Collections).emptyList()},
+                                  size=${#lists.size(items)},
+                                  end1=${T(java.lang.Math).min(size, 10)},
+                                  end2=${T(java.lang.Math).min(size, 20)},
+                                  end3=${T(java.lang.Math).min(size, 30)}">
+                        <div th:if="${#lists.isEmpty(items)}" style="padding: 8px 0; color: #666; font-size: 13px;">
+                            등록된 봄 코디 추천 데이터가 없습니다.
+                        </div>
                         <!-- 상의 라인 (10개) -->
                         <div class="spring-coordinate-row">
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=260&q=80" alt="크림 데님 자켓" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542142572-440f2a03fc09?w=260&q=80" alt="워시드 데님 자켓" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=260&q=80" alt="그레이 후디" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="크림 집업" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=260&q=80" alt="블루 셔츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="블랙 니트" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="화이트 티셔츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="블랙 티셔츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="카디건" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="맨투맨" class="spring-coordinate-image">
+                            <a th:each="item : ${#lists.subList(items, 0, end1)}"
+                               th:href="${item.seasonCodiItemUrl}"
+                               class="spring-coordinate-item">
+                                <img th:src="@{${item.seasonCodiItemImage}}"
+                                     th:alt="'season codi'"
+                                     class="spring-coordinate-image">
                             </a>
                         </div>
                         <!-- 하의 라인 (10개) -->
                         <div class="spring-coordinate-row">
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1518036881543-4c0d16090250?w=260&q=80" alt="워시드 데님" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=260&q=80" alt="베이지 팬츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=260&q=80" alt="밴딩 팬츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=260&q=80" alt="슬랙스" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=260&q=80" alt="데님 스커트" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="와이드 데님" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="코튼 팬츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="조거 팬츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="크롭 팬츠" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=260&q=80" alt="플리츠 스커트" class="spring-coordinate-image">
+                            <a th:each="item : ${#lists.subList(items, end1, end2)}"
+                               th:href="${item.seasonCodiItemUrl}"
+                               class="spring-coordinate-item">
+                                <img th:src="@{${item.seasonCodiItemImage}}"
+                                     th:alt="'season codi'"
+                                     class="spring-coordinate-image">
                             </a>
                         </div>
                         <!-- 스니커즈 라인 (10개) -->
                         <div class="spring-coordinate-row">
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="러닝 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1514986888952-8cd320577b68?w=260&q=80" alt="라이프스타일 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="블랙 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="화이트 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1581698467322-84ea2f2ab2bb?w=260&q=80" alt="워커" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1586936893354-362ad6ae47e9?w=260&q=80" alt="러너" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="하이탑 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="코트 스니커즈" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="트레일 러닝화" class="spring-coordinate-image">
-                            </a>
-                            <a href="#" class="spring-coordinate-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=260&q=80" alt="슬립온" class="spring-coordinate-image">
+                            <a th:each="item : ${#lists.subList(items, end2, end3)}"
+                               th:href="${item.seasonCodiItemUrl}"
+                               class="spring-coordinate-item">
+                                <img th:src="@{${item.seasonCodiItemImage}}"
+                                     th:alt="'season codi'"
+                                     class="spring-coordinate-image">
                             </a>
                         </div>
                     </div>

@@ -28,6 +28,7 @@ public class MainController {
         model.addAttribute("menus", mainPageData.menus());
         model.addAttribute("cardBannerItem", mainPageData.cardBannerItem());
         model.addAttribute("mostPopularItems", mainPageData.mostPopularItems());
+        model.addAttribute("seasonCodiItems", mainPageData.seasonCodiItems());
         return "main/index";
     }
 

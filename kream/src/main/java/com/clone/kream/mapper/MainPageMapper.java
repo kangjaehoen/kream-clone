@@ -1,6 +1,8 @@
 package com.clone.kream.mapper;
 
 import com.clone.kream.dto.CardBannerItemDto;
+import com.clone.kream.dto.DailySeasonStyleItemDto;
+import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
 import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MainCategoryCardDto;
@@ -11,11 +13,13 @@ import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
+import com.clone.kream.entity.DailySeasonStyleItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.LatestTrendItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
+import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
 import com.clone.kream.entity.WishItem;
@@ -112,6 +116,24 @@ public class MainPageMapper {
             spotlightItem.getSpotlightItemImage(),
             spotlightItem.getSpotlightItemName(),
             spotlightItem.getSpotlightItemUrl()
+        );
+    }
+
+    public DailySeasonStyleItemDto toDailySeasonStyleItemDto(DailySeasonStyleItem dailySeasonStyleItem) {
+        return new DailySeasonStyleItemDto(
+            dailySeasonStyleItem.getDailySeasonStyleItemName(),
+            dailySeasonStyleItem.getDailySeasonStyleItemPrice(),
+            dailySeasonStyleItem.getDailySeasonStyleItemDiscountPercent(),
+            dailySeasonStyleItem.getDailySeasonStyleItemImage(),
+            dailySeasonStyleItem.getDailySeasonStyleItemSubImage(),
+            dailySeasonStyleItem.getDailySeasonStyleItemUrl()
+        );
+    }
+
+    public SeasonCodiItemDto toSeasonCodiItemDto(SeasonCodiItem seasonCodiItem) {
+        return new SeasonCodiItemDto(
+            seasonCodiItem.getSeasonCodiItemImage(),
+            seasonCodiItem.getSeasonCodiItemUrl()
         );
     }
 }

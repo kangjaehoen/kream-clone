@@ -12,5 +12,6 @@ public record MainPageDataDto(
     List<SlideBannerDto> slideBanners,
     List<MenuDto> menus,
     CardBannerItemDto cardBannerItem,
-    List<MostPopularItemDto> mostPopularItems
+    List<MostPopularItemDto> mostPopularItems,
+    List<SeasonCodiItemDto> seasonCodiItems
 ) {}

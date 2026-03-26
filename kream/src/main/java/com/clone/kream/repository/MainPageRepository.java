@@ -1,21 +1,25 @@
 package com.clone.kream.repository;
 
 import com.clone.kream.entity.CardBannerItem;
+import com.clone.kream.entity.DailySeasonStyleItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.LatestTrendItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.MostPopularItem;
 import com.clone.kream.entity.Menu;
+import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
 import com.clone.kream.entity.WishItem;
 import com.clone.kream.entity.WishKeyward;
 import com.clone.kream.repository.jpa.CardBannerItemJpaRepository;
+import com.clone.kream.repository.jpa.DailySeasonStyleItemJpaRepository;
 import com.clone.kream.repository.jpa.HotTrendItemJpaRepository;
 import com.clone.kream.repository.jpa.LatestTrendItemJpaRepository;
 import com.clone.kream.repository.jpa.MainCategoryCardJpaRepository;
 import com.clone.kream.repository.jpa.MenuJpaRepository;
 import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
+import com.clone.kream.repository.jpa.SeasonCodiItemJpaRepository;
 import com.clone.kream.repository.jpa.SlideBannerJpaRepository;
 import com.clone.kream.repository.jpa.SpotlightItemJpaRepository;
 import com.clone.kream.repository.jpa.WishItemJpaRepository;
@@ -36,6 +40,8 @@ public class MainPageRepository {
     private final CardBannerItemJpaRepository cardBannerItemJpaRepository;
     private final MostPopularItemJpaRepository mostPopularItemJpaRepository;
     private final SpotlightItemJpaRepository spotlightItemJpaRepository;
+    private final DailySeasonStyleItemJpaRepository dailySeasonStyleItemJpaRepository;
+    private final SeasonCodiItemJpaRepository seasonCodiItemJpaRepository;
 
     public MainPageRepository(
         WishKeywardJpaRepository wishKeywardJpaRepository,
@@ -47,7 +53,9 @@ public class MainPageRepository {
         MenuJpaRepository menuJpaRepository,
         CardBannerItemJpaRepository cardBannerItemJpaRepository,
         MostPopularItemJpaRepository mostPopularItemJpaRepository,
-        SpotlightItemJpaRepository spotlightItemJpaRepository
+        SpotlightItemJpaRepository spotlightItemJpaRepository,
+        DailySeasonStyleItemJpaRepository dailySeasonStyleItemJpaRepository,
+        SeasonCodiItemJpaRepository seasonCodiItemJpaRepository
     ) {
         this.wishKeywardJpaRepository = wishKeywardJpaRepository;
         this.wishItemJpaRepository = wishItemJpaRepository;
@@ -59,6 +67,8 @@ public class MainPageRepository {
         this.cardBannerItemJpaRepository = cardBannerItemJpaRepository;
         this.mostPopularItemJpaRepository = mostPopularItemJpaRepository;
         this.spotlightItemJpaRepository = spotlightItemJpaRepository;
+        this.dailySeasonStyleItemJpaRepository = dailySeasonStyleItemJpaRepository;
+        this.seasonCodiItemJpaRepository = seasonCodiItemJpaRepository;
     }
 
     public List<WishKeyward> findWishKeywords() {
@@ -90,7 +100,7 @@ public class MainPageRepository {
     }
 
     public CardBannerItem findCardBannerItem() {
-        return cardBannerItemJpaRepository.findTopByOrderByCardBannerItemIdDesc().orElse(null);
+        return cardBannerItemJpaRepository.findTopByDeletedAtIsNullOrderByCardBannerItemIdDesc().orElse(null);
     }
 
     public List<MostPopularItem> findMostPopularItems() {
@@ -99,5 +109,13 @@ public class MainPageRepository {
 
     public List<SpotlightItem> findSpotlightItems() {
         return spotlightItemJpaRepository.findAllByOrderBySpotlightItemIdAsc();
+    }
+
+    public List<DailySeasonStyleItem> findDailySeasonStyleItems() {
+        return dailySeasonStyleItemJpaRepository.findAllByDeletedAtIsNullOrderByDailySeasonStyleItemIdAsc();
+    }
+
+    public List<SeasonCodiItem> findSeasonCodiItems() {
+        return seasonCodiItemJpaRepository.findAllByDeletedAtIsNullOrderBySeasonCodiItemIdAsc();
     }
 }

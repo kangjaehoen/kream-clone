@@ -7,6 +7,7 @@ import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MostPopularItemDto;
+import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.SlideBannerDto;
 import com.clone.kream.dto.WishItemDto;
@@ -75,6 +76,10 @@ public class MainPageService {
             .map(mainPageMapper::toMostPopularItemDto)
             .toList();
 
+        List<SeasonCodiItemDto> seasonCodiItems = mainPageRepository.findSeasonCodiItems()
+            .stream()
+            .map(mainPageMapper::toSeasonCodiItemDto)
+            .toList();
         return new MainPageDataDto(
             wishKeywords,
             wishItems,
@@ -85,7 +90,8 @@ public class MainPageService {
             slideBanners,
             menus,
             cardBannerItem,
-            mostPopularItems
+            mostPopularItems,
+            seasonCodiItems
         );
     }
 }
