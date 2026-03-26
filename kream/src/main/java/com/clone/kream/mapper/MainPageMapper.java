@@ -2,6 +2,7 @@ package com.clone.kream.mapper;
 
 import com.clone.kream.dto.CardBannerItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
+import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
@@ -11,6 +12,7 @@ import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
 import com.clone.kream.entity.HotTrendItem;
+import com.clone.kream.entity.LatestTrendItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
@@ -42,6 +44,16 @@ public class MainPageMapper {
             hotTrendItem.getHotTrendItemName(),
             hotTrendItem.getHotTrendItemImage(),
             hotTrendItem.getHotTrendItemUrl()
+        );
+    }
+
+    public LatestTrendItemDto toLatestTrendItemDto(LatestTrendItem latestTrendItem) {
+        return new LatestTrendItemDto(
+            latestTrendItem.getLatestTrendItemName(),
+            latestTrendItem.getLatestTrendItemSubName(),
+            latestTrendItem.getLatestTrendItemBrand(),
+            latestTrendItem.getLatestTrendItemImage(),
+            latestTrendItem.getLatestTrendItemUrl()
         );
     }
 

@@ -2,6 +2,7 @@ package com.clone.kream.service;
 
 import com.clone.kream.dto.CardBannerItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
+import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.dto.MainCategoryCardDto;
@@ -42,6 +43,11 @@ public class MainPageService {
             .map(mainPageMapper::toHotTrendItemDto)
             .toList();
 
+        List<LatestTrendItemDto> latestTrendItems = mainPageRepository.findLatestTrendItems()
+            .stream()
+            .map(mainPageMapper::toLatestTrendItemDto)
+            .toList();
+
         List<MainCategoryCardDto> mainCategoryCards = mainPageRepository.findMainCategoryCards()
             .stream()
             .map(mainPageMapper::toMainCategoryCardDto)
@@ -73,6 +79,7 @@ public class MainPageService {
             wishKeywords,
             wishItems,
             hotTrendItems,
+            latestTrendItems,
             mainCategoryCards,
             spotlightItems,
             slideBanners,

@@ -6,6 +6,7 @@ public record MainPageDataDto(
     List<WishKeywordDto> wishKeywords,
     List<WishItemDto> wishItems,
     List<HotTrendItemDto> hotTrendItems,
+    List<LatestTrendItemDto> latestTrendItems,
     List<MainCategoryCardDto> mainCategoryCards,
     List<SpotlightItemDto> spotlightItems,
     List<SlideBannerDto> slideBanners,

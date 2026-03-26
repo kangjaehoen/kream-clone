@@ -21,6 +21,7 @@ public class MainController {
         model.addAttribute("wishKeywords", mainPageData.wishKeywords());
         model.addAttribute("wishItems", mainPageData.wishItems());
         model.addAttribute("hotTrendItems", mainPageData.hotTrendItems());
+        model.addAttribute("latestTrendItems", mainPageData.latestTrendItems());
         model.addAttribute("mainCategoryCards", mainPageData.mainCategoryCards());
         model.addAttribute("spotlightItems", mainPageData.spotlightItems());
         model.addAttribute("slideBanners", mainPageData.slideBanners());

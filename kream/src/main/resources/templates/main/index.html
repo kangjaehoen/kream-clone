@@ -1729,43 +1729,15 @@
                         <a href="#" class="trend-cards-more">더보기</a>
                     </div>
                     <div class="trend-cards-grid">
-                        <a href="#" class="trend-card">
+                        <a th:each="item : ${latestTrendItems}" th:href="${item.latestTrendItemUrl}" class="trend-card">
                             <div class="trend-card-image-wrap">
-                                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&q=80" alt="스벅 텀블러 키링">
+                                <img th:src="@{${item.latestTrendItemImage}}" th:alt="${item.latestTrendItemName}">
                             </div>
-                            <span class="trend-card-badge">DROP_THE_NEWS</span>
-                            <span class="trend-card-title">스벅 텀블러 키링 돌아왔다</span>
-                            <span class="trend-card-brand">Starbucks</span>
-                        </a>
-                        <a href="#" class="trend-card">
-                            <div class="trend-card-image-wrap">
-                                <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=400&q=80" alt="나이키 문 슈">
-                            </div>
-                            <span class="trend-card-badge">DROP_THE_NEWS</span>
-                            <span class="trend-card-title">나이키 문 슈 봄 컬러로 컴백</span>
-                            <span class="trend-card-brand">Nike x Jacquemus</span>
-                        </a>
-                        <a href="#" class="trend-card">
-                            <div class="trend-card-image-wrap">
-                                <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80" alt="MLB 볼캡">
-                            </div>
-                            <span class="trend-card-badge">DROP_THE_NEWS</span>
-                            <span class="trend-card-title">화제의 볼캡 MLB 카리나 에디션</span>
-                            <span class="trend-card-brand">MLB</span>
-                        </a>
-                        <a href="#" class="trend-card">
-                            <div class="trend-card-image-wrap">
-                                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&q=80" alt="아식스 운동화">
-                            </div>
-                            <span class="trend-card-title">저점매수 해야하는 아식스 운동화</span>
-                            <span class="trend-card-brand">asics</span>
-                        </a>
-                        <a href="#" class="trend-card">
-                            <div class="trend-card-image-wrap">
-                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80" alt="JIHOON'S Outfit">
-                            </div>
-                            <span class="trend-card-title">JIHOON'S Outfit</span>
-                            <span class="trend-card-brand">Outfit</span>
+                            <span class="trend-card-badge"
+                                  th:if="${item.latestTrendItemSubName != null and !#strings.isEmpty(item.latestTrendItemSubName)}"
+                                  th:text="${item.latestTrendItemSubName}">DROP_THE_NEWS</span>
+                            <span class="trend-card-title" th:text="${item.latestTrendItemName}">제목</span>
+                            <span class="trend-card-brand" th:text="${item.latestTrendItemBrand}">브랜드</span>
                         </a>
                     </div>
                 </section>
