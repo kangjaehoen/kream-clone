@@ -57,7 +57,7 @@ public class MainPageRepository {
     }
 
     public List<WishKeyward> findWishKeywords() {
-        return wishKeywardJpaRepository.findAllByOrderByWishKeywardIdAsc();
+        return wishKeywardJpaRepository.findAllByDeletedAtIsNullOrderByWishKeywardIdAsc();
     }
 
     public List<WishItem> findWishItems() {
