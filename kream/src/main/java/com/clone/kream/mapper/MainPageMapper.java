@@ -2,12 +2,20 @@ package com.clone.kream.mapper;
 
 import com.clone.kream.dto.CardBannerItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
+import com.clone.kream.dto.MainCategoryCardDto;
+import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
+import com.clone.kream.dto.SlideBannerDto;
+import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
 import com.clone.kream.entity.HotTrendItem;
+import com.clone.kream.entity.MainCategoryCard;
+import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
+import com.clone.kream.entity.SlideBanner;
+import com.clone.kream.entity.SpotlightItem;
 import com.clone.kream.entity.WishItem;
 import com.clone.kream.entity.WishKeyward;
 import org.springframework.stereotype.Component;
@@ -60,6 +68,38 @@ public class MainPageMapper {
             mostPopularItem.getMostPopularItemReview(),
             mostPopularItem.getMostPopularItemImage(),
             mostPopularItem.getMostPopularItemUrl()
+        );
+    }
+
+    public MenuDto toMenuDto(Menu menu) {
+        return new MenuDto(
+            menu.getMenuName(),
+            menu.getMenuUrl()
+        );
+    }
+
+    public SlideBannerDto toSlideBannerDto(SlideBanner slideBanner) {
+        return new SlideBannerDto(
+            slideBanner.getBannerImage(),
+            slideBanner.getBannerTitle(),
+            slideBanner.getBannerContent(),
+            slideBanner.getBannerUrl()
+        );
+    }
+
+    public MainCategoryCardDto toMainCategoryCardDto(MainCategoryCard mainCategoryCard) {
+        return new MainCategoryCardDto(
+            mainCategoryCard.getMainCardImage(),
+            mainCategoryCard.getMainCardName(),
+            mainCategoryCard.getMainCardUrl()
+        );
+    }
+
+    public SpotlightItemDto toSpotlightItemDto(SpotlightItem spotlightItem) {
+        return new SpotlightItemDto(
+            spotlightItem.getSpotlightItemImage(),
+            spotlightItem.getSpotlightItemName(),
+            spotlightItem.getSpotlightItemUrl()
         );
     }
 }

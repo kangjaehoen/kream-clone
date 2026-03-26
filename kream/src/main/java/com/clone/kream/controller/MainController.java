@@ -21,6 +21,10 @@ public class MainController {
         model.addAttribute("wishKeywords", mainPageData.wishKeywords());
         model.addAttribute("wishItems", mainPageData.wishItems());
         model.addAttribute("hotTrendItems", mainPageData.hotTrendItems());
+        model.addAttribute("mainCategoryCards", mainPageData.mainCategoryCards());
+        model.addAttribute("spotlightItems", mainPageData.spotlightItems());
+        model.addAttribute("slideBanners", mainPageData.slideBanners());
+        model.addAttribute("menus", mainPageData.menus());
         model.addAttribute("cardBannerItem", mainPageData.cardBannerItem());
         model.addAttribute("mostPopularItems", mainPageData.mostPopularItems());
         return "main/index";

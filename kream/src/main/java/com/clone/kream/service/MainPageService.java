@@ -2,8 +2,12 @@ package com.clone.kream.service;
 
 import com.clone.kream.dto.CardBannerItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
+import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MainPageDataDto;
+import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MostPopularItemDto;
+import com.clone.kream.dto.SpotlightItemDto;
+import com.clone.kream.dto.SlideBannerDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.mapper.MainPageMapper;
@@ -38,6 +42,26 @@ public class MainPageService {
             .map(mainPageMapper::toHotTrendItemDto)
             .toList();
 
+        List<MainCategoryCardDto> mainCategoryCards = mainPageRepository.findMainCategoryCards()
+            .stream()
+            .map(mainPageMapper::toMainCategoryCardDto)
+            .toList();
+
+        List<SpotlightItemDto> spotlightItems = mainPageRepository.findSpotlightItems()
+            .stream()
+            .map(mainPageMapper::toSpotlightItemDto)
+            .toList();
+
+        List<SlideBannerDto> slideBanners = mainPageRepository.findSlideBanners()
+            .stream()
+            .map(mainPageMapper::toSlideBannerDto)
+            .toList();
+
+        List<MenuDto> menus = mainPageRepository.findMenus()
+            .stream()
+            .map(mainPageMapper::toMenuDto)
+            .toList();
+
         CardBannerItemDto cardBannerItem = mainPageMapper.toCardBannerItemDto(mainPageRepository.findCardBannerItem());
 
         List<MostPopularItemDto> mostPopularItems = mainPageRepository.findMostPopularItems()
@@ -49,6 +73,10 @@ public class MainPageService {
             wishKeywords,
             wishItems,
             hotTrendItems,
+            mainCategoryCards,
+            spotlightItems,
+            slideBanners,
+            menus,
             cardBannerItem,
             mostPopularItems
         );

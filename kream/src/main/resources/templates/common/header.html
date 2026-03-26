@@ -99,69 +99,19 @@
             </div>
             <div class="header-base-tabs">
                 <ul class="ul-tab">
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false"
-                           style="border-bottom-color: rgb(63,26,218);">
-                            <span data-v-d760c08d="" class="tab_name"
-                                  style="color: rgb(63, 26, 218);">
-                                힙플페 2026
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                추천
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                🌸봄맞이
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                신상
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                뷰티
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                럭셔리
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                랭킹
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                중고
-                            </span>
-                        </a>
-                    </li>
-                    <li class="li-tab">
-                        <a href="#" class="tab" draggable="false">
-                            <span data-v-d760c08d="" class="tab_name">
-                                이벤트
-                            </span>
+                    <li class="li-tab" th:each="menu, stat : ${menus != null ? menus : T(java.util.Collections).emptyList()}">
+                        <a
+                            th:href="@{${menu.menuUrl()}}"
+                            class="tab"
+                            draggable="false"
+                            th:style="${stat.index == 0} ? 'border-bottom-color: rgb(63,26,218);' : ''"
+                        >
+                            <span
+                                data-v-d760c08d=""
+                                class="tab_name"
+                                    th:text="${menu.menuName()}"
+                                th:style="${stat.index == 0} ? 'color: rgb(63, 26, 218);' : ''"
+                            >탭 이름</span>
                         </a>
                     </li>
                 </ul>
