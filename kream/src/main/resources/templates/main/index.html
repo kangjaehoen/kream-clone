@@ -1968,45 +1968,13 @@
                     <div class="popular-brand-recommend">
                         <div class="popular-brand-recommend-title">추천 브랜드</div>
                         <div class="popular-brand-recommend-list">
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="Nike" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Nike</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1528701800489-20be3c30c1d5?w=200&q=80" alt="Adidas" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Adidas</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="New Balance" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">New Balance</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1585386959984-a4155223f3f8?w=200&q=80" alt="Asics" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Asics</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=200&q=80" alt="Supreme" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Supreme</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=200&q=80" alt="Arc'teryx" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Arc'teryx</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1542293787938-4d352b042b24?w=200&q=80" alt="Jordan" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Jordan</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1589187151053-5ec8818e661b?w=200&q=80" alt="Stussy" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Stussy</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1581693325309-9b9b4c0f1cfc?w=200&q=80" alt="Salomon" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">Salomon</span>
-                            </a>
-                            <a href="#" class="popular-brand-recommend-item">
-                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&q=80" alt="On Running" class="popular-brand-recommend-logo">
-                                <span class="popular-brand-recommend-name">On Running</span>
+                            <a th:each="brand : ${suggestionBrands != null ? suggestionBrands : T(java.util.Collections).emptyList()}"
+                               th:href="${brand.suggestionBrandUrl}"
+                               class="popular-brand-recommend-item">
+                                <img th:src="${brand.suggestionBrandImage}"
+                                     th:alt="${brand.suggestionBrandName != null ? brand.suggestionBrandName : ''}"
+                                     class="popular-brand-recommend-logo">
+                                <span class="popular-brand-recommend-name" th:text="${brand.suggestionBrandName}">Brand</span>
                             </a>
                         </div>
                     </div>

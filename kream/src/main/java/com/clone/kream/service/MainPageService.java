@@ -13,6 +13,7 @@ import com.clone.kream.dto.MostPopularItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.SlideBannerDto;
+import com.clone.kream.dto.SuggestionBrandDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.PopularBrandKeyward;
@@ -95,6 +96,11 @@ public class MainPageService {
             .map(this::toPopularBrandTabDto)
             .toList();
 
+        List<SuggestionBrandDto> suggestionBrands = mainPageRepository.findSuggestionBrands()
+            .stream()
+            .map(mainPageMapper::toSuggestionBrandDto)
+            .toList();
+
         CoperationBannerDto coperationBanner =
             mainPageMapper.toCoperationBannerDto(mainPageRepository.findCoperationBanner());
 
@@ -112,6 +118,7 @@ public class MainPageService {
             seasonCodiItems,
             dailySeasonStyleItems,
             popularBrandTabs,
+            suggestionBrands,
             coperationBanner
         );
     }

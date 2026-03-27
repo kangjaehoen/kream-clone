@@ -11,6 +11,7 @@ import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
 import com.clone.kream.dto.PopularBrandItemDto;
 import com.clone.kream.dto.SlideBannerDto;
+import com.clone.kream.dto.SuggestionBrandDto;
 import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
@@ -26,6 +27,7 @@ import com.clone.kream.entity.PopularBrandItem;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
+import com.clone.kream.entity.SuggestionBrand;
 import com.clone.kream.entity.WishItem;
 import com.clone.kream.entity.WishKeyward;
 import org.springframework.stereotype.Component;
@@ -163,6 +165,14 @@ public class MainPageMapper {
             popularBrandItem.getPopularBrandItemReview(),
             popularBrandItem.getPopularBrandItemImage(),
             popularBrandItem.getPopularBrandItemUrl()
+        );
+    }
+
+    public SuggestionBrandDto toSuggestionBrandDto(SuggestionBrand suggestionBrand) {
+        return new SuggestionBrandDto(
+            suggestionBrand.getSuggestionBrandName(),
+            suggestionBrand.getSuggestionBrandImage(),
+            suggestionBrand.getSuggestionBrandUrl()
         );
     }
 }

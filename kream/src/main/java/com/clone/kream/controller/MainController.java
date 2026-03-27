@@ -31,6 +31,7 @@ public class MainController {
         model.addAttribute("seasonCodiItems", mainPageData.seasonCodiItems());
         model.addAttribute("dailySeasonStyleItems", mainPageData.dailySeasonStyleItems());
         model.addAttribute("popularBrandTabs", mainPageData.popularBrandTabs());
+        model.addAttribute("suggestionBrands", mainPageData.suggestionBrands());
         model.addAttribute("coperationBanner", mainPageData.coperationBanner());
         return "main/index";
     }
