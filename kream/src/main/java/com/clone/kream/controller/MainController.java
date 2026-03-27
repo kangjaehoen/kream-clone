@@ -33,6 +33,7 @@ public class MainController {
         model.addAttribute("popularBrandTabs", mainPageData.popularBrandTabs());
         model.addAttribute("suggestionBrands", mainPageData.suggestionBrands());
         model.addAttribute("memberSuggestionItems", mainPageData.memberSuggestionItems());
+        model.addAttribute("selectBrandItems", mainPageData.selectBrandItems());
         model.addAttribute("coperationBanner", mainPageData.coperationBanner());
         model.addAttribute("runningBanner", mainPageData.runningBanner());
         return "main/index";

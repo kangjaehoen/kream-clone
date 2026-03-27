@@ -1984,89 +1984,22 @@
                             <h3 class="popular-brand-subtitle">알파인더스트리</h3>
                             <a href="#" class="popular-brand-more">더보기</a>
                         </div>
-                        <div class="popular-brand-grid">
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 블랙" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 블랙</div>
+                        <div th:if="${#lists.isEmpty(selectBrandItems)}"
+                             style="padding: 8px 0 18px; color: #666; font-size: 13px;">
+                            등록된 상품이 없습니다.
+                        </div>
+                        <div th:unless="${#lists.isEmpty(selectBrandItems)}" class="popular-brand-grid">
+                            <a th:each="item : ${selectBrandItems}"
+                               th:href="${item.selectBrandItemUrl}"
+                               class="popular-brand-item">
+                                <img th:src="@{${item.selectBrandItemImage}}"
+                                     th:alt="${item.selectBrandItemName != null ? item.selectBrandItemName : ''}"
+                                     class="popular-brand-thumb">
+                                <div class="popular-brand-name" th:text="${item.selectBrandItemName}">상품명</div>
                                 <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">149,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 카키" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 카키</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">149,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 블랙" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 블랙</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">159,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 네이비" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 네이비</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">149,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 필드 자켓 카키" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 필드 재킷 카키</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">209,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 MA-1 그린" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 플라이트 재킷 그린</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">200,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 L-2B 블루" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 블루</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">149,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 후디드 카키" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 L-2B 후디드 재킷 카키</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">159,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 로고 블랙" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 로고 재킷 블랙</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">239,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 패치 블랙" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 패치 플라이트 재킷 블랙</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">259,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=400&q=80" alt="알파 인더스트리 L-2B 그레이" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 L-2B 플라이트 재킷 그레이</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">149,000원</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-brand-item">
-                                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="알파 인더스트리 MA-1 후디 올리브" class="popular-brand-thumb">
-                                <div class="popular-brand-name">알파 인더스트리 MA-1 후디드 재킷 올리브</div>
-                                <div class="popular-brand-price-row">
-                                    <span class="popular-brand-price">159,000원</span>
+                                    <span class="popular-brand-discount"
+                                          th:if="${item.selectBrandItemDiscountPercent != null and item.selectBrandItemDiscountPercent > 0}"
+                                          th:text="|${item.selectBrandItemDiscountPercent}%|">0%</span>
                                 </div>
                             </a>
                         </div>

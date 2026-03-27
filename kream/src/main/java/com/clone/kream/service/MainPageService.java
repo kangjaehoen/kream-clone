@@ -10,6 +10,7 @@ import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.dto.RunningBannerDto;
 import com.clone.kream.dto.CoperationBannerDto;
 import com.clone.kream.dto.PopularBrandTabDto;
+import com.clone.kream.dto.SelectBrandItemDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MostPopularItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
@@ -108,6 +109,11 @@ public class MainPageService {
             .map(mainPageMapper::toMemberSuggestionItemDto)
             .toList();
 
+        List<SelectBrandItemDto> selectBrandItems = mainPageRepository.findSelectBrandItems()
+            .stream()
+            .map(mainPageMapper::toSelectBrandItemDto)
+            .toList();
+
         CoperationBannerDto coperationBanner =
             mainPageMapper.toCoperationBannerDto(mainPageRepository.findCoperationBanner());
 
@@ -130,6 +136,7 @@ public class MainPageService {
             popularBrandTabs,
             suggestionBrands,
             memberSuggestionItems,
+            selectBrandItems,
             coperationBanner,
             runningBanner
         );

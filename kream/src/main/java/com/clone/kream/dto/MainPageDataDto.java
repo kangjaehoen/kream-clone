@@ -18,6 +18,7 @@ public record MainPageDataDto(
     List<PopularBrandTabDto> popularBrandTabs,
     List<SuggestionBrandDto> suggestionBrands,
     List<MemberSuggestionItemDto> memberSuggestionItems,
+    List<SelectBrandItemDto> selectBrandItems,
     CoperationBannerDto coperationBanner,
     RunningBannerDto runningBanner
 ) {}

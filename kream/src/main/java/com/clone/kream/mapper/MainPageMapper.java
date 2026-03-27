@@ -12,6 +12,7 @@ import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
 import com.clone.kream.dto.PopularBrandItemDto;
+import com.clone.kream.dto.SelectBrandItemDto;
 import com.clone.kream.dto.SlideBannerDto;
 import com.clone.kream.dto.SuggestionBrandDto;
 import com.clone.kream.dto.SpotlightItemDto;
@@ -27,6 +28,7 @@ import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
 import com.clone.kream.entity.PopularBrandItem;
+import com.clone.kream.entity.SelectBrandItem;
 import com.clone.kream.entity.RunningBanner;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
@@ -182,6 +184,15 @@ public class MainPageMapper {
             popularBrandItem.getPopularBrandItemReview(),
             popularBrandItem.getPopularBrandItemImage(),
             popularBrandItem.getPopularBrandItemUrl()
+        );
+    }
+
+    public SelectBrandItemDto toSelectBrandItemDto(SelectBrandItem selectBrandItem) {
+        return new SelectBrandItemDto(
+            selectBrandItem.getSelectBrandItemName(),
+            selectBrandItem.getSelectBrandItemImage(),
+            selectBrandItem.getSelectBrandItemUrl(),
+            selectBrandItem.getSelectBrandItemDiscountPercent()
         );
     }
 

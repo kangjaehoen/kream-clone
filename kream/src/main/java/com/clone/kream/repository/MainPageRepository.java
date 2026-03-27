@@ -12,6 +12,7 @@ import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.PopularBrandItem;
 import com.clone.kream.entity.PopularBrandKeyward;
 import com.clone.kream.entity.RunningBanner;
+import com.clone.kream.entity.SelectBrandItem;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
@@ -30,6 +31,7 @@ import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
 import com.clone.kream.repository.jpa.PopularBrandItemJpaRepository;
 import com.clone.kream.repository.jpa.PopularBrandKeywardJpaRepository;
 import com.clone.kream.repository.jpa.RunningBannerJpaRepository;
+import com.clone.kream.repository.jpa.SelectBrandItemJpaRepository;
 import com.clone.kream.repository.jpa.SeasonCodiItemJpaRepository;
 import com.clone.kream.repository.jpa.SlideBannerJpaRepository;
 import com.clone.kream.repository.jpa.SpotlightItemJpaRepository;
@@ -60,6 +62,7 @@ public class MainPageRepository {
     private final RunningBannerJpaRepository runningBannerJpaRepository;
     private final SuggestionBrandJpaRepository suggestionBrandJpaRepository;
     private final MemberSuggestionItemJpaRepository memberSuggestionItemJpaRepository;
+    private final SelectBrandItemJpaRepository selectBrandItemJpaRepository;
 
     public MainPageRepository(
         WishKeywardJpaRepository wishKeywardJpaRepository,
@@ -79,7 +82,8 @@ public class MainPageRepository {
         CoperationBannerJpaRepository coperationBannerJpaRepository,
         RunningBannerJpaRepository runningBannerJpaRepository,
         SuggestionBrandJpaRepository suggestionBrandJpaRepository,
-        MemberSuggestionItemJpaRepository memberSuggestionItemJpaRepository
+        MemberSuggestionItemJpaRepository memberSuggestionItemJpaRepository,
+        SelectBrandItemJpaRepository selectBrandItemJpaRepository
     ) {
         this.wishKeywardJpaRepository = wishKeywardJpaRepository;
         this.wishItemJpaRepository = wishItemJpaRepository;
@@ -99,6 +103,7 @@ public class MainPageRepository {
         this.runningBannerJpaRepository = runningBannerJpaRepository;
         this.suggestionBrandJpaRepository = suggestionBrandJpaRepository;
         this.memberSuggestionItemJpaRepository = memberSuggestionItemJpaRepository;
+        this.selectBrandItemJpaRepository = selectBrandItemJpaRepository;
     }
 
     public List<WishKeyward> findWishKeywords() {
@@ -173,5 +178,9 @@ public class MainPageRepository {
 
     public List<MemberSuggestionItem> findMemberSuggestionItems() {
         return memberSuggestionItemJpaRepository.findAllByDeletedAtIsNullOrderByMemberSuggestionItemIdAsc();
+    }
+
+    public List<SelectBrandItem> findSelectBrandItems() {
+        return selectBrandItemJpaRepository.findAllByDeletedAtIsNullOrderBySelectBrandItemIdAsc();
     }
 }
