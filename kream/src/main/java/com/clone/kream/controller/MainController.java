@@ -32,6 +32,7 @@ public class MainController {
         model.addAttribute("dailySeasonStyleItems", mainPageData.dailySeasonStyleItems());
         model.addAttribute("popularBrandTabs", mainPageData.popularBrandTabs());
         model.addAttribute("suggestionBrands", mainPageData.suggestionBrands());
+        model.addAttribute("memberSuggestionItems", mainPageData.memberSuggestionItems());
         model.addAttribute("coperationBanner", mainPageData.coperationBanner());
         model.addAttribute("runningBanner", mainPageData.runningBanner());
         return "main/index";

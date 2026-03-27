@@ -7,6 +7,7 @@ import com.clone.kream.dto.DailySeasonStyleItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
 import com.clone.kream.dto.LatestTrendItemDto;
+import com.clone.kream.dto.MemberSuggestionItemDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
@@ -21,6 +22,7 @@ import com.clone.kream.entity.CoperationBanner;
 import com.clone.kream.entity.DailySeasonStyleItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.LatestTrendItem;
+import com.clone.kream.entity.MemberSuggestionItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
@@ -188,6 +190,52 @@ public class MainPageMapper {
             suggestionBrand.getSuggestionBrandName(),
             suggestionBrand.getSuggestionBrandImage(),
             suggestionBrand.getSuggestionBrandUrl()
+        );
+    }
+
+    public MemberSuggestionItemDto toMemberSuggestionItemDto(MemberSuggestionItem item) {
+        String badgeClass = null;
+        String badgeLabel = null;
+        String benefitDesc = null;
+
+        if (item.getMemberSuggestionItemCoupon() == MemberSuggestionItem.YnType.Y) {
+            badgeClass = "coupon";
+            badgeLabel = "쿠폰";
+            benefitDesc = item.getMemberSuggestionItemCouponDescription();
+        } else if (item.getMemberSuggestionItemPoint() == MemberSuggestionItem.YnType.Y) {
+            badgeClass = "point";
+            badgeLabel = "적립";
+            benefitDesc = item.getMemberSuggestionItemPointDescription();
+        } else if (item.getMemberSuggestionItemDelivery() == MemberSuggestionItem.DeliveryType.fast) {
+            badgeClass = "fast";
+            badgeLabel = "빠른배송";
+            benefitDesc = item.getMemberSuggestionItemDeliveryDescription();
+        } else if (item.getMemberSuggestionItemDelivery() == MemberSuggestionItem.DeliveryType.free) {
+            badgeClass = "free";
+            badgeLabel = "무료배송";
+            benefitDesc = item.getMemberSuggestionItemDeliveryDescription();
+        } else if (item.getMemberSuggestionItemDelivery() == MemberSuggestionItem.DeliveryType.basic) {
+            benefitDesc = item.getMemberSuggestionItemDeliveryDescription();
+        }
+
+        boolean showBenefit =
+            (badgeClass != null && badgeLabel != null)
+                || (benefitDesc != null && !benefitDesc.isBlank());
+
+        return new MemberSuggestionItemDto(
+            item.getMemberSuggestionBrand(),
+            item.getMemberSuggestionItemName(),
+            item.getMemberSuggestionItemPrice(),
+            item.getMemberSuggestionItemDiscountPercent(),
+            item.getMemberSuggestionItemInterest(),
+            item.getMemberSuggestionItemReview(),
+            item.getMemberSuggestionItemTrade(),
+            item.getMemberSuggestionItemImage(),
+            item.getMemberSuggestionItemUrl(),
+            badgeClass,
+            badgeLabel,
+            benefitDesc,
+            showBenefit
         );
     }
 }

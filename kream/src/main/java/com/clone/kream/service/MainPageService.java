@@ -5,6 +5,7 @@ import com.clone.kream.dto.DailySeasonStyleItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
 import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MenuDto;
+import com.clone.kream.dto.MemberSuggestionItemDto;
 import com.clone.kream.dto.MainPageDataDto;
 import com.clone.kream.dto.RunningBannerDto;
 import com.clone.kream.dto.CoperationBannerDto;
@@ -102,6 +103,11 @@ public class MainPageService {
             .map(mainPageMapper::toSuggestionBrandDto)
             .toList();
 
+        List<MemberSuggestionItemDto> memberSuggestionItems = mainPageRepository.findMemberSuggestionItems()
+            .stream()
+            .map(mainPageMapper::toMemberSuggestionItemDto)
+            .toList();
+
         CoperationBannerDto coperationBanner =
             mainPageMapper.toCoperationBannerDto(mainPageRepository.findCoperationBanner());
 
@@ -123,6 +129,7 @@ public class MainPageService {
             dailySeasonStyleItems,
             popularBrandTabs,
             suggestionBrands,
+            memberSuggestionItems,
             coperationBanner,
             runningBanner
         );
