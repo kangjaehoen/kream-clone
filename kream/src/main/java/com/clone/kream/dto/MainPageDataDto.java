@@ -17,5 +17,6 @@ public record MainPageDataDto(
     List<DailySeasonStyleItemDto> dailySeasonStyleItems,
     List<PopularBrandTabDto> popularBrandTabs,
     List<SuggestionBrandDto> suggestionBrands,
-    CoperationBannerDto coperationBanner
+    CoperationBannerDto coperationBanner,
+    RunningBannerDto runningBanner
 ) {}

@@ -10,6 +10,7 @@ import com.clone.kream.entity.MostPopularItem;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.PopularBrandItem;
 import com.clone.kream.entity.PopularBrandKeyward;
+import com.clone.kream.entity.RunningBanner;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
@@ -26,6 +27,7 @@ import com.clone.kream.repository.jpa.MenuJpaRepository;
 import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
 import com.clone.kream.repository.jpa.PopularBrandItemJpaRepository;
 import com.clone.kream.repository.jpa.PopularBrandKeywardJpaRepository;
+import com.clone.kream.repository.jpa.RunningBannerJpaRepository;
 import com.clone.kream.repository.jpa.SeasonCodiItemJpaRepository;
 import com.clone.kream.repository.jpa.SlideBannerJpaRepository;
 import com.clone.kream.repository.jpa.SpotlightItemJpaRepository;
@@ -53,6 +55,7 @@ public class MainPageRepository {
     private final PopularBrandKeywardJpaRepository popularBrandKeywardJpaRepository;
     private final PopularBrandItemJpaRepository popularBrandItemJpaRepository;
     private final CoperationBannerJpaRepository coperationBannerJpaRepository;
+    private final RunningBannerJpaRepository runningBannerJpaRepository;
     private final SuggestionBrandJpaRepository suggestionBrandJpaRepository;
 
     public MainPageRepository(
@@ -71,6 +74,7 @@ public class MainPageRepository {
         PopularBrandKeywardJpaRepository popularBrandKeywardJpaRepository,
         PopularBrandItemJpaRepository popularBrandItemJpaRepository,
         CoperationBannerJpaRepository coperationBannerJpaRepository,
+        RunningBannerJpaRepository runningBannerJpaRepository,
         SuggestionBrandJpaRepository suggestionBrandJpaRepository
     ) {
         this.wishKeywardJpaRepository = wishKeywardJpaRepository;
@@ -88,6 +92,7 @@ public class MainPageRepository {
         this.popularBrandKeywardJpaRepository = popularBrandKeywardJpaRepository;
         this.popularBrandItemJpaRepository = popularBrandItemJpaRepository;
         this.coperationBannerJpaRepository = coperationBannerJpaRepository;
+        this.runningBannerJpaRepository = runningBannerJpaRepository;
         this.suggestionBrandJpaRepository = suggestionBrandJpaRepository;
     }
 
@@ -151,6 +156,10 @@ public class MainPageRepository {
 
     public CoperationBanner findCoperationBanner() {
         return coperationBannerJpaRepository.findTopByDeletedAtIsNullOrderByCoperationBannerIdDesc().orElse(null);
+    }
+
+    public RunningBanner findRunningBanner() {
+        return runningBannerJpaRepository.findTopByDeletedAtIsNullOrderByRunningBannerIdDesc().orElse(null);
     }
 
     public List<SuggestionBrand> findSuggestionBrands() {

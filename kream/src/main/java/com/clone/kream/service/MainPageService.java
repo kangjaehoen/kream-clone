@@ -6,6 +6,7 @@ import com.clone.kream.dto.HotTrendItemDto;
 import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MainPageDataDto;
+import com.clone.kream.dto.RunningBannerDto;
 import com.clone.kream.dto.CoperationBannerDto;
 import com.clone.kream.dto.PopularBrandTabDto;
 import com.clone.kream.dto.MainCategoryCardDto;
@@ -104,6 +105,9 @@ public class MainPageService {
         CoperationBannerDto coperationBanner =
             mainPageMapper.toCoperationBannerDto(mainPageRepository.findCoperationBanner());
 
+        RunningBannerDto runningBanner =
+            mainPageMapper.toRunningBannerDto(mainPageRepository.findRunningBanner());
+
         return new MainPageDataDto(
             wishKeywords,
             wishItems,
@@ -119,7 +123,8 @@ public class MainPageService {
             dailySeasonStyleItems,
             popularBrandTabs,
             suggestionBrands,
-            coperationBanner
+            coperationBanner,
+            runningBanner
         );
     }
 

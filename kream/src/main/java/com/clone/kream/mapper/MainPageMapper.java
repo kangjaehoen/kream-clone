@@ -2,6 +2,7 @@ package com.clone.kream.mapper;
 
 import com.clone.kream.dto.CardBannerItemDto;
 import com.clone.kream.dto.CoperationBannerDto;
+import com.clone.kream.dto.RunningBannerDto;
 import com.clone.kream.dto.DailySeasonStyleItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
@@ -24,6 +25,7 @@ import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
 import com.clone.kream.entity.PopularBrandItem;
+import com.clone.kream.entity.RunningBanner;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
@@ -77,6 +79,19 @@ public class MainPageMapper {
             coperationBanner.getCoperationBannerTitle(),
             coperationBanner.getCoperationBannerContent(),
             coperationBanner.getCoperationBannerUrl()
+        );
+    }
+
+    public RunningBannerDto toRunningBannerDto(RunningBanner runningBanner) {
+        if (runningBanner == null) {
+            return null;
+        }
+        return new RunningBannerDto(
+            runningBanner.getRunningBannerFirstImage(),
+            runningBanner.getRunningBannerSecondImage(),
+            runningBanner.getRunningBannerTitle(),
+            runningBanner.getRunningBannerContent(),
+            runningBanner.getRunningBannerUrl()
         );
     }
 

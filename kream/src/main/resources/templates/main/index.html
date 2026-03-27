@@ -2072,14 +2072,24 @@
                         </div>
                     </div>
 
-                    <a href="#" class="running-ready-card">
+                    <a th:if="${runningBanner != null}"
+                       class="running-ready-card"
+                       th:href="${runningBanner.runningBannerUrl != null and !#strings.isEmpty(runningBanner.runningBannerUrl)} ? ${runningBanner.runningBannerUrl} : '#'">
                         <div class="running-ready-card-text">
-                            <span class="running-ready-card-title">3월, 달릴 준비 됐어?</span>
-                            <span class="running-ready-card-sub">브랜드별 러닝화 추천</span>
+                            <span class="running-ready-card-title"
+                                  th:if="${runningBanner.runningBannerTitle != null and !#strings.isEmpty(runningBanner.runningBannerTitle)}"
+                                  th:text="${runningBanner.runningBannerTitle}">제목</span>
+                            <span class="running-ready-card-sub"
+                                  th:if="${runningBanner.runningBannerCn != null and !#strings.isEmpty(runningBanner.runningBannerCn)}"
+                                  th:text="${runningBanner.runningBannerCn}">부제</span>
                         </div>
                         <div class="running-ready-card-thumbs">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
-                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&q=80" alt="러닝화" class="running-ready-card-thumb">
+                            <img th:src="@{${runningBanner.runningBannerFirstImage}}"
+                                 alt=""
+                                 class="running-ready-card-thumb">
+                            <img th:src="@{${runningBanner.runningBannerSecondImage}}"
+                                 alt=""
+                                 class="running-ready-card-thumb">
                         </div>
                     </a>
 
