@@ -44,4 +44,7 @@ public class PopularBrandItem extends BaseTimeEntity {
 
     @Column(name = "popular_brand_item_url", nullable = false, length = 1000)
     private String popularBrandItemUrl;
+
+    @Column(name = "popular_brand_keyward_id")
+    private Long popularBrandKeywardId;
 }

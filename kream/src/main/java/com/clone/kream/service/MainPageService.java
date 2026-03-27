@@ -1,10 +1,13 @@
 package com.clone.kream.service;
 
 import com.clone.kream.dto.CardBannerItemDto;
+import com.clone.kream.dto.DailySeasonStyleItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
 import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MainPageDataDto;
+import com.clone.kream.dto.CoperationBannerDto;
+import com.clone.kream.dto.PopularBrandTabDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MostPopularItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
@@ -12,6 +15,7 @@ import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.SlideBannerDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
+import com.clone.kream.entity.PopularBrandKeyward;
 import com.clone.kream.mapper.MainPageMapper;
 import com.clone.kream.repository.MainPageRepository;
 import java.util.List;
@@ -80,6 +84,20 @@ public class MainPageService {
             .stream()
             .map(mainPageMapper::toSeasonCodiItemDto)
             .toList();
+
+        List<DailySeasonStyleItemDto> dailySeasonStyleItems = mainPageRepository.findDailySeasonStyleItems()
+            .stream()
+            .map(mainPageMapper::toDailySeasonStyleItemDto)
+            .toList();
+
+        List<PopularBrandTabDto> popularBrandTabs = mainPageRepository.findPopularBrandKeywords()
+            .stream()
+            .map(this::toPopularBrandTabDto)
+            .toList();
+
+        CoperationBannerDto coperationBanner =
+            mainPageMapper.toCoperationBannerDto(mainPageRepository.findCoperationBanner());
+
         return new MainPageDataDto(
             wishKeywords,
             wishItems,
@@ -91,7 +109,21 @@ public class MainPageService {
             menus,
             cardBannerItem,
             mostPopularItems,
-            seasonCodiItems
+            seasonCodiItems,
+            dailySeasonStyleItems,
+            popularBrandTabs,
+            coperationBanner
+        );
+    }
+
+    private PopularBrandTabDto toPopularBrandTabDto(PopularBrandKeyward keyward) {
+        return new PopularBrandTabDto(
+            keyward.getPopularBrandKeywardId(),
+            keyward.getPopularBrandKeywardName(),
+            mainPageRepository.findPopularBrandItemsByKeywardId(keyward.getPopularBrandKeywardId())
+                .stream()
+                .map(mainPageMapper::toPopularBrandItemDto)
+                .toList()
         );
     }
 }

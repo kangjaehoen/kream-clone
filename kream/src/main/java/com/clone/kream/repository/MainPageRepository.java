@@ -1,24 +1,30 @@
 package com.clone.kream.repository;
 
 import com.clone.kream.entity.CardBannerItem;
+import com.clone.kream.entity.CoperationBanner;
 import com.clone.kream.entity.DailySeasonStyleItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.LatestTrendItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.MostPopularItem;
 import com.clone.kream.entity.Menu;
+import com.clone.kream.entity.PopularBrandItem;
+import com.clone.kream.entity.PopularBrandKeyward;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
 import com.clone.kream.entity.WishItem;
 import com.clone.kream.entity.WishKeyward;
 import com.clone.kream.repository.jpa.CardBannerItemJpaRepository;
+import com.clone.kream.repository.jpa.CoperationBannerJpaRepository;
 import com.clone.kream.repository.jpa.DailySeasonStyleItemJpaRepository;
 import com.clone.kream.repository.jpa.HotTrendItemJpaRepository;
 import com.clone.kream.repository.jpa.LatestTrendItemJpaRepository;
 import com.clone.kream.repository.jpa.MainCategoryCardJpaRepository;
 import com.clone.kream.repository.jpa.MenuJpaRepository;
 import com.clone.kream.repository.jpa.MostPopularItemJpaRepository;
+import com.clone.kream.repository.jpa.PopularBrandItemJpaRepository;
+import com.clone.kream.repository.jpa.PopularBrandKeywardJpaRepository;
 import com.clone.kream.repository.jpa.SeasonCodiItemJpaRepository;
 import com.clone.kream.repository.jpa.SlideBannerJpaRepository;
 import com.clone.kream.repository.jpa.SpotlightItemJpaRepository;
@@ -42,6 +48,9 @@ public class MainPageRepository {
     private final SpotlightItemJpaRepository spotlightItemJpaRepository;
     private final DailySeasonStyleItemJpaRepository dailySeasonStyleItemJpaRepository;
     private final SeasonCodiItemJpaRepository seasonCodiItemJpaRepository;
+    private final PopularBrandKeywardJpaRepository popularBrandKeywardJpaRepository;
+    private final PopularBrandItemJpaRepository popularBrandItemJpaRepository;
+    private final CoperationBannerJpaRepository coperationBannerJpaRepository;
 
     public MainPageRepository(
         WishKeywardJpaRepository wishKeywardJpaRepository,
@@ -55,7 +64,10 @@ public class MainPageRepository {
         MostPopularItemJpaRepository mostPopularItemJpaRepository,
         SpotlightItemJpaRepository spotlightItemJpaRepository,
         DailySeasonStyleItemJpaRepository dailySeasonStyleItemJpaRepository,
-        SeasonCodiItemJpaRepository seasonCodiItemJpaRepository
+        SeasonCodiItemJpaRepository seasonCodiItemJpaRepository,
+        PopularBrandKeywardJpaRepository popularBrandKeywardJpaRepository,
+        PopularBrandItemJpaRepository popularBrandItemJpaRepository,
+        CoperationBannerJpaRepository coperationBannerJpaRepository
     ) {
         this.wishKeywardJpaRepository = wishKeywardJpaRepository;
         this.wishItemJpaRepository = wishItemJpaRepository;
@@ -69,6 +81,9 @@ public class MainPageRepository {
         this.spotlightItemJpaRepository = spotlightItemJpaRepository;
         this.dailySeasonStyleItemJpaRepository = dailySeasonStyleItemJpaRepository;
         this.seasonCodiItemJpaRepository = seasonCodiItemJpaRepository;
+        this.popularBrandKeywardJpaRepository = popularBrandKeywardJpaRepository;
+        this.popularBrandItemJpaRepository = popularBrandItemJpaRepository;
+        this.coperationBannerJpaRepository = coperationBannerJpaRepository;
     }
 
     public List<WishKeyward> findWishKeywords() {
@@ -117,5 +132,19 @@ public class MainPageRepository {
 
     public List<SeasonCodiItem> findSeasonCodiItems() {
         return seasonCodiItemJpaRepository.findAllByDeletedAtIsNullOrderBySeasonCodiItemIdAsc();
+    }
+
+    public List<PopularBrandKeyward> findPopularBrandKeywords() {
+        return popularBrandKeywardJpaRepository.findAllByDeletedAtIsNullOrderByPopularBrandKeywardIdAsc();
+    }
+
+    public List<PopularBrandItem> findPopularBrandItemsByKeywardId(Long popularBrandKeywardId) {
+        return popularBrandItemJpaRepository.findAllByPopularBrandKeywardIdAndDeletedAtIsNullOrderByPopularBrandItemIdAsc(
+            popularBrandKeywardId
+        );
+    }
+
+    public CoperationBanner findCoperationBanner() {
+        return coperationBannerJpaRepository.findTopByDeletedAtIsNullOrderByCoperationBannerIdDesc().orElse(null);
     }
 }

@@ -567,6 +567,14 @@
             color: #fff;
         }
 
+        .popular-brand-grid-panel{
+            display: none;
+        }
+
+        .popular-brand-grid-panel.is-active{
+            display: block;
+        }
+
         .popular-brand-grid{
             display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -632,6 +640,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-decoration: none;
+            color: inherit;
         }
 
         .popular-brand-banner-text{
@@ -1846,73 +1856,33 @@
                 <!-- 실패 없는 데일리 봄 스타일 Section -->
                 <section class="daily-spring-section">
                     <h2 class="daily-spring-title">실패 없는 데일리 봄 스타일</h2>
-                    <div class="daily-spring-list">
-                        <a href="#" class="daily-spring-item">
-                            <img src="https://images.unsplash.com/photo-1495420378468-78588a508652?w=600&q=80" alt="코지한 카페룩" class="daily-spring-thumb">
+                    <div class="daily-spring-list"
+                         th:with="items=${dailySeasonStyleItems != null ? dailySeasonStyleItems : T(java.util.Collections).emptyList()}">
+                        <div th:if="${#lists.isEmpty(items)}" style="padding: 8px 0; color: #666; font-size: 13px;">
+                            등록된 데일리 봄 스타일 데이터가 없습니다.
+                        </div>
+                        <a th:each="item : ${items}"
+                           th:href="${item.dailySeasonStyleItemUrl}"
+                           class="daily-spring-item">
+                            <img th:src="@{${item.dailySeasonStyleItemImage}}"
+                                 th:alt="${item.dailySeasonStyleItemName}"
+                                 class="daily-spring-thumb">
                             <div class="daily-spring-info">
                                 <div class="daily-spring-meta">
                                     <div class="daily-spring-meta-thumb">
-                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=80&q=80" alt="스니커즈 아이콘">
+                                        <img th:src="@{${item.dailySeasonStyleItemSubImage}}"
+                                             th:alt="${item.dailySeasonStyleItemName}">
                                     </div>
                                     <div class="daily-spring-meta-text">
-                                        <span class="daily-spring-meta-name">코인세이오 코인 봄봄 스니커즈 블랙</span>
-                                        <span class="daily-spring-meta-price">169,000원</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="daily-spring-item">
-                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&q=80" alt="와이드 팬츠 스트릿룩" class="daily-spring-thumb">
-                            <div class="daily-spring-info">
-                                <div class="daily-spring-meta">
-                                    <div class="daily-spring-meta-thumb">
-                                        <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=80&q=80" alt="비니 아이콘">
-                                    </div>
-                                    <div class="daily-spring-meta-text">
-                                        <span class="daily-spring-meta-name">더블랙티 에스와이즈 예스 넵 셋업</span>
-                                        <span class="daily-spring-meta-price">10% 188,100원</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="daily-spring-item">
-                            <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&q=80" alt="레이어드 후디 룩" class="daily-spring-thumb">
-                            <div class="daily-spring-info">
-                                <div class="daily-spring-meta">
-                                    <div class="daily-spring-meta-thumb">
-                                        <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=80&q=80" alt="후디 아이콘">
-                                    </div>
-                                    <div class="daily-spring-meta-text">
-                                        <span class="daily-spring-meta-name">더메이플로버 투어 레이어드 후디</span>
-                                        <span class="daily-spring-meta-price">52,000원</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="daily-spring-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80" alt="남친룩 봄 아우터" class="daily-spring-thumb">
-                            <div class="daily-spring-info">
-                                <div class="daily-spring-meta">
-                                    <div class="daily-spring-meta-thumb">
-                                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=80&q=80" alt="점퍼 아이콘">
-                                    </div>
-                                    <div class="daily-spring-meta-text">
-                                        <span class="daily-spring-meta-name">C.P. 컴퍼니 나일론 B 렌디드 블루종</span>
-                                        <span class="daily-spring-meta-price">370,000원</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="daily-spring-item">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="화이트 셔츠 데이트룩" class="daily-spring-thumb">
-                            <div class="daily-spring-info">
-                                <div class="daily-spring-meta">
-                                    <div class="daily-spring-meta-thumb">
-                                        <img src="https://images.unsplash.com/photo-1542213493895-edf5b94f5a33?w=80&q=80" alt="가방 아이콘">
-                                    </div>
-                                    <div class="daily-spring-meta-text">
-                                        <span class="daily-spring-meta-name">지콤퍼스 로지 커프스 모먼 셔츠 세트</span>
-                                        <span class="daily-spring-meta-price">가격 문의</span>
+                                        <span class="daily-spring-meta-name" th:text="${item.dailySeasonStyleItemName}">상품명</span>
+                                        <span class="daily-spring-meta-price"
+                                              th:if="${item.dailySeasonStyleItemPrice != null and item.dailySeasonStyleItemDiscountPercent != null and item.dailySeasonStyleItemDiscountPercent > 0}"
+                                              th:text="|${item.dailySeasonStyleItemDiscountPercent}% ${#numbers.formatInteger(item.dailySeasonStyleItemPrice, 3, 'COMMA')}원|">0% 0원</span>
+                                        <span class="daily-spring-meta-price"
+                                              th:if="${item.dailySeasonStyleItemPrice != null and (item.dailySeasonStyleItemDiscountPercent == null or item.dailySeasonStyleItemDiscountPercent == 0)}"
+                                              th:text="|${#numbers.formatInteger(item.dailySeasonStyleItemPrice, 3, 'COMMA')}원|">0원</span>
+                                        <span class="daily-spring-meta-price"
+                                              th:if="${item.dailySeasonStyleItemPrice == null}">가격 문의</span>
                                     </div>
                                 </div>
                             </div>
@@ -1926,135 +1896,73 @@
                         <h2 class="popular-brand-title">지금 인기 브랜드</h2>
                         <a href="#" class="popular-brand-more">더보기</a>
                     </div>
-                    <div class="popular-brand-tabs">
-                        <button type="button" class="popular-brand-tab is-active">아우모</button>
-                        <button type="button" class="popular-brand-tab">포켓몬 TCG</button>
-                        <button type="button" class="popular-brand-tab">애플 리퍼비시</button>
-                        <button type="button" class="popular-brand-tab">더로우가</button>
-                        <button type="button" class="popular-brand-tab">얼로우 요가</button>
-                        <button type="button" class="popular-brand-tab">공백</button>
-                        <button type="button" class="popular-brand-tab">세이코</button>
+                    <div th:if="${#lists.isEmpty(popularBrandTabs)}"
+                         style="padding: 8px 0 18px; color: #666; font-size: 13px;">
+                        등록된 인기 브랜드 키워드가 없습니다.
                     </div>
-                    <div class="popular-brand-grid">
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=400&q=80" alt="아우모 후드 집업 그레이" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 퍼 후드 집업 그레이</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">56%</span>
-                                <span class="popular-brand-price">65,500원</span>
+                    <div th:unless="${#lists.isEmpty(popularBrandTabs)}">
+                        <div class="popular-brand-tabs">
+                            <button type="button"
+                                    th:each="tab, tabStat : ${popularBrandTabs}"
+                                    class="popular-brand-tab"
+                                    th:classappend="${tabStat.first} ? ' is-active' : ''"
+                                    th:attr="data-keyward-id=${tab.popularBrandKeywardId}"
+                                    th:text="${tab.popularBrandKeywardName}">키워드</button>
+                        </div>
+                        <div th:each="tab, tabStat : ${popularBrandTabs}"
+                             class="popular-brand-grid-panel"
+                             th:classappend="${tabStat.first} ? ' is-active' : ''"
+                             th:attr="data-keyward-id=${tab.popularBrandKeywardId}">
+                            <div th:if="${#lists.isEmpty(tab.items)}"
+                                 style="padding: 8px 0 18px; color: #666; font-size: 13px;">
+                                이 키워드에 등록된 상품이 없습니다.
                             </div>
-                            <div class="popular-brand-meta">관심 1만 · 리뷰 320</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 밴딩 팬츠 블랙" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 블랙</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">55%</span>
-                                <span class="popular-brand-price">35,100원</span>
+                            <div th:unless="${#lists.isEmpty(tab.items)}" class="popular-brand-grid">
+                                <a th:each="item : ${tab.items}"
+                                   th:href="${item.popularBrandItemUrl}"
+                                   class="popular-brand-item">
+                                    <img th:src="@{${item.popularBrandItemImage}}"
+                                         th:alt="${item.popularBrandItemName}"
+                                         class="popular-brand-thumb">
+                                    <div class="popular-brand-name" th:text="${item.popularBrandItemName}">상품명</div>
+                                    <div class="popular-brand-price-row">
+                                        <span class="popular-brand-discount"
+                                              th:if="${item.popularBrandItemDiscountPercent != null and item.popularBrandItemDiscountPercent > 0}"
+                                              th:text="|${item.popularBrandItemDiscountPercent}%|">0%</span>
+                                        <span class="popular-brand-price"
+                                              th:if="${item.popularBrandItemPrice != null}"
+                                              th:text="|${#numbers.formatInteger(item.popularBrandItemPrice, 3, 'COMMA')}원|">0원</span>
+                                        <span class="popular-brand-price"
+                                              th:if="${item.popularBrandItemPrice == null}">가격 문의</span>
+                                    </div>
+                                    <div class="popular-brand-meta"
+                                         th:text="|관심 ${#numbers.formatInteger(item.popularBrandItemInterest != null ? item.popularBrandItemInterest : 0, 3, 'COMMA')} · 리뷰 ${#numbers.formatInteger(item.popularBrandItemReview != null ? item.popularBrandItemReview : 0, 3, 'COMMA')}|">
+                                        관심 0 · 리뷰 0
+                                    </div>
+                                </a>
                             </div>
-                            <div class="popular-brand-meta">관심 2,136 · 리뷰 105</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 집업 블랙" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 퍼 후드 집업 블랙</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">56%</span>
-                                <span class="popular-brand-price">65,500원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 2,422 · 리뷰 120</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 빈티지 후드 레드" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 빈티지 붐스 후드 크림 레드</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">55%</span>
-                                <span class="popular-brand-price">44,000원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 864 · 리뷰 45</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1534215754734-18e56abcf1e2?w=400&q=80" alt="아우모 볼캡 브라운" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 에이엠 5패널 캡 브라운</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">47%</span>
-                                <span class="popular-brand-price">27,500원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 535 · 리뷰 5</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&q=80" alt="아우모 트레이닝 팬츠 블랙" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 디스트 트레이닝 팬츠 블랙</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">50%</span>
-                                <span class="popular-brand-price">39,500원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 288 · 리뷰 17</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?w=400&q=80" alt="아우모 스웻 팬츠 그레이" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 헬리 밴딩 스웨트 팬츠 그레이</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">55%</span>
-                                <span class="popular-brand-price">35,100원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 4,737 · 리뷰 187</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&q=80" alt="아우모 후드티 네이비" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 후드 집업 네이비</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">50%</span>
-                                <span class="popular-brand-price">48,900원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 1,413 · 리뷰 4</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 크롭 후드 블랙" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 디스트 후드집업 블랙</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">44%</span>
-                                <span class="popular-brand-price">61,200원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 405 · 리뷰 28</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 화이트" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 화이트</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">56%</span>
-                                <span class="popular-brand-price">47,000원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 602 · 리뷰 12</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="아우모 스타 후드 네이비" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 루케이 스타 후드집업 네이비</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">52%</span>
-                                <span class="popular-brand-price">47,000원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 545 · 리뷰 13</div>
-                        </a>
-                        <a href="#" class="popular-brand-item">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80" alt="아우모 스웻 셋업 블랙" class="popular-brand-thumb">
-                            <div class="popular-brand-name">아우모 R.A.F 엔턴스 스웻 셋업 블랙</div>
-                            <div class="popular-brand-price-row">
-                                <span class="popular-brand-discount">52%</span>
-                                <span class="popular-brand-price">37,900원</span>
-                            </div>
-                            <div class="popular-brand-meta">관심 369 · 리뷰 19</div>
-                        </a>
+                        </div>
                     </div>
-                    <div class="popular-brand-banner">
+                    <a th:if="${coperationBanner != null}"
+                       class="popular-brand-banner"
+                       th:href="${coperationBanner.coperationBannerUrl != null and !#strings.isEmpty(coperationBanner.coperationBannerUrl)} ? ${coperationBanner.coperationBannerUrl} : '#'">
                         <div class="popular-brand-banner-text">
-                            <div class="popular-brand-banner-title">언더마이카×FC 서울 협업</div>
-                            <div class="popular-brand-banner-sub">단독 발매</div>
+                            <div class="popular-brand-banner-title"
+                                 th:if="${coperationBanner.coperationBannerTitle != null and !#strings.isEmpty(coperationBanner.coperationBannerTitle)}"
+                                 th:text="${coperationBanner.coperationBannerTitle}">제목</div>
+                            <div class="popular-brand-banner-sub"
+                                 th:if="${coperationBanner.coperationBannerCn != null and !#strings.isEmpty(coperationBanner.coperationBannerCn)}"
+                                 th:text="${coperationBanner.coperationBannerCn}">부제</div>
                         </div>
                         <div class="popular-brand-banner-thumbs">
-                            <img src="https://images.unsplash.com/photo-1522770179533-24471fcdba45?w=300&q=80" alt="협업 제품 1" class="popular-brand-banner-thumb">
-                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=300&q=80" alt="협업 제품 2" class="popular-brand-banner-thumb">
+                            <img th:src="@{${coperationBanner.coperationBannerFirstImage}}"
+                                 alt=""
+                                 class="popular-brand-banner-thumb">
+                            <img th:src="@{${coperationBanner.coperationBannerSecondImage}}"
+                                 alt=""
+                                 class="popular-brand-banner-thumb">
                         </div>
-                    </div>
+                    </a>
 
                     <!-- 추천 브랜드 & 알파인더스트리 영역 -->
                     <div class="popular-brand-recommend">
@@ -2712,6 +2620,28 @@
 
 <div th:replace="common/footer :: footer"></div>
 <script>
-
+    (function () {
+        var tabs = document.querySelectorAll('.popular-brand-tab');
+        var panels = document.querySelectorAll('.popular-brand-grid-panel');
+        if (!tabs.length || !panels.length) {
+            return;
+        }
+        tabs.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var id = btn.getAttribute('data-keyward-id');
+                tabs.forEach(function (b) {
+                    b.classList.remove('is-active');
+                });
+                btn.classList.add('is-active');
+                panels.forEach(function (p) {
+                    if (p.getAttribute('data-keyward-id') === id) {
+                        p.classList.add('is-active');
+                    } else {
+                        p.classList.remove('is-active');
+                    }
+                });
+            });
+        });
+    })();
 </script>
 </html>

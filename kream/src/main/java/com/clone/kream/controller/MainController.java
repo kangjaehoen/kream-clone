@@ -29,6 +29,9 @@ public class MainController {
         model.addAttribute("cardBannerItem", mainPageData.cardBannerItem());
         model.addAttribute("mostPopularItems", mainPageData.mostPopularItems());
         model.addAttribute("seasonCodiItems", mainPageData.seasonCodiItems());
+        model.addAttribute("dailySeasonStyleItems", mainPageData.dailySeasonStyleItems());
+        model.addAttribute("popularBrandTabs", mainPageData.popularBrandTabs());
+        model.addAttribute("coperationBanner", mainPageData.coperationBanner());
         return "main/index";
     }
 

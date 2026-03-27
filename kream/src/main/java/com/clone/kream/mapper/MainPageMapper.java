@@ -1,6 +1,7 @@
 package com.clone.kream.mapper;
 
 import com.clone.kream.dto.CardBannerItemDto;
+import com.clone.kream.dto.CoperationBannerDto;
 import com.clone.kream.dto.DailySeasonStyleItemDto;
 import com.clone.kream.dto.SeasonCodiItemDto;
 import com.clone.kream.dto.HotTrendItemDto;
@@ -8,17 +9,20 @@ import com.clone.kream.dto.LatestTrendItemDto;
 import com.clone.kream.dto.MainCategoryCardDto;
 import com.clone.kream.dto.MenuDto;
 import com.clone.kream.dto.MostPopularItemDto;
+import com.clone.kream.dto.PopularBrandItemDto;
 import com.clone.kream.dto.SlideBannerDto;
 import com.clone.kream.dto.SpotlightItemDto;
 import com.clone.kream.dto.WishItemDto;
 import com.clone.kream.dto.WishKeywordDto;
 import com.clone.kream.entity.CardBannerItem;
+import com.clone.kream.entity.CoperationBanner;
 import com.clone.kream.entity.DailySeasonStyleItem;
 import com.clone.kream.entity.HotTrendItem;
 import com.clone.kream.entity.LatestTrendItem;
 import com.clone.kream.entity.MainCategoryCard;
 import com.clone.kream.entity.Menu;
 import com.clone.kream.entity.MostPopularItem;
+import com.clone.kream.entity.PopularBrandItem;
 import com.clone.kream.entity.SeasonCodiItem;
 import com.clone.kream.entity.SlideBanner;
 import com.clone.kream.entity.SpotlightItem;
@@ -58,6 +62,19 @@ public class MainPageMapper {
             latestTrendItem.getLatestTrendItemBrand(),
             latestTrendItem.getLatestTrendItemImage(),
             latestTrendItem.getLatestTrendItemUrl()
+        );
+    }
+
+    public CoperationBannerDto toCoperationBannerDto(CoperationBanner coperationBanner) {
+        if (coperationBanner == null) {
+            return null;
+        }
+        return new CoperationBannerDto(
+            coperationBanner.getCoperationBannerFirstImage(),
+            coperationBanner.getCoperationBannerSecondImage(),
+            coperationBanner.getCoperationBannerTitle(),
+            coperationBanner.getCoperationBannerContent(),
+            coperationBanner.getCoperationBannerUrl()
         );
     }
 
@@ -134,6 +151,18 @@ public class MainPageMapper {
         return new SeasonCodiItemDto(
             seasonCodiItem.getSeasonCodiItemImage(),
             seasonCodiItem.getSeasonCodiItemUrl()
+        );
+    }
+
+    public PopularBrandItemDto toPopularBrandItemDto(PopularBrandItem popularBrandItem) {
+        return new PopularBrandItemDto(
+            popularBrandItem.getPopularBrandItemName(),
+            popularBrandItem.getPopularBrandItemPrice(),
+            popularBrandItem.getPopularBrandItemDiscountPercent(),
+            popularBrandItem.getPopularBrandItemInterest(),
+            popularBrandItem.getPopularBrandItemReview(),
+            popularBrandItem.getPopularBrandItemImage(),
+            popularBrandItem.getPopularBrandItemUrl()
         );
     }
 }

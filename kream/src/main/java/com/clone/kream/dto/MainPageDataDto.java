@@ -13,5 +13,8 @@ public record MainPageDataDto(
     List<MenuDto> menus,
     CardBannerItemDto cardBannerItem,
     List<MostPopularItemDto> mostPopularItems,
-    List<SeasonCodiItemDto> seasonCodiItems
+    List<SeasonCodiItemDto> seasonCodiItems,
+    List<DailySeasonStyleItemDto> dailySeasonStyleItems,
+    List<PopularBrandTabDto> popularBrandTabs,
+    CoperationBannerDto coperationBanner
 ) {}

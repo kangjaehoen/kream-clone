@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <title>관리자 | 데일리 봄 스타일</title>
+    <style>
+        .admin-wrap{max-width:1120px;margin:0 auto;padding:32px 40px;box-sizing:border-box}
+        .admin-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+        .admin-title{font-size:20px;font-weight:700}
+        .admin-sub{font-size:12px;color:rgba(34,34,34,.6);margin-top:6px}
+        .flash{margin:12px 0;padding:10px 12px;border:1px solid #ebebeb;border-radius:8px;background:#fafafa;font-size:13px}
+        .card{border:1px solid #ebebeb;border-radius:12px;padding:18px;background:#fff;margin-bottom:16px}
+        .row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+        .input{height:40px;padding:0 12px;border:1px solid #d3d3d3;border-radius:8px;font-size:14px;box-sizing:border-box}
+        .input.w-full{width:100%;min-width:0}
+        .btn{height:40px;padding:0 14px;border-radius:8px;border:1px solid #d3d3d3;background:#fff;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+        .btn.primary{border-color:#222;background:#222;color:#fff}
+        .btn.danger{border-color:#e24949;color:#e24949;background:#fff}
+        .admin-table-wrap{overflow-x:auto}
+        table{width:100%;border-collapse:collapse;margin-top:14px;min-width:900px}
+        th,td{padding:10px 8px;border-top:1px solid #f0f0f0;text-align:left;font-size:12px;vertical-align:top}
+        th{font-size:11px;color:rgba(34,34,34,.6);font-weight:700}
+        .idcol{width:56px;color:rgba(34,34,34,.7)}
+        .actcol{width:100px}
+        .stack{display:flex;flex-direction:column;gap:6px}
+        .muted{color:rgba(34,34,34,.6);font-size:12px}
+        .form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;align-items:end}
+        label{font-size:11px;color:rgba(34,34,34,.65);display:block;margin-bottom:4px}
+    </style>
+</head>
+<body>
+<main class="admin-wrap">
+    <div class="admin-head">
+        <div>
+            <div class="admin-title">데일리 봄 스타일</div>
+            <div class="admin-sub"><code>daily_season_style_item</code> 테이블 — 메인 「실패 없는 데일리 봄 스타일」 영역에 노출됩니다.</div>
+        </div>
+        <a class="btn" href="/" style="text-decoration:none;display:inline-flex;align-items:center">HOME로</a>
+    </div>
+
+    <div th:if="${message}" class="flash" th:text="${message}">메시지</div>
+
+    <div class="card">
+        <div class="muted" style="margin-bottom:12px">새 항목 추가 · 가격·할인율은 비우면 「가격 문의」·할인 미표시로 처리됩니다.</div>
+        <form th:action="@{/admin/daily-season-style-items}" method="post">
+            <div class="form-grid">
+                <div class="stack">
+                    <label for="add-name">상품명</label>
+                    <input id="add-name" class="input w-full" type="text" name="dailySeasonStyleItemName" maxlength="200" required placeholder="상품명">
+                </div>
+                <div class="stack">
+                    <label for="add-price">가격(원)</label>
+                    <input id="add-price" class="input w-full" type="text" name="dailySeasonStyleItemPrice" inputmode="numeric" placeholder="비우면 가격 문의">
+                </div>
+                <div class="stack">
+                    <label for="add-dc">할인율(%)</label>
+                    <input id="add-dc" class="input w-full" type="text" name="dailySeasonStyleItemDiscountPercent" inputmode="numeric" placeholder="선택">
+                </div>
+                <div class="stack" style="grid-column:1/-1">
+                    <label for="add-img">메인 이미지 URL</label>
+                    <input id="add-img" class="input w-full" type="text" name="dailySeasonStyleItemImage" required placeholder="https://...">
+                </div>
+                <div class="stack" style="grid-column:1/-1">
+                    <label for="add-sub">서브(썸네일) 이미지 URL</label>
+                    <input id="add-sub" class="input w-full" type="text" name="dailySeasonStyleItemSubImage" required placeholder="https://...">
+                </div>
+                <div class="stack" style="grid-column:1/-1">
+                    <label for="add-url">링크 URL</label>
+                    <input id="add-url" class="input w-full" type="text" name="dailySeasonStyleItemUrl" required placeholder="https://...">
+                </div>
+            </div>
+            <div class="row" style="margin-top:14px">
+                <button class="btn primary" type="submit">추가</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="card">
+        <div class="admin-table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th class="idcol">ID</th>
+                    <th>내용 수정</th>
+                    <th class="actcol">삭제</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(items)}">
+                    <td colspan="3" class="muted">등록된 항목이 없습니다.</td>
+                </tr>
+                <tr th:each="item : ${items}">
+                    <td class="idcol" th:text="${item.dailySeasonStyleItemId}">1</td>
+                    <td>
+                        <form th:action="@{|/admin/daily-season-style-items/${item.dailySeasonStyleItemId}|}" method="post">
+                            <div class="stack" style="margin-bottom:8px">
+                                <label>상품명</label>
+                                <input class="input w-full" type="text" name="dailySeasonStyleItemName" maxlength="200"
+                                       th:value="${item.dailySeasonStyleItemName}" required>
+                            </div>
+                            <div class="row">
+                                <div class="stack">
+                                    <label>가격(원)</label>
+                                    <input class="input" style="width:120px" type="text" name="dailySeasonStyleItemPrice" inputmode="numeric" placeholder="가격"
+                                           th:value="${item.dailySeasonStyleItemPrice}">
+                                </div>
+                                <div class="stack">
+                                    <label>할인(%)</label>
+                                    <input class="input" style="width:72px" type="text" name="dailySeasonStyleItemDiscountPercent" inputmode="numeric" placeholder="%"
+                                           th:value="${item.dailySeasonStyleItemDiscountPercent}">
+                                </div>
+                            </div>
+                            <div class="stack" style="margin-top:8px">
+                                <label>메인 이미지 URL</label>
+                                <input class="input w-full" type="text" name="dailySeasonStyleItemImage" required th:value="${item.dailySeasonStyleItemImage}">
+                                <label>서브 이미지 URL</label>
+                                <input class="input w-full" type="text" name="dailySeasonStyleItemSubImage" required th:value="${item.dailySeasonStyleItemSubImage}">
+                                <label>링크 URL</label>
+                                <input class="input w-full" type="text" name="dailySeasonStyleItemUrl" required th:value="${item.dailySeasonStyleItemUrl}">
+                            </div>
+                            <button class="btn" type="submit" style="margin-top:8px">수정</button>
+                        </form>
+                    </td>
+                    <td class="actcol">
+                        <form th:action="@{|/admin/daily-season-style-items/${item.dailySeasonStyleItemId}/delete|}" method="post"
+                              onsubmit="return confirm('정말 삭제할까요? (소프트 삭제)');">
+                            <button class="btn danger" type="submit">삭제</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+</html>
